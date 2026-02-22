@@ -1,8 +1,24 @@
+---@field mod Mod
+---@field util table
+---@field ui table
+---@field load_order table
 Valk = {
     mod = SMODS.current_mod,
     util = {},
     ui = {},
+    load_order = { --defaults to 0 with metatable magic
+        ["common.lua"] = 5,
+        ["uncommon.lua"] = 10,
+        ["rare.lua"] = 15,
+        ["renowned.lua"] = 20,
+        ["exquisite.lua"] = 25,
+    }
 }
+setmetatable(Valk.load_order, {
+    __index = function(t, k)
+        return rawget(t, k) or 0 -- afformentioned metatable magic
+    end
+})
 
 local blacklist = {
     assets = true,
@@ -48,9 +64,18 @@ local function load_files(path, dirs_only, initial)
         return to_load
     end
 
+    local function sanitize(file)
+        return file:match("([^/]+)$")
+    end
+
+    table.sort(to_load, function(a, b) 
+        return Valk.load_order[sanitize(a)] < Valk.load_order[sanitize(b)]
+    end)
+
     for _, file in pairs(to_load) do
         local f, err = load_file_native(file)
         if f then
+            print("Valk:Redux | Loading: " .. file)
             f()
             -- actually loads the file, as `load_file_native` and `load` return functions
         else
@@ -112,6 +137,5 @@ function Valk.util.hook_after(func_path, func)
         return ret
     end)
 end
-
 
 load_files(Valk.mod.path, true)
