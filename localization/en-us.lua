@@ -249,7 +249,14 @@ return {
                     "a {C:clubs}Club{} is scored",
                     "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
                 }
-            }
+            },
+            j_valk_copycat = {
+                name = "Copy Cat",
+                text = {
+                    "Create a {C:attention}Mirrored{} card",
+                    "when {C:attention}Blind{} is selected"
+                }
+            },
         },
         Other = {},
         Planet = {},

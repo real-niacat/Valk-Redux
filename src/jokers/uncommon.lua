@@ -94,6 +94,7 @@ SMODS.Joker {
     config = { extra = { xmult_gain = 0.1, xmult = 1, gain_kitty_tag = 0.01, suit = "Diamond", suit_plural = "Diamonds", xmult_gain_base = 0.1 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
         (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
         return {
@@ -138,6 +139,7 @@ SMODS.Joker {
     config = { extra = { xmult_gain = 0.1, xmult = 1, gain_kitty_tag = 0.01, suit = "Spade", suit_plural = "Spades", xmult_gain_base = 0.1 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
         (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
         return {
@@ -182,6 +184,7 @@ SMODS.Joker {
     config = { extra = { xmult_gain = 0.1, xmult = 1, gain_kitty_tag = 0.01, suit = "Club", suit_plural = "Clubs", xmult_gain_base = 0.1 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
         (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
         return {
@@ -226,6 +229,7 @@ SMODS.Joker {
     config = { extra = { xmult_gain = 0.1, xmult = 1, gain_kitty_tag = 0.01, suit = "Heart", suit_plural = "Hearts", xmult_gain_base = 0.1 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
         (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
         return {
