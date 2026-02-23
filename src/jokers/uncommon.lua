@@ -94,7 +94,8 @@ SMODS.Joker {
     config = { extra = { xmult_gain = 0.1, xmult = 1, gain_kitty_tag = 0.01, suit = "Diamond", suit_plural = "Diamonds", xmult_gain_base = 0.1 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
-        card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
+        card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
+        (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
         return {
             vars = {
                 card.ability.extra.xmult_gain,
@@ -110,8 +111,9 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- code here
         if context.individual and context.cardarea == G.play and context.other_card:is_suit(card.ability.extra.suit_plural) then
-            card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
-            SMODS.scale_card(card, {ref_table = card.ability.extra, ref_value = "xmult", scalar_value = "xmult_gain"})
+            card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
+            (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
+            SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "xmult", scalar_value = "xmult_gain" })
         end
 
         if context.end_of_round and context.main_eval then
@@ -122,7 +124,7 @@ SMODS.Joker {
         end
 
         if context.joker_main then
-            return {xmult = card.ability.extra.xmult}
+            return { xmult = card.ability.extra.xmult }
         end
     end,
     pools = { Kitty = true },
@@ -136,7 +138,8 @@ SMODS.Joker {
     config = { extra = { xmult_gain = 0.1, xmult = 1, gain_kitty_tag = 0.01, suit = "Spade", suit_plural = "Spades", xmult_gain_base = 0.1 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
-        card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
+        card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
+        (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
         return {
             vars = {
                 card.ability.extra.xmult_gain,
@@ -152,8 +155,9 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- code here
         if context.individual and context.cardarea == G.play and context.other_card:is_suit(card.ability.extra.suit_plural) then
-            card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
-            SMODS.scale_card(card, {ref_table = card.ability.extra, ref_value = "xmult", scalar_value = "xmult_gain"})
+            card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
+            (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
+            SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "xmult", scalar_value = "xmult_gain" })
         end
 
         if context.end_of_round and context.main_eval then
@@ -164,7 +168,7 @@ SMODS.Joker {
         end
 
         if context.joker_main then
-            return {xmult = card.ability.extra.xmult}
+            return { xmult = card.ability.extra.xmult }
         end
     end,
     pools = { Kitty = true },
@@ -178,7 +182,8 @@ SMODS.Joker {
     config = { extra = { xmult_gain = 0.1, xmult = 1, gain_kitty_tag = 0.01, suit = "Club", suit_plural = "Clubs", xmult_gain_base = 0.1 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
-        card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
+        card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
+        (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
         return {
             vars = {
                 card.ability.extra.xmult_gain,
@@ -194,8 +199,9 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- code here
         if context.individual and context.cardarea == G.play and context.other_card:is_suit(card.ability.extra.suit_plural) then
-            card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
-            SMODS.scale_card(card, {ref_table = card.ability.extra, ref_value = "xmult", scalar_value = "xmult_gain"})
+            card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
+            (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
+            SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "xmult", scalar_value = "xmult_gain" })
         end
 
         if context.end_of_round and context.main_eval then
@@ -206,7 +212,7 @@ SMODS.Joker {
         end
 
         if context.joker_main then
-            return {xmult = card.ability.extra.xmult}
+            return { xmult = card.ability.extra.xmult }
         end
     end,
     pools = { Kitty = true },
@@ -220,7 +226,8 @@ SMODS.Joker {
     config = { extra = { xmult_gain = 0.1, xmult = 1, gain_kitty_tag = 0.01, suit = "Heart", suit_plural = "Hearts", xmult_gain_base = 0.1 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
-        card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
+        card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
+        (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
         return {
             vars = {
                 card.ability.extra.xmult_gain,
@@ -236,8 +243,9 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- code here
         if context.individual and context.cardarea == G.play and context.other_card:is_suit(card.ability.extra.suit_plural) then
-            card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
-            SMODS.scale_card(card, {ref_table = card.ability.extra, ref_value = "xmult", scalar_value = "xmult_gain"})
+            card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base +
+            (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
+            SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "xmult", scalar_value = "xmult_gain" })
         end
 
         if context.end_of_round and context.main_eval then
@@ -248,7 +256,7 @@ SMODS.Joker {
         end
 
         if context.joker_main then
-            return {xmult = card.ability.extra.xmult}
+            return { xmult = card.ability.extra.xmult }
         end
     end,
     pools = { Kitty = true },
@@ -258,25 +266,29 @@ SMODS.Joker {
 SMODS.Joker {
     key = "uttered_chaos",
     atlas = "jokers",
-    pos = {x=6,y=1},
-    config = {extra = {chips_per_char = 2}},
+    pos = { x = 6, y = 1 },
+    config = { extra = { chips_per_char = 2 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
-        return {vars = {
-            card.ability.extra.chips_per_char,
-            card.ability.extra.chips_per_char * #Valk.util.join_string_table(Valk.util.localize_table_of_cards(card.area.cards))
-        }}
+        return {
+            vars = {
+                card.ability.extra.chips_per_char,
+                card.ability.extra.chips_per_char *
+                #Valk.util.join_string_table(Valk.util.localize_table_of_cards(card.area.cards))
+            }
+        }
     end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
-                chips = card.ability.extra.chips_per_char * #Valk.util.join_string_table(Valk.util.localize_table_of_cards(card.area.cards))
+                chips = card.ability.extra.chips_per_char *
+                #Valk.util.join_string_table(Valk.util.localize_table_of_cards(card.area.cards))
             }
         end
     end,
     update = function(self, card, dt)
         local rate = 30
-        local xpos = 6 + (math.floor(G.TIMERS.REAL*rate) % 2)
+        local xpos = 6 + (math.floor(G.TIMERS.REAL * rate) % 2)
         if (G.TIMERS.REAL % 10) < 2 then
             xpos = 6
         end
@@ -291,12 +303,12 @@ SMODS.Joker {
 SMODS.Joker {
     key = "planedolia",
     atlas = "jokers",
-    pos = {x=8,y=1},
-    config = {extra = {chance = 2}},
+    pos = { x = 8, y = 1 },
+    config = { extra = { chance = 2 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
-        local n,d = SMODS.get_probability_vars(card, 1, card.ability.extra.chance)
-        return {vars = {n,d}}
+        local n, d = SMODS.get_probability_vars(card, 1, card.ability.extra.chance)
+        return { vars = { n, d } }
     end,
     calculate = function(self, card, context)
         -- code here
@@ -304,7 +316,7 @@ SMODS.Joker {
             G.E_MANAGER:add_event(Event({
                 trigger = 'immediate',
                 func = function()
-                    SMODS.calculate_effect({message = localize("k_replaced_ex")}, context.card)
+                    SMODS.calculate_effect({ message = localize("k_replaced_ex") }, context.card)
                     card:juice_up()
                     context.card:juice_up()
                     context.card:set_ability(Valk.util.poll_set("Planet", self.key))
@@ -319,12 +331,12 @@ SMODS.Joker {
 SMODS.Joker {
     key = "tarodolia",
     atlas = "jokers",
-    pos = {x=9,y=1},
-    config = {extra = {chance = 4}},
+    pos = { x = 9, y = 1 },
+    config = { extra = { chance = 4 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
-        local n,d = SMODS.get_probability_vars(card, 1, card.ability.extra.chance)
-        return {vars = {n,d}}
+        local n, d = SMODS.get_probability_vars(card, 1, card.ability.extra.chance)
+        return { vars = { n, d } }
     end,
     calculate = function(self, card, context)
         -- code here
@@ -332,7 +344,7 @@ SMODS.Joker {
             G.E_MANAGER:add_event(Event({
                 trigger = 'immediate',
                 func = function()
-                    SMODS.calculate_effect({message = localize("k_replaced_ex")}, context.card)
+                    SMODS.calculate_effect({ message = localize("k_replaced_ex") }, context.card)
                     card:juice_up()
                     context.card:juice_up()
                     context.card:set_ability(Valk.util.poll_set("Tarot", self.key))
@@ -347,12 +359,12 @@ SMODS.Joker {
 SMODS.Joker {
     key = "spectradolia",
     atlas = "jokers",
-    pos = {x=0,y=2},
-    config = {extra = {chance = 10}},
+    pos = { x = 0, y = 2 },
+    config = { extra = { chance = 10 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
-        local n,d = SMODS.get_probability_vars(card, 1, card.ability.extra.chance)
-        return {vars = {n,d}}
+        local n, d = SMODS.get_probability_vars(card, 1, card.ability.extra.chance)
+        return { vars = { n, d } }
     end,
     calculate = function(self, card, context)
         -- code here
@@ -360,7 +372,7 @@ SMODS.Joker {
             G.E_MANAGER:add_event(Event({
                 trigger = 'immediate',
                 func = function()
-                    SMODS.calculate_effect({message = localize("k_replaced_ex")}, context.card)
+                    SMODS.calculate_effect({ message = localize("k_replaced_ex") }, context.card)
                     card:juice_up()
                     context.card:juice_up()
                     context.card:set_ability(Valk.util.poll_set("Spectral", self.key))
@@ -375,13 +387,13 @@ SMODS.Joker {
 SMODS.Joker {
     key = "merchant_cat",
     atlas = "jokers",
-    pos = {x=1,y=2},
-    config = {extra = {req = 4}},
+    pos = { x = 1, y = 2 },
+    config = { extra = { req = 4 } },
     rarity = 2,
     cost = 4,
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = G.P_TAGS.tag_valk_kitty
-        return {vars = {card.ability.extra.req}}
+        info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
+        return { vars = { card.ability.extra.req } }
     end,
     calculate = function(self, card, context)
         -- code here
@@ -394,12 +406,12 @@ SMODS.Joker {
 SMODS.Joker {
     key = "roundabout",
     atlas = "jokers",
-    pos = {x=2,y=2},
-    config = {extra = {ante = -1}},
+    pos = { x = 2, y = 2 },
+    config = { extra = { ante = -1 } },
     rarity = 2,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.ante}}
+        return { vars = { card.ability.extra.ante } }
     end,
     calculate = function(self, card, context)
         -- code here

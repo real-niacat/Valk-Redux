@@ -1,20 +1,22 @@
 SMODS.Joker {
     key = "suck_it",
     atlas = "jokers",
-    pos = {x=2,y=0},
-    config = {extra = {lossden = 8, loss = 5, gainden = 15, gain = 20}},
+    pos = { x = 2, y = 0 },
+    config = { extra = { lossden = 8, loss = 5, gainden = 15, gain = 20 } },
     rarity = 1,
     loc_vars = function(self, info_queue, card)
-        local ln,ld = SMODS.get_probability_vars(card, 1, card.ability.extra.lossden)
-        local gn,gd = SMODS.get_probability_vars(card, 1, card.ability.extra.gainden)
-        return {vars = {
-            ln,
-            ld,
-            card.ability.extra.loss,
-            gn,
-            gd,
-            card.ability.extra.gain,
-        }}
+        local ln, ld = SMODS.get_probability_vars(card, 1, card.ability.extra.lossden)
+        local gn, gd = SMODS.get_probability_vars(card, 1, card.ability.extra.gainden)
+        return {
+            vars = {
+                ln,
+                ld,
+                card.ability.extra.loss,
+                gn,
+                gd,
+                card.ability.extra.gain,
+            }
+        }
     end,
     calculate = function(self, card, context)
         if context.selling_self then
@@ -26,7 +28,7 @@ SMODS.Joker {
             elseif loss then
                 ease_dollars(-card.ability.extra.loss)
             end
-            local new_copy = SMODS.add_card({key = self.key})
+            local new_copy = SMODS.add_card({ key = self.key })
             new_copy.sell_cost = 0
         end
     end,
@@ -36,15 +38,15 @@ SMODS.Joker {
 SMODS.Joker {
     key = "antithesis",
     atlas = "jokers",
-    pos = {x=3,y=0},
-    config = {extra = {mult = 4}},
+    pos = { x = 3, y = 0 },
+    config = { extra = { mult = 4 } },
     rarity = 1,
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.mult}}
+        return { vars = { card.ability.extra.mult } }
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == "unscored" then
-            return {mult = card.ability.extra.mult}
+            return { mult = card.ability.extra.mult }
         end
     end,
     cost = 3,
@@ -53,38 +55,38 @@ SMODS.Joker {
 SMODS.Joker {
     key = "kitty",
     atlas = "jokers",
-    pos = {x=4,y=0},
-    config = {extra = {den = 2}},
+    pos = { x = 4, y = 0 },
+    config = { extra = { den = 2 } },
     rarity = 1,
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = G.P_TAGS.tag_valk_kitty
-        local n,d = SMODS.get_probability_vars(card, 1, card.ability.extra.den)
-        return {vars = {n,d}}
+        info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
+        local n, d = SMODS.get_probability_vars(card, 1, card.ability.extra.den)
+        return { vars = { n, d } }
     end,
     calculate = function(self, card, context)
         -- code here
         if context.end_of_round and context.main_eval and SMODS.pseudorandom_probability(card, "kitty", 1, card.ability.extra.den) then
             add_tag(Tag("tag_valk_kitty"))
-            SMODS.calculate_effect({message = localize("k_plus_kitty_tag")}, card)
+            SMODS.calculate_effect({ message = localize("k_plus_kitty_tag") }, card)
         end
     end,
-    pools = {Kitty = true},
+    pools = { Kitty = true },
     cost = 3,
 }
 
 SMODS.Joker {
     key = "posh",
     atlas = "jokers",
-    pos = {x=5,y=0},
-    config = {extra = {chips = 30}},
+    pos = { x = 5, y = 0 },
+    config = { extra = { chips = 30 } },
     rarity = 1,
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.chips}}
+        return { vars = { card.ability.extra.chips } }
     end,
     calculate = function(self, card, context)
         -- code here
         if context.individual and context.cardarea == G.hand and next(SMODS.get_enhancements(context.other_card)) then
-            return {chips = card.ability.extra.chips}
+            return { chips = card.ability.extra.chips }
         end
     end,
     cost = 4,
@@ -93,16 +95,16 @@ SMODS.Joker {
 SMODS.Joker {
     key = "fancy",
     atlas = "jokers",
-    pos = {x=6,y=0},
-    config = {extra = {mult = 5}},
+    pos = { x = 6, y = 0 },
+    config = { extra = { mult = 5 } },
     rarity = 1,
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.mult}}
+        return { vars = { card.ability.extra.mult } }
     end,
     calculate = function(self, card, context)
         -- code here
         if context.individual and context.cardarea == G.hand and next(SMODS.get_enhancements(context.other_card)) then
-            return {mult = card.ability.extra.mult}
+            return { mult = card.ability.extra.mult }
         end
     end,
     cost = 4,
@@ -111,20 +113,20 @@ SMODS.Joker {
 SMODS.Joker {
     key = "takeyourage",
     atlas = "jokers",
-    pos = {x=3,y=2},
-    config = {extra = {mult = 25}},
+    pos = { x = 3, y = 2 },
+    config = { extra = { mult = 25 } },
     rarity = 1,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.mult, -card.ability.extra.mult}}
+        return { vars = { card.ability.extra.mult, -card.ability.extra.mult } }
     end,
     calculate = function(self, card, context)
         -- code here
         if context.initial_scoring_step then
-            return {mult = card.ability.extra.mult}
+            return { mult = card.ability.extra.mult }
         end
         if context.final_scoring_step then
-            return {mult = -card.ability.extra.mult}
+            return { mult = -card.ability.extra.mult }
         end
     end
 }

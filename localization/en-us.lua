@@ -173,6 +173,74 @@ return {
                     "{C:mult}#2#{} Mult after scoring"
                 }
             },
+            j_valk_planetarium = {
+                name = "Planetarium",
+                text = {
+                    "Upgrade the Chips and Mult",
+                    "{C:attention}per-level{} of the first",
+                    "{C:attention}played{} hand per round by {C:attention}+#1#{}"
+                }
+            },
+            j_valk_familiar_face = {
+                name = "Familiar Face",
+                text = {
+                    "Scored {C:attention}9s{} and {C:attention}Enhanced{}",
+                    "cards give {X:mult,C:white}X#1#{} Mult",
+                    "{C:attention}Enhanced 9s{} give {X:mult,C:white}X#2#{} Mult instead"
+                }
+            },
+            j_valk_neffy = {
+                name = "Neffy",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult",
+                    "Decreases by {X:mult,C:white}X#2#{} Mult",
+                    "for every other {C:attention}Kitty Joker{} owned"
+                }
+            },
+            j_valk_box_of_kittens = {
+                name = "Box of Kittens",
+                text = {
+                    "Create a {C:attention}Kitty Tag{}",
+                    "when shop is {C:attention}rerolled{}"
+                }
+            },
+            j_valk_dupliCation = {
+                name = "Dupli-cat-ion",
+                text = {{
+                    "Each {C:attention}Kitty Tag{} has a {C:green}#1# in #2#{}",
+                    "chance to duplicate at end of round",
+                }, {
+                    "Increase denominator by {C:attention}#3#{} for every {C:attention}#4{}",
+                    "{C:attention}Kitty Tags{} owned"
+                }, {
+                    "Each {C:attention}Kitty Tag{} has a {C:green}#5# in #6#{}",
+                    "chance to be destroyed at end of round"
+                }}
+            },
+            j_valk_greedy_bastard = {
+                name = "Greedy Bastard",
+                text = {
+                    "Destroy all {C:attention}Kitty Tags{} at",
+                    "end of round, and gain {X:mult,C:white}X#1#{} Mult",
+                    "for each {C:attention}Kitty Tag{} destroyed",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
+                }
+            },
+            j_valk_one_million_beavers = {
+                name = "One Million Beavers",
+                text = {
+                    "Prevents death {C:attention}once{}",
+                    "When death prevented, earn {C:money}$#1#{}"
+                }
+            },
+            j_valk_borderline = {
+                name = "Borderline Jokever",
+                text = {
+                    "Gains {C:chips}+#1#{} Chips when",
+                    "a {C:clubs}Club{} is scored",
+                    "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
+                }
+            }
         },
         Other = {},
         Planet = {},
@@ -202,6 +270,7 @@ return {
             k_valk_artby = "Art by ",
             k_plus_kitty_tag = "+1 Kitty Tag",
             k_replaced_ex = "Replaced!",
+            ph_beavers = "The beavers ravage the blind.",
         },
         high_scores = {},
         labels = {},
