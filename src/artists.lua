@@ -7,7 +7,11 @@ Valk.artist = SMODS.GameObject:extend {
     obj_table = Valk.artists,
     prefix_config = {
         key = false
-    }
+    },
+    register = function(self)
+        self.drawn = {}
+        SMODS.GameObject.register(self)
+    end
 }
 
 Valk.artist {
@@ -45,3 +49,11 @@ Valk.artist {
     key = "duck",
     display_name = "Aduckted"
 }
+
+Valk.util.hook_after("SMODS.injectItems", function()
+    for _,center in pairs(G.P_CENTERS) do
+        if center.valk_artist then
+            table.insert(Valk.artists[center.valk_artist].drawn, center.key)
+        end
+    end
+end)
