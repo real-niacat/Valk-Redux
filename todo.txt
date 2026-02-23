@@ -1,5 +1,5 @@
 -- reimplement common through rare jokers
-    *DONE
+    DONE
 -- reimplement renowned jokers
     not started / med prio
 -- overscoring reimplementation
@@ -15,7 +15,7 @@
 -- reimplement and rework decks
     not started / low prio
 -- reimplement tags
-    not started / low prio
+    DONE
 -- reimplement spectral cards
     not started
 -- reimplement and rework semirare tarots

@@ -270,6 +270,13 @@ return {
                     "{C:attention}Kitty Tag{} owned",
                     "{C:red}Never{} gets consumed"
                 }
+            },
+            tag_valk_negative_eternal = {
+                name = "Negative Eternal Tag",
+                text = {
+                    "Shop has a free",
+                    "{C:dark_edition}Negative{} {C:purple}Eternal{} Joker",
+                }
             }
         },
         Tarot = {},
