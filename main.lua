@@ -1,11 +1,13 @@
 ---@field mod Mod
 ---@field util table
 ---@field ui table
+---@field content table
 ---@field load_order table
 Valk = {
     mod = SMODS.current_mod,
     util = {},
     ui = {},
+    content = {},
     load_order = { --defaults to 0 with metatable magic
         ["common.lua"] = 5,
         ["uncommon.lua"] = 10,

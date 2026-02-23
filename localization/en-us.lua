@@ -3,7 +3,16 @@ return {
         Back = {},
         Blind = {},
         Edition = {},
-        Enhanced = {},
+        Enhanced = {
+            m_valk_mirrored = {
+                name = "Mirrored",
+                text = {
+                    "Copies the {C:attention}Suit{}, {C:attention}Rank{},",
+                    "{C:attention}Seal{} and {C:dark_edition}Edition{} of the",
+                    "card to the right",
+                }
+            }
+        },
         Joker = {
             j_valk_suck_it = {
                 name = "Suck it",

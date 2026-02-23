@@ -1,0 +1,38 @@
+-- reimplement common through renowned jokers
+    in progress / high prio
+-- overscoring reimplementation
+    not started
+-- reimplement legendary and exquisite jokers
+    not started / high prio
+-- concept leveling rework and implement it
+    not started / VERY low prio
+    idea:
+        shotgun king style perma upsides/downsides after leveling up
+        xp gained after blind based on how close to blind size you were
+        level-gate certain antes, where if you aren't a certain level you will face a debuff for the entire ante
+-- reimplement and rework decks
+    not started / low prio
+-- reimplement tags
+    not started / low prio
+-- reimplement spectral cards
+    not started
+-- reimplement and rework semirare tarots
+    not started
+-- reimplement planetoid cards
+    not started / low prio
+-- rework and reimplement superplanet cards
+    not started / low prio
+-- reimplement all vouchers (rework a few too)
+    not started / low prio
+-- reimplement aesthetic cards
+    not started
+-- reimplement editions
+    not started
+-- add main menu logo
+    not started / low prio
+-- add credits ui
+    not started / low prio
+-- remove loss
+    not started / SUPER high prio
+-- get modders to meow for me
+    not started / EXTREMELY high priority

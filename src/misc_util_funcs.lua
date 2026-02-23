@@ -24,3 +24,24 @@ function Valk.util.poll_set(set, seed)
     end
     return element
 end
+
+function Valk.util.get_index(card)
+    for i,i_card in ipairs(card.area.cards) do
+        if i_card == card then
+            return i
+        end
+    end
+    error("Card not found in its own area. What the fuck are you doing?")
+end
+
+-- Merges two tables, giving the key-value pairs of both. Table B has higher priority if there are identical/overlapping keys
+function Valk.util.merge_tables(a, b)
+    local new = {}
+    for key,value in pairs(a) do
+        new[key] = value
+    end
+    for key,value in pairs(b) do
+        new[key] = value
+    end
+    return new
+end
