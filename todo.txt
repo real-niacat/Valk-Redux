@@ -1,5 +1,7 @@
--- reimplement common through renowned jokers
-    in progress / high prio
+-- reimplement common through rare jokers
+    *DONE
+-- reimplement renowned jokers
+    not started / med prio
 -- overscoring reimplementation
     not started
 -- reimplement legendary and exquisite jokers
@@ -29,9 +31,9 @@
 -- reimplement editions
     not started
 -- add main menu logo
-    not started / low prio
+    stalled / low prio
 -- add credits ui
-    not started / low prio
+    working on / low prio
 -- remove loss
     not started / SUPER high prio
 -- get modders to meow for me
