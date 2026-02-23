@@ -18,6 +18,7 @@ SMODS.Joker {
         end
     end,
     cost = 6,
+    valk_artist = "scraptake",
 }
 
 SMODS.Joker {
@@ -41,6 +42,7 @@ SMODS.Joker {
         end
     end,
     cost = 6,
+    valk_artist = "pangaea",
 }
 
 SMODS.Joker {
@@ -64,6 +66,7 @@ SMODS.Joker {
         end
     end,
     cost = 6,
+    valk_artist = "pangaea",
 }
 
 SMODS.Joker {
@@ -85,6 +88,7 @@ SMODS.Joker {
         end
     end,
     cost = 6,
+    valk_artist = "pangaea",
 }
 
 SMODS.Joker {
@@ -130,6 +134,7 @@ SMODS.Joker {
     end,
     pools = { Kitty = true },
     cost = 5,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -175,6 +180,7 @@ SMODS.Joker {
     end,
     pools = { Kitty = true },
     cost = 5,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -220,6 +226,7 @@ SMODS.Joker {
     end,
     pools = { Kitty = true },
     cost = 5,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -265,6 +272,7 @@ SMODS.Joker {
     end,
     pools = { Kitty = true },
     cost = 5,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -302,6 +310,7 @@ SMODS.Joker {
         })
     end,
     cost = 5,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -330,6 +339,7 @@ SMODS.Joker {
         end
     end,
     cost = 6,
+    valk_artist = "triangle_snack",
 }
 
 SMODS.Joker {
@@ -358,6 +368,7 @@ SMODS.Joker {
         end
     end,
     cost = 6,
+    valk_artist = "triangle_snack",
 }
 
 SMODS.Joker {
@@ -386,6 +397,7 @@ SMODS.Joker {
         end
     end,
     cost = 6,
+    valk_artist = "triangle_snack",
 }
 
 SMODS.Joker {
@@ -404,7 +416,8 @@ SMODS.Joker {
         if context.buying_card and not context.buying_self and context.card.cost > card.ability.extra.req then
             add_tag(Tag("tag_valk_kitty"))
         end
-    end
+    end,
+    valk_artist = "slipstream",
 }
 
 SMODS.Joker {
@@ -425,5 +438,6 @@ SMODS.Joker {
                 modify = context.modify_ante + card.ability.extra.ante
             }
         end
-    end
+    end,
+    valk_artist = "mailingway",
 }

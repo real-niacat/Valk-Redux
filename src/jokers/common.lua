@@ -33,6 +33,7 @@ SMODS.Joker {
         end
     end,
     cost = 1,
+    valk_artist = "pangaea",
 }
 
 SMODS.Joker {
@@ -50,6 +51,7 @@ SMODS.Joker {
         end
     end,
     cost = 3,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -72,6 +74,7 @@ SMODS.Joker {
     end,
     pools = { Kitty = true },
     cost = 3,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -90,6 +93,7 @@ SMODS.Joker {
         end
     end,
     cost = 4,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -108,6 +112,7 @@ SMODS.Joker {
         end
     end,
     cost = 4,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -128,5 +133,6 @@ SMODS.Joker {
         if context.final_scoring_step then
             return { mult = -card.ability.extra.mult }
         end
-    end
+    end,
+    valk_artist = "mailingway",
 }

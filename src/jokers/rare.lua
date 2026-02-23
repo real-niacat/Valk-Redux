@@ -15,7 +15,8 @@ SMODS.Joker {
             hand.l_chips = hand.l_chips + card.ability.extra.upgrade
             hand.l_mult = hand.l_mult + card.ability.extra.upgrade
         end
-    end
+    end,
+    valk_artist = "grahkon",
 }
 
 SMODS.Joker {
@@ -39,7 +40,8 @@ SMODS.Joker {
                 return { xmult = card.ability.extra.xmult }
             end
         end
-    end
+    end,
+    valk_artist = "duck",
 }
 
 SMODS.Joker {
@@ -62,7 +64,8 @@ SMODS.Joker {
         if context.joker_main then
             return { xmult = card.ability.extra.base - ((Valk.util.get_kitty_jokers() - 1) * card.ability.extra.loss) }
         end
-    end
+    end,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -81,7 +84,8 @@ SMODS.Joker {
         if context.reroll_shop then
             add_tag(Tag("tag_valk_kitty"))
         end
-    end
+    end,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -133,7 +137,8 @@ SMODS.Joker {
     get_denominator = function(self, card)
         return card.ability.extra.base_den +
         (math.floor(Valk.util.get_kitty_tags() / card.ability.extra.den_req) * card.ability.extra.den_increase)
-    end
+    end,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -162,7 +167,8 @@ SMODS.Joker {
                 SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "xmult", scalar_value = "gain" })
             end
         end
-    end
+    end,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -190,7 +196,8 @@ SMODS.Joker {
                 saved = "ph_beavers"
             }
         end
-    end
+    end,
+    valk_artist = "mailingway",
 }
 
 SMODS.Joker {
@@ -213,6 +220,7 @@ SMODS.Joker {
             return { chips = card.ability.extra.chips }
         end
     end,
+    valk_artist = "mailingway",
 }
 
 Valk.util.hook_after("love.draw", function()
@@ -257,5 +265,6 @@ SMODS.Joker {
                 end
             }
         end
-    end
+    end,
+    valk_artist = "mailingway",
 }
