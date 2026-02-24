@@ -293,6 +293,7 @@ return {
             k_valk_artby = "Art by: ",
             k_plus_kitty_tag = "+1 Kitty Tag",
             k_replaced_ex = "Replaced!",
+            ph_lv_display = "Lv. ",
             ph_beavers = "The beavers ravage the blind.",
         },
         high_scores = {},

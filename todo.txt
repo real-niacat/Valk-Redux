@@ -7,11 +7,10 @@
 -- reimplement legendary and exquisite jokers
     not started / high prio
 -- concept leveling rework and implement it
-    not started / VERY low prio
+    working on (UI mostly done)
     idea:
-        shotgun king style perma upsides/downsides after leveling up
         xp gained after blind based on how close to blind size you were
-        level-gate certain antes, where if you aren't a certain level you will face a debuff for the entire ante
+        
 -- reimplement and rework decks
     not started / low prio
 -- reimplement tags
