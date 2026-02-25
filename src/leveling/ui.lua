@@ -78,34 +78,38 @@ function Valk.ui.refresh_level_progress()
 end
 
 Valk.leveling.easing = "outexpo"
+Valk.leveling.easing_drop = "outcirc"
 Valk.leveling.anim_runtime = 0.5
-function Valk.leveling.drop_ui()
+function Valk.leveling.drop_ui(skip_jokers)
     local time = Valk.leveling.anim_runtime
-    local easing = Valk.leveling.easing
-    G.E_MANAGER:add_event(Event({
-        trigger = 'ease',
-        ease = easing, --easing type
-        ref_table = G.jokers.T,
-        ref_value = "y",
-        ease_to = -1.2, --end value
-        delay = time,   --time taken
-        timer = "REAL",
-        func = (function(t) return t end),
-    }), "other")
+    local easing = Valk.leveling.easing_drop
+    local multiplier = 1.5
+    if not skip_jokers then
+        G.E_MANAGER:add_event(Event({
+            trigger = 'ease',
+            ease = easing, --easing type
+            ref_table = G.jokers.T,
+            ref_value = "y",
+            ease_to = -1.25,           --end value
+            delay = time * multiplier, --time taken
+            timer = "REAL",
+            func = (function(t) return t end),
+        }), "other")
+    end
 
     G.E_MANAGER:add_event(Event({
         trigger = 'ease',
         ease = easing, --easing type
         ref_table = G.valk_level_progress.config.offset,
         ref_value = "y",
-        ease_to = 2.1, --end value
-        delay = time,  --time taken
+        ease_to = 2.1,             --end value
+        delay = time * multiplier, --time taken
         timer = "REAL",
         func = (function(t) return t end),
     }))
 end
 
-function Valk.leveling.return_ui()
+function Valk.leveling.return_ui(skip_jokers)
     local time = Valk.leveling.anim_runtime
     local easing = Valk.leveling.easing
     G.E_MANAGER:add_event(Event({
@@ -117,26 +121,28 @@ function Valk.leveling.return_ui()
         delay = time, --time taken
         timer = "REAL",
         func = (function(t) return t end),
-    }), "other")
-
-    G.E_MANAGER:add_event(Event({
-        trigger = 'ease',
-        ease = easing, --easing type
-        ref_table = G.jokers.T,
-        ref_value = "y",
-        ease_to = 0,  --end value
-        delay = time, --time taken
-        timer = "REAL",
-        func = (function(t) return t end),
     }))
+
+    if not skip_jokers then
+        G.E_MANAGER:add_event(Event({
+            trigger = 'ease',
+            ease = easing, --easing type
+            ref_table = G.jokers.T,
+            ref_value = "y",
+            ease_to = 0, --end value
+            delay = time, --time taken
+            timer = "REAL",
+            func = (function(t) return t end),
+        }), "other")
+    end
 end
 
-function Valk.leveling.full_ease_xp(amount)
+function Valk.leveling.full_ease_xp(amount, skip)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 2,
         func = function()
-            Valk.leveling.drop_ui()
+            Valk.leveling.drop_ui(skip)
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 2,
@@ -152,7 +158,7 @@ function Valk.leveling.full_ease_xp(amount)
                                     trigger = 'after',
                                     delay = 2,
                                     func = function()
-                                        Valk.leveling.return_ui()
+                                        Valk.leveling.return_ui(skip)
                                         return true
                                     end
                                 }))

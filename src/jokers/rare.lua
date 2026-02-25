@@ -251,17 +251,32 @@ SMODS.Joker {
         return { vars = {} }
     end,
     calculate = function(self, card, context)
-        -- code here
+        -- code from vanillaremade
         if context.setting_blind then
-            local mirrored = SMODS.add_card({ set = "Base", enhancement = "m_valk_mirrored", area = G.discard })
-            G.playing_card = G.playing_card and (G.playing_card + 1) or 1
-            mirrored.playing_card = G.playing_card
-            table.insert(G.playing_cards, mirrored)
+            local mirrored_card = SMODS.create_card { set = "Base", enhancement = "m_valk_mirrored", area = G.discard }
+            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+            mirrored_card.playing_card = G.playing_card
+            table.insert(G.playing_cards, mirrored_card)
+
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    mirrored_card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
+                    G.play:emplace(mirrored_card)
+                    return true
+                end
+            }))
             return {
-                message = localize("k_created"),
+                message = localize('k_created_ex'),
                 colour = G.C.SECONDARY_SET.Enhanced,
                 func = function()
-                    SMODS.calculate_context({ playing_card_added = true, cards = { mirrored } })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            G.deck.config.card_limit = G.deck.config.card_limit + 1
+                            return true
+                        end
+                    }))
+                    draw_card(G.play, G.deck, 90, 'up')
+                    SMODS.calculate_context({ playing_card_added = true, cards = { mirrored_card } })
                 end
             }
         end

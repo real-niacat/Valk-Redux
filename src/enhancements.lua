@@ -8,24 +8,31 @@ SMODS.Enhancement {
 
 function Valk.content.update_mirrored(area)
     for _, card in pairs(area.cards) do
-        if SMODS.has_enhancement(card, "m_valk_mirrored") then
-            local right_card = card.area.cards[Valk.util.get_index(card) + 1]
-            if not right_card then
-                return
-            end
-            card:set_seal(right_card.seal, true, true)
-            card:set_edition(right_card.edition and right_card.edition.key, true, true)
-            SMODS.change_base(card, right_card.base.suit, right_card.base.value)
+        card:calc_mirrored()
+    end
+end
 
-            -- local key = right_card.config.center.key
-            -- if key == "c_base" then
-            --     key = "m_valk_mirrored"
-            -- end
-            -- local center = G.P_CENTERS[key]
-            -- card.children.center.atlas = G.ASSET_ATLAS[center.atlas or "centers"]
-            -- card.children.center:set_sprite_pos(center.pos)
-            -- card.children.center:reset()
+function Card:calc_mirrored(source)
+    if SMODS.has_enhancement(self, "m_valk_mirrored") then
+        local left_card = self.area.cards[Valk.util.get_index(self) - 1]
+        local right_card = self.area.cards[Valk.util.get_index(self) + 1]
+        
+        if left_card and left_card ~= source then
+            left_card:calc_mirrored(self)
         end
+        if right_card and right_card ~= source then
+            right_card:calc_mirrored(self)
+        end
+
+        if right_card then
+            self:set_seal(right_card.seal, true, true)
+            self:set_edition(right_card.edition and right_card.edition.key, true, true)
+            local right_suit = right_card.base.suit
+            local right_value = right_card.base.value
+            if right_suit ~= self.base.suit or right_value ~= self.base.value then
+                SMODS.change_base(self, right_suit, right_value)
+            end
+        end 
     end
 end
 
@@ -33,12 +40,3 @@ end
 Valk.util.hook_after("Card.stop_drag", function(_, self)
     Valk.content.update_mirrored(self.area)
 end)
-
--- Valk.util.hook("SMODS.get_enhancements", function(get_enhancements, card)
---     local original_return = get_enhancements(card)
---     local right_card = card.area.cards[Valk.util.get_index(card) + 1]
---     if original_return["m_valk_mirrored"] and right_card then
---         return Valk.util.merge_tables(original_return, get_enhancements(right_card))
---     end
---     return original_return
--- end)

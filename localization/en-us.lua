@@ -253,7 +253,7 @@ return {
             j_valk_copycat = {
                 name = "Copy Cat",
                 text = {
-                    "Create a {C:attention}Mirrored{} card",
+                    "Create a {C:attention}Mirrored{} card and",
                     "when {C:attention}Blind{} is selected"
                 }
             },
@@ -295,6 +295,7 @@ return {
             k_replaced_ex = "Replaced!",
             ph_lv_display = "Lv. ",
             ph_beavers = "The beavers ravage the blind.",
+            k_created_ex = "Created!",
         },
         high_scores = {},
         labels = {},

@@ -24,6 +24,7 @@ function Valk.leveling.get_requirement(level)
     return level * 100
 end
 
+Valk.leveling.xp_easing = "inexpo"
 function Valk.leveling.ease_xp(amount)
     -- ease to max(current_xp+amount, requirement)
     -- if current_xp+amount > requirement, level up
@@ -57,7 +58,7 @@ function Valk.leveling.ease_xp(amount)
             func = function()
                 G.E_MANAGER:add_event(Event({
                     trigger = 'ease',
-                    ease = "insine", --easing type
+                    ease = Valk.leveling.xp_easing, --easing type
                     ref_table = leveling,
                     ref_value = "xp",
                     ease_to = ease_to, --end value

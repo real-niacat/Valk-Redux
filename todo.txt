@@ -10,7 +10,7 @@
     working on (UI mostly done)
     idea:
         xp gained after blind based on how close to blind size you were
-        
+
 -- reimplement and rework decks
     not started / low prio
 -- reimplement tags
@@ -37,3 +37,9 @@
     not started / SUPER high prio
 -- get modders to meow for me
     not started / EXTREMELY high priority
+-- add achievements
+    not started / super low prio
+
+    achievement ideas:
+        Hall of Mirrors - Play a flush five containing four or more mirrored cards
+        Serial(sic) Eater - Sell Diet Cola, Periapt Beer, Stellar Yogurt, and Hexed Spirit all in one run
