@@ -77,7 +77,7 @@ function Valk.ui.refresh_level_progress()
     }
 end
 
-Valk.leveling.easing = "outexpo"
+Valk.leveling.easing_return = "outcirc"
 Valk.leveling.easing_drop = "outcirc"
 Valk.leveling.anim_runtime = 0.5
 function Valk.leveling.drop_ui(skip_jokers)
@@ -111,7 +111,7 @@ end
 
 function Valk.leveling.return_ui(skip_jokers)
     local time = Valk.leveling.anim_runtime
-    local easing = Valk.leveling.easing
+    local easing = Valk.leveling.easing_return
     G.E_MANAGER:add_event(Event({
         trigger = 'ease',
         ease = easing, --easing type
