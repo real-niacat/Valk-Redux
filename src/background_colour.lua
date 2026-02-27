@@ -30,16 +30,16 @@ local gradient_2 = SMODS.Gradient {
 }
 
 Valk.util.hook_after("Game.main_menu", function()
-    G.C.valk_bg_prim = gradient_1
-    G.C.valk_bg_sec = gradient_2
+    G.C.valk_prim = gradient_1
+    G.C.valk_sec = gradient_2
     G.SPLASH_BACK:define_draw_steps({
         {
             shader = "splash",
             send = {
                 { name = "time",       ref_table = G.TIMERS, ref_value = "REAL_SHADER" },
                 { name = "vort_speed", val = 0.4 },
-                { name = "colour_1",   ref_table = G.C,      ref_value = "valk_bg_prim" },
-                { name = "colour_2",   ref_table = G.C,      ref_value = "valk_bg_sec" },
+                { name = "colour_1",   ref_table = G.C,      ref_value = "valk_prim" },
+                { name = "colour_2",   ref_table = G.C,      ref_value = "valk_sec" },
             },
         },
     })

@@ -295,6 +295,8 @@ return {
             k_replaced_ex = "Replaced!",
             ph_lv_display = "Lv. ",
             ph_beavers = "The beavers ravage the blind.",
+            ph_valk_xp = "XP Gain",
+            ph_valk_xp_score = "(Score Precision)",
             k_created_ex = "Created!",
         },
         high_scores = {},

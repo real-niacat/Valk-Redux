@@ -45,3 +45,11 @@ function Valk.util.merge_tables(a, b)
     end
     return new
 end
+
+function Valk.util.ui_safe(number)
+    number = to_number(number)
+    number = math.min(number, 1e100)
+    number = math.max(number, -1e100)
+
+    return number
+end

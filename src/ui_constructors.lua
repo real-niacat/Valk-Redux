@@ -10,10 +10,11 @@ function Valk.ui.DynaBar(args)
     args.h = args.h or 0.5
     args.label_scale = args.label_scale or 0.5
     args.text_scale = args.text_scale or 0.3
-    if type(args.min) == "number" then args.min = {value = args.min} end
-    if type(args.max) == "number" then args.max = {value = args.max} end
+    if type(args.min) == "number" then args.min = { value = args.min } end
+    if type(args.max) == "number" then args.max = { value = args.max } end
     args.decimal_places = args.decimal_places or 0
-    local startval = args.w * (args.ref_table[args.ref_value] - Valk.ui.get_value(args.min)) / (Valk.ui.get_value(args.max) - Valk.ui.get_value(args.min))
+    local startval = args.w * (args.ref_table[args.ref_value] - Valk.ui.get_value(args.min)) /
+    (Valk.ui.get_value(args.max) - Valk.ui.get_value(args.min))
 
     local t =
     {
@@ -22,7 +23,7 @@ function Valk.ui.DynaBar(args)
         nodes = {
             {
                 n = G.UIT.C, -- update_bar runs every frame and properly sets the box's width in lieu of actual slider interactivity
-                config = { align = "cl", minw = args.w, r = 0.1, min_h = args.h, colour = G.C.BLACK, emboss = 0.05, refresh_movement = true, update_func = "update_bar" },
+                config = { align = "cl", minw = args.w, r = 0.1, min_h = args.h, colour = args.inactive_colour or G.C.BLACK, emboss = 0.05, refresh_movement = true, update_func = "update_bar" },
                 nodes = {
                     { n = G.UIT.B, config = { w = startval, h = args.h, r = 0.1, colour = args.colour, ref_table = args, refresh_movement = true } },
                 }
@@ -35,31 +36,15 @@ end
 function G.FUNCS.update_bar(e)
     local c = e.children[1]
     local rt = c.config.ref_table
-    rt.text = (rt.ref_table[rt.ref_value] - Valk.ui.get_value(rt.min)) / (Valk.ui.get_value(rt.max) - Valk.ui.get_value(rt.min)) * rt.w
-    c.T.w = (rt.ref_table[rt.ref_value] - Valk.ui.get_value(rt.min)) / (Valk.ui.get_value(rt.max) - Valk.ui.get_value(rt.min)) * rt.w
+    rt.text = (rt.ref_table[rt.ref_value] - Valk.ui.get_value(rt.min)) /
+        (Valk.ui.get_value(rt.max) - Valk.ui.get_value(rt.min)) * rt.w
+    c.T.w = (rt.ref_table[rt.ref_value] - Valk.ui.get_value(rt.min)) /
+        (Valk.ui.get_value(rt.max) - Valk.ui.get_value(rt.min)) * rt.w
     c.config.w = c.T.w
 end
 
--- function G.FUNCS.slider(e)
---     local c = e.children[1]
---     e.states.drag.can = true
---     c.states.drag.can = true
---     if G.CONTROLLER and G.CONTROLLER.dragging.target and
---         (G.CONTROLLER.dragging.target == e or
---             G.CONTROLLER.dragging.target == c) then
---         local rt = c.config.ref_table
---         rt.ref_table[rt.ref_value] = math.min(rt.max,
---             math.max(rt.min, rt.min + (rt.max - rt.min) * (G.CURSOR.T.x - e.parent.T.x - G.ROOM.T.x) / e.T.w))
---         rt.text = string.format("%." .. tostring(rt.decimal_places) .. "f", rt.ref_table[rt.ref_value])
---         c.T.w = (rt.ref_table[rt.ref_value] - rt.min) / (rt.max - rt.min) * rt.w
---         c.config.w = c.T.w
---         if rt.callback then G.FUNCS[rt.callback](rt) end
---     end
--- end
-
 Valk.util.hook_before("UIElement.update", function(original, self, dt)
     if self.config and self.config.update_func then
-        -- print("running update func")
         G.FUNCS[self.config.update_func](self)
     end
 end)
