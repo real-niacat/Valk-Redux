@@ -204,7 +204,7 @@ SMODS.Joker {
     key = "borderline",
     atlas = "jokers",
     pos = { x = 3, y = 3 },
-    config = { extra = { chips = 0, chips_gain = 5 } },
+    config = { extra = { chips = 0, chips_gain = 3 } },
     rarity = 3,
     cost = 6,
     loc_vars = function(self, info_queue, card)
