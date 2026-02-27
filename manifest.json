@@ -9,7 +9,7 @@
 	"badge_colour": "F5BF42",
 	"version": "1.0.0", 
 	"dependencies": [ 
-		"Cryptlib",
+		"Spectrallib",
 		"Steamodded (>=1.0.0~BETA-01224a)",
 	],
     "conflicts": [

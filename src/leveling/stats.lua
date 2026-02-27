@@ -27,6 +27,10 @@ function Valk.leveling.get_requirement(level)
     return level * 100
 end
 
+function Valk.leveling.calc_gate(ante)
+    return math.floor(ante*0.7)
+end
+
 function Valk.leveling.get_xp_gained(blind_size, score)
     local d = to_big(1.5)
     local numerator = blind_size ^ d

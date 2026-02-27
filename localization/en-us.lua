@@ -257,6 +257,14 @@ return {
                     "when {C:attention}Blind{} is selected"
                 }
             },
+            j_valk_imwithstupid = {
+                name = "I'm with {C:red}stupid",
+                text = {
+                    "Retrigger the Joker to the left {C:attention}#1#{} time#<s>1#",
+                    "Increase by {C:attention}#2#{} retrigger",
+                    "when {C:attention}#3#{} {C:inactive}[#4#]{} cards are scored"
+                }
+            }
         },
         Other = {},
         Planet = {},
@@ -298,9 +306,12 @@ return {
             ph_valk_xp = "XP Gain",
             ph_valk_xp_score = "(Score Precision)",
             k_created_ex = "Created!",
+            k_valk_renowned = "Renowned",
         },
         high_scores = {},
-        labels = {},
+        labels = {
+            k_valk_renowned = "Renowned",
+        },
         poker_hand_descriptions = {},
         poker_hands = {},
         quips = {},

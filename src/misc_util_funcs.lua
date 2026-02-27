@@ -53,3 +53,13 @@ function Valk.util.ui_safe(number)
 
     return number
 end
+
+
+function Valk.util.reload_localization()
+    for i, v in pairs(SMODS.Mods) do
+        if v.can_load and v.path then
+            SMODS.handle_loc_file(v.path)
+        end
+    end
+    return init_localization()
+end

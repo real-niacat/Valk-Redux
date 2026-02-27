@@ -18,6 +18,10 @@ Valk = {
         ["exquisite.lua"] = 25,
     }
 }
+
+Valk.mod.optional_features = {
+    retrigger_joker = true,
+}
 setmetatable(Valk.load_order, {
     __index = function(t, k)
         return rawget(t, k) or 0 -- afformentioned metatable magic
