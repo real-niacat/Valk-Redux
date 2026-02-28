@@ -7,10 +7,10 @@
 -- reimplement legendary and exquisite jokers
     not started / high prio
 -- concept leveling rework and implement it
-    working on (UI mostly done)
-    idea:
-        xp gained after blind based on how close to blind size you were
-
+    left to do:
+        - Gate UI
+        - Gate functionality
+    
 -- reimplement and rework decks
     not started / low prio
 -- reimplement tags

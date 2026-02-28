@@ -188,6 +188,7 @@ SMODS.Joker {
                 trigger = 'immediate',
                 func = function()
                     ease_dollars(card.ability.extra.money)
+                    card:start_dissolve()
                     return true
                 end
             }))

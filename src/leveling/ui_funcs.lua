@@ -5,6 +5,7 @@ function Valk.leveling.drop_ui(skip_jokers)
     local time = Valk.leveling.anim_runtime
     local easing = Valk.leveling.easing_drop
     local multiplier = 1.5
+    G.GAME.valk_leveling.ui_state = {type = "drop", complete = false}
     if not skip_jokers then
         G.E_MANAGER:add_event(Event({
             trigger = 'ease',
@@ -26,21 +27,23 @@ function Valk.leveling.drop_ui(skip_jokers)
         delay = time * multiplier, --time taken
         func = (function(t) return t end),
     }), "valk_1")
+
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = time * multiplier,
+        func = function()
+            G.GAME.valk_leveling.ui_state = {type = "drop", complete = true}
+            return true
+        end,
+        blocking = false,
+        blockable = true,
+    }))
 end
 
 function Valk.leveling.return_ui(skip_jokers)
     local time = Valk.leveling.anim_runtime
     local easing = Valk.leveling.easing_return
-    G.E_MANAGER:add_event(Event({
-        trigger = 'ease',
-        ease = easing, --easing type
-        ref_table = G.valk_level_progress.config.offset,
-        ref_value = "y",
-        ease_to = -3, --end value
-        delay = time, --time taken
-        func = (function(t) return t end),
-    }), "valk_1")
-
+    G.GAME.valk_leveling.ui_state = {type = "return", complete = false}
     if not skip_jokers then
         G.E_MANAGER:add_event(Event({
             trigger = 'ease',
@@ -52,6 +55,27 @@ function Valk.leveling.return_ui(skip_jokers)
             func = (function(t) return t end),
         }), "valk_2")
     end
+
+    G.E_MANAGER:add_event(Event({
+        trigger = 'ease',
+        ease = easing, --easing type
+        ref_table = G.valk_level_progress.config.offset,
+        ref_value = "y",
+        ease_to = -3, --end value
+        delay = time, --time taken
+        func = (function(t) return t end),
+    }), "valk_1")
+
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = time,
+        func = function()
+            G.GAME.valk_leveling.ui_state = {type = "return", complete = true}
+            return true
+        end,
+        blocking = false,
+        blockable = true,
+    }))
 end
 
 Valk.leveling.xp_easing = "inexpo"
@@ -184,4 +208,49 @@ function Valk.leveling.add_round_eval_row(xp, source)
         number_colour = G.C.valk_prim,
         bonus = true,
     })
+end
+Valk.leveling.gate_start_pos = 10
+Valk.leveling.gate_multipler = 0.75
+Valk.leveling.gate_easing = "incirc"
+function Valk.leveling.create_ease_gate_ui()
+    G.valk_gate_ui = UIBox {
+        definition = Valk.ui.create_UIBox_level_gate(),
+        config = { major = G.consumeables, offset = { x = Valk.leveling.gate_start_pos, y = 0 }, align = "cm", instance_type = "CARD" },
+    }
+
+    G.E_MANAGER:add_event(Event({
+       trigger = 'ease',
+       ease = Valk.leveling.gate_easing, --easing type
+       ref_table = G.valk_gate_ui.config.offset,
+       ref_value = "x",
+       ease_to = 0, --end value
+       delay = Valk.leveling.anim_runtime*Valk.leveling.gate_multipler, --time taken
+       timer = "REAL",
+       func = (function(t) return t end),
+    }), "valk_3")
+end
+
+function Valk.leveling.ease_destroy_gate_ui()
+    G.E_MANAGER:add_event(Event({
+       trigger = 'ease',
+       ease = Valk.leveling.gate_easing, --easing type
+       ref_table = G.valk_gate_ui.config.offset,
+       ref_value = "x",
+       ease_to = Valk.leveling.gate_start_pos, --end value
+       delay = Valk.leveling.anim_runtime*Valk.leveling.gate_multipler, --time taken
+       timer = "REAL",
+       func = (function(t) return t end),
+    }), "valk_3")
+
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = Valk.leveling.anim_runtime*Valk.leveling.gate_multipler,
+        func = function()
+            G.valk_gate_ui:remove()
+            G.valk_gate_ui = nil
+            return true
+        end
+    }), "valk_3")
+
+    
 end

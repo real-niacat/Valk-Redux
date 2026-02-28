@@ -7,6 +7,7 @@ Valk.util.hook("Game.init_game_object", function(original, ...)
         reward = 1,
         max_reward = 100,
         max_reward_scaling = 10, -- at end of round increases by this much
+        ui_state = {complete = true},
     }
     return game
 end)
@@ -41,4 +42,12 @@ end
 
 function Valk.leveling.level_up(new_level)
     ease_dollars(G.GAME.valk_leveling.reward) -- you earn 1 dollar when leveling up. thats it
+end
+
+function Valk.leveling.get_next_gate()
+    local cur_ante = G.GAME.round_resets.ante
+    if cur_ante >= G.GAME.win_ante then
+        return cur_ante + 1
+    end
+    return G.GAME.win_ante + 1
 end

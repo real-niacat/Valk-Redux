@@ -307,6 +307,8 @@ return {
             ph_valk_xp_score = "(Score Precision)",
             k_created_ex = "Created!",
             k_valk_renowned = "Renowned",
+            ph_upcoming_gate = "Upcoming Gate",
+            k_level = "Level",
         },
         high_scores = {},
         labels = {
