@@ -1,17 +1,16 @@
 SMODS.ObjectType {
     key = "Kitty",
-    default = "j_valk_kitty", 
+    default = "j_valk_kitty",
 }
 
 function Valk.util.get_kitty_jokers()
+    if not G.jokers then
+        return 0
+    end
     local count = 0
-    for _,area in pairs(SMODS.get_card_areas("joker")) do
-        for _,card in pairs(area.cards) do
-            
-            if card.config.center.pools and card.config.center.pools.Kitty then
-                count = count + 1
-            end
-
+    for _, card in pairs(G.jokers.cards) do
+        if Spectrallib.safe_get(card.config.center, "pools", "Kitty") then
+            count = count + 1
         end
     end
     return count

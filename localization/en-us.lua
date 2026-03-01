@@ -264,7 +264,54 @@ return {
                     "Increase by {C:attention}#2#{} retrigger",
                     "when {C:attention}#3#{} {C:inactive}[#4#]{} cards are scored"
                 }
-            }
+            },
+            j_valk_heavy_hand = {
+                name = "Heavy Hand",
+                text = {
+                    "{C:attention}+#1#{} Card Selection Limit",
+                    "{C:attention}+#2#{} Hand Size",
+                    "Playing cards give {C:chips}+#3#{} Chips",
+                    "when scored"
+                }
+            },
+            j_valk_ancient_fingers = {
+                name = "Ancient Fingers",
+                text = {
+                    "{C:attention}+#1#{} Hand Size when any",
+                    "{V:1}#2#{} are scored",
+                    "{s:0.8}Resets and changes suit at end of round"
+                }
+            },
+            j_valk_leopard_print = {
+                name = "Leopard Print",
+                text = {
+                    "Retrigger all {C:attention}Kitty{} Jokers {C:attention}once{} ",
+                    "for every {C:attention}Kitty{} Joker owned"
+                }
+            },
+            j_valk_callie = {
+                name = "Callie",
+                text = {
+                    "Gains {X:slib_emult,C:white}^#1#{} Mult when",
+                    "a {C:attention}Wild{} card is scored",
+                    "Increase gain by {X:slib_emult,C:white}^#2#{}",
+                    "for each {C:attention}Kitty Tag{} owned",
+                    "Resets at end of round",
+                    "{C:inactive}(Currently {X:slib_emult,C:white}^#3#{C:inactive} Mult)",
+                }
+            },
+            j_valk_rocky = {
+                name = "Rocky",
+                text = {
+                    "Gains {X:slib_emult,C:white}^#1#{} Mult when",
+                    "a {C:attention}Stone{} card is scored",
+                    "Increase gain by {X:slib_emult,C:white}^#2#{}",
+                    "for each {C:attention}Kitty Tag{} owned",
+                    "Resets at end of round",
+                    "{C:inactive}(Currently {X:slib_emult,C:white}^#3#{C:inactive} Mult)",
+                }
+            },
+
         },
         Other = {},
         Planet = {},
@@ -322,6 +369,9 @@ return {
             ph_gate_HalfDiscards = "Lose half of your Discards",
             ph_gate_UnsellableJokers = "Jokers cannot be sold",
             ph_gate_Skimming = "Lose money at end of round per Joker owned",
+
+            valk_badge_kitty = "Kitty",
+            valk_badge_missing_art = "MISSING ART CREDITS",
         },
         high_scores = {},
         labels = {

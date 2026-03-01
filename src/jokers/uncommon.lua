@@ -304,11 +304,13 @@ SMODS.Joker {
         if (G.TIMERS.REAL % 10) < 2 then
             xpos = 6
         end
+        local blinking = (G.TIMERS.REAL % 4) < 0.2
         card.children.center:set_sprite_pos({
             x = xpos,
-            y = 1
+            y = blinking and 1 or 5
         })
     end,
+    pools = { Kitty = true },
     cost = 5,
     valk_artist = "mailingway",
 }
@@ -417,6 +419,7 @@ SMODS.Joker {
             add_tag(Tag("tag_valk_kitty"))
         end
     end,
+    pools = { Kitty = true },
     valk_artist = "slipstream",
 }
 

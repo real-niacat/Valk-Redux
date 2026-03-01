@@ -5,6 +5,14 @@ function SMODS.create_mod_badges(obj, badges)
         return
     end
 
+    if obj.original_mod and obj.original_mod.id == Valk.mod.id then
+        for _, badge in pairs(Valk.badges) do
+            if badge.should_apply(obj) then
+                table.insert(badges, 2, Valk.util.generate_badge(badge, obj))
+            end
+        end
+    end
+
     if not SMODS.config.no_mod_badges and obj and obj.valk_artist then
         local function calc_scale_fac(text)
             local size = 0.9
@@ -78,4 +86,91 @@ function SMODS.create_mod_badges(obj, badges)
             end
         end
     end
+end
+
+---@class Badge
+---@field colour function
+---@field text_colour function
+---@field get_text function
+---@field should_apply function
+
+
+---@type Badge[]
+Valk.badges = {
+    {
+        should_apply = function(center)
+            return center.pools and center.pools.Kitty
+        end,
+        get_text = function(center)
+            return { localize("valk_badge_kitty") }
+        end,
+        colour = function()
+            return SMODS.Gradients["valk_grad2"]
+        end
+    },
+    {
+        should_apply = function(center)
+            return not center.valk_artist
+        end,
+        get_text = function(center)
+            return { localize("valk_badge_missing_art") }
+        end,
+        colour = function()
+            return SMODS.Gradients["warning_bg"]
+        end,
+        text_colour = function()
+            return SMODS.Gradients["warning_text"]
+        end
+    }
+}
+
+function Valk.util.generate_badge(badge, obj)
+    local strs = badge.get_text(obj)
+    if type(strs) == "string" then
+        strs = { strs }
+    end
+    local strings = {}
+    for i = 1, #strs do
+        strings[i] = {
+            string = strs[i],
+        }
+    end
+
+    return {
+        n = G.UIT.R,
+        config = { align = "cm" },
+        nodes = {
+            {
+                n = G.UIT.R,
+                config = {
+                    align = "cm",
+                    colour = badge.colour and badge.colour() or G.C.RED,
+                    r = 0.1,
+                    minw = 2,
+                    minh = 0.36,
+                    emboss = 0.05,
+                    padding = 0.03 * 0.9,
+                },
+                nodes = {
+                    { n = G.UIT.B, config = { h = 0.1, w = 0.03 } },
+                    {
+                        n = G.UIT.O,
+                        config = {
+                            object = DynaText({
+                                string = strings or "ERROR",
+                                colours = { badge.text_colour and badge.text_colour() or G.C.WHITE },
+                                silent = true,
+                                float = true,
+                                shadow = true,
+                                offset_y = -0.03,
+                                spacing = 1,
+                                scale = 0.33 * 0.9,
+                            }),
+                        },
+                    },
+                    { n = G.UIT.B, config = { h = 0.1, w = 0.03 } },
+                },
+            },
+        },
+    }
 end
