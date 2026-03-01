@@ -209,48 +209,18 @@ function Valk.leveling.add_round_eval_row(xp, source)
         bonus = true,
     })
 end
-Valk.leveling.gate_start_pos = 10
-Valk.leveling.gate_multipler = 0.75
-Valk.leveling.gate_easing = "incirc"
-function Valk.leveling.create_ease_gate_ui()
-    G.valk_gate_ui = UIBox {
-        definition = Valk.ui.create_UIBox_level_gate(),
-        config = { major = G.consumeables, offset = { x = Valk.leveling.gate_start_pos, y = 0 }, align = "cm", instance_type = "CARD" },
-    }
 
-    G.E_MANAGER:add_event(Event({
-       trigger = 'ease',
-       ease = Valk.leveling.gate_easing, --easing type
-       ref_table = G.valk_gate_ui.config.offset,
-       ref_value = "x",
-       ease_to = 0, --end value
-       delay = Valk.leveling.anim_runtime*Valk.leveling.gate_multipler, --time taken
-       timer = "REAL",
-       func = (function(t) return t end),
-    }), "valk_3")
-end
-
-function Valk.leveling.ease_destroy_gate_ui()
-    G.E_MANAGER:add_event(Event({
-       trigger = 'ease',
-       ease = Valk.leveling.gate_easing, --easing type
-       ref_table = G.valk_gate_ui.config.offset,
-       ref_value = "x",
-       ease_to = Valk.leveling.gate_start_pos, --end value
-       delay = Valk.leveling.anim_runtime*Valk.leveling.gate_multipler, --time taken
-       timer = "REAL",
-       func = (function(t) return t end),
-    }), "valk_3")
-
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = Valk.leveling.anim_runtime*Valk.leveling.gate_multipler,
-        func = function()
-            G.valk_gate_ui:remove()
-            G.valk_gate_ui = nil
-            return true
+Valk.util.hook_after("Game.update", function()
+    local next_round = G.shop and G.shop:get_UIE_by_ID("next_round_button")
+    if next_round then
+        local state = G.GAME.valk_leveling.ui_state
+        if state.complete and state.type == "return" then
+            next_round.config.button = "toggle_shop"
+            next_round.config.colour = G.C.RED
+        else
+            next_round.config.button = nil
+            next_round.config.colour = G.C.UI.BACKGROUND_INACTIVE
         end
-    }), "valk_3")
-
-    
-end
+    end
+    -- print(s)
+end)

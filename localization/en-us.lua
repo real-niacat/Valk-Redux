@@ -307,8 +307,21 @@ return {
             ph_valk_xp_score = "(Score Precision)",
             k_created_ex = "Created!",
             k_valk_renowned = "Renowned",
-            ph_upcoming_gate = "Upcoming Gate",
-            k_level = "Level",
+            ph_upcoming_gate = "Upcoming Ante Gate:",
+            k_level = "Level ",
+            ph_gate_consequences = {
+                "If below Gate Level",
+                "at start of the ante,",
+                "Blinds will get stronger."
+            },
+
+            ph_gate_ExtraScaling = "Extra Blind Scaling",
+            ph_gate_BigBoss = "Big Blind is now a Boss Blind",
+            ph_gate_ExpensiveCards = "Cards cost more money",
+            ph_gate_SmallBoss = "Small Blind is now a Boss Blind",
+            ph_gate_HalfDiscards = "Lose half of your Discards",
+            ph_gate_UnsellableJokers = "Jokers cannot be sold",
+            ph_gate_Skimming = "Lose money at end of round per Joker owned",
         },
         high_scores = {},
         labels = {

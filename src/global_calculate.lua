@@ -40,4 +40,19 @@ Valk.mod.calculate = function(self, context)
             end
         }))
     end
+
+    if context.modify_ante and context.ante_end then
+        Valk.leveling.calc_gate(context.modify_ante)
+    end
+
+    if context.setting_blind and Valk.leveling.get_active_gates().HalfDiscards then
+        ease_discard(-G.GAME.current_round.discards_left / 2)
+    end
+
+    if context.end_of_round and context.main_eval and Valk.leveling.get_active_gates().Skimming then
+        for _,joker in pairs(G.jokers.cards) do
+            joker:juice_up()
+            ease_dollars(-1)
+        end
+    end
 end

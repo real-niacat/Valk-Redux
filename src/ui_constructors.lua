@@ -25,7 +25,7 @@ function Valk.ui.DynaBar(args)
                 n = G.UIT.C, -- update_bar runs every frame and properly sets the box's width in lieu of actual slider interactivity
                 config = { align = "cl", minw = args.w, r = 0.1, min_h = args.h, colour = args.inactive_colour or G.C.BLACK, emboss = 0.05, refresh_movement = true, update_func = "update_bar" },
                 nodes = {
-                    { n = G.UIT.B, config = { w = startval, h = args.h, r = 0.1, colour = args.colour, ref_table = args, refresh_movement = true } },
+                    { n = G.UIT.B, config = { w = startval, h = args.h, r = 0.1, colour = args.colour, ref_table = args, refresh_movement = true, shader = args.fill_shader } },
                 }
             },
         }

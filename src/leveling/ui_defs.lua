@@ -1,3 +1,8 @@
+SMODS.Shader {
+    key = "barshader",
+    path = "barshader.fs",
+}
+
 function Valk.ui.create_UIBox_level_progress()
     local text_scale = 0.45
     local xp_scale = 0.8
@@ -20,7 +25,8 @@ function Valk.ui.create_UIBox_level_progress()
                                 max = { ref_table = G.GAME.valk_leveling, ref_value = "req" },
                                 w = 8,
                                 h = 0.5,
-                                colour = G.C.valk_prim
+                                colour = G.C.WHITE,
+                                fill_shader = "valk_barshader",
                             }),
                             {
                                 n = G.UIT.C,
@@ -106,51 +112,81 @@ function Valk.ui.create_UIBox_level_gate()
         config = { colour = lighten(G.C.JOKER_GREY, 0.5), padding = 0.05, r = 0.02 },
         nodes = {
             {
-                n = G.UIT.C,
-                config = { padding = pad },
+                
+            },
+        }
+    }
+end
+
+function Valk.ui.replace_up_ante()
+    return true
+end
+
+function Valk.ui.replace_up_ante_element()
+    local dt1 = DynaText({ string = { { string = localize("ph_upcoming_gate"), colour = G.C.FILTER } }, colours = { G.C.BLACK }, scale = 0.55, silent = true, pop_delay = 4.5, shadow = true, bump = true, maxw = 3 })
+    local dt2 = DynaText({ string = { { string = localize("k_level") .. Valk.leveling.get_gate(G.GAME.round_resets.ante + 1), colour = G.C.WHITE } }, colours = { G.C.CHANCE }, scale = 0.45, silent = true, pop_delay = 4.5, shadow = true, maxw = 3 })
+    local s = 0.3
+    local desc = localize("ph_gate_consequences")
+    return {
+        n = G.UIT.R,
+        config = { align = "cm" },
+        nodes = {
+            {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.07, r = 0.1, colour = { 0, 0, 0, 0.12 }, minw = 2.9 },
                 nodes = {
                     {
                         n = G.UIT.R,
-                        config = { colour = HEX("545D60"), r = 0.02, minw = 4, minh = 0.8, padding = pad, align = "cm" },
+                        config = { align = "cm" },
                         nodes = {
-                            {
-                                n = G.UIT.T,
-                                config = { text = localize("ph_upcoming_gate"), scale = 0.6 },
-                            },
-                        },
+                            { n = G.UIT.O, config = { object = dt1 } },
+                        }
                     },
                     {
                         n = G.UIT.R,
-                        config = { padding = pad },
+                        config = { align = "cm" },
+                        nodes = {
+                            { n = G.UIT.O, config = { object = dt2 } },
+                        }
+                    },
+                    {
+                        n = G.UIT.R,
+                        config = { padding = 0.075, colour = get_blind_main_colour("Boss"), r = 0.025, align = "cm" },
                         nodes = {
                             {
-                                n = G.UIT.C,
-                                config = { colour = HEX("545D60"), r = 0.02, minw = 2, minh = 0.7, padding = pad, align = "cm" },
+                                n = G.UIT.R,
+                                config = { align = "cm" },
                                 nodes = {
                                     {
                                         n = G.UIT.T,
-                                        config = { text = localize("k_ante") .. " " .. Valk.leveling.get_next_gate(), scale = 0.6 },
+                                        config = { text = desc[1], scale = s, shadow = true },
                                     },
                                 },
                             },
                             {
-                                n = G.UIT.C,
-                                config = {padding = pad},
-                                nodes = {},
-                            },
-                            {
-                                n = G.UIT.C,
-                                config = { colour = HEX("545D60"), r = 0.02, minw = 2, minh = 0.7, padding = pad, align = "cm" },
+                                n = G.UIT.R,
+                                config = { align = "cm" },
                                 nodes = {
                                     {
                                         n = G.UIT.T,
-                                        config = { text = localize("k_level") .. " " .. Valk.leveling.calc_gate(Valk.leveling.get_next_gate()), scale = 0.6 },
+                                        config = { text = desc[2], scale = s, shadow = true },
+                                    },
+                                },
+                            },
+                            {
+                                n = G.UIT.R,
+                                config = { align = "cm" },
+                                nodes = {
+                                    {
+                                        n = G.UIT.T,
+                                        config = { text = desc[3], scale = s, shadow = true },
                                     },
                                 },
                             },
                         },
                     },
-                },
+
+                }
             },
         }
     }
@@ -159,12 +195,10 @@ end
 function G.FUNCS.level_toggle(e)
     -- print("blebleble")
     if G.GAME.valk_leveling.ui_state.complete then
-        if G.GAME.valk_leveling.ui_state.type == "drop" and G.valk_gate_ui then
+        if G.GAME.valk_leveling.ui_state.type == "drop" then
             Valk.leveling.return_ui()
-            Valk.leveling.ease_destroy_gate_ui()
-        elseif (G.GAME.valk_leveling.ui_state.type == "return" or G.GAME.valk_leveling.ui_state.type == nil) and (not G.valk_gate_ui) then
+        elseif (G.GAME.valk_leveling.ui_state.type == "return" or G.GAME.valk_leveling.ui_state.type == nil) then
             Valk.leveling.drop_ui()
-            Valk.leveling.create_ease_gate_ui()
         end
     end
 end

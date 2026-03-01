@@ -5,12 +5,21 @@ priority = 0
 
 [[patches]]
 [patches.pattern]
-target = """functions/state_events.lua"""
-pattern = '''
-    dollars = dollars + G.GAME.interest_amount*math.min(math.floor(G.GAME.dollars/5), G.GAME.interest_cap/5)
-end'''
-position = "after"
+target = """functions/UI_definitions.lua"""
+pattern = '''elseif not run_info then'''
+position = "before"
 payload = '''
--- e
+elseif Valk.ui.replace_up_ante() then
+    extras = Valk.ui.replace_up_ante_element()
 '''
 match_indent = false
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''delay(0.4); SMODS.ante_end = true; ease_ante(1); SMODS.ante_end = nil; delay(0.4); check_for_unlock({type = 'ante_up', ante = G.GAME.round_resets.ante + 1})'''
+position = 'after'
+payload = '''
+Valk.leveling.set_blinds()
+'''
+match_indent = true
