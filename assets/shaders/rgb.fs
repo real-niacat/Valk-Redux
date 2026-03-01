@@ -163,7 +163,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 
     tex.r *= 2.0;
     tex = RGBtoHSV(tex);
-    tex.r += (nuv.y*mul) + sin((nuv.x+3) * mul);
+    tex.r += mod((nuv.y*mul) + sin((nuv.x+3) * mul), 1.0);
     tex = HSVtoRGB(tex);
     
 

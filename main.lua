@@ -22,6 +22,7 @@ Valk = {
 
 Valk.mod.optional_features = {
     retrigger_joker = true,
+    post_trigger = true,
 }
 
 Valk.mod.spectrallib_features = {

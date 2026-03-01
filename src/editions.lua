@@ -21,17 +21,52 @@ SMODS.Shader {
 SMODS.Edition {
     key = "cosmic",
     shader = "cosmic",
-    calculate = function(self, card, context) end,
-}
-
-SMODS.Edition {
-    key = "glow",
-    shader = "glow",
-    calculate = function(self, card, context) end,
+    calculate = function(self, card, context)
+        if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
+            return {
+                echips = card.edition.echips,
+            }
+        end
+    end,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.edition.echips } }
+    end,
+    config = { echips = 1.05 },
+    extra_cost = 3,
+    weight = 5,
 }
 
 SMODS.Edition {
     key = "rgb",
     shader = "rgb",
-    calculate = function(self, card, context) end,
+    calculate = function(self, card, context)
+        if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
+            return {
+                chips = card.edition.chips,
+                xmult = card.edition.xmult,
+            }
+        end
+    end,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.edition.chips, card.edition.xmult } }
+    end,
+    config = { chips = 25, xmult = 1.25 },
+    extra_cost = 3,
+    weight = 8,
+}
+
+SMODS.Edition {
+    key = "glow",
+    shader = "glow",
+    calculate = function(self, card, context)
+        if
+            (context.post_trigger and context.other_card == card)
+            or (context.main_scoring and context.cardarea == G.play)
+        then
+            card:juice_up()
+            SMODS.add_card { set = "Tarot_Planet", area = G.consumeables }
+        end
+    end,
+    extra_cost = 12,
+    weight = 4,
 }

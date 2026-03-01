@@ -2,7 +2,29 @@ return {
     descriptions = {
         Back = {},
         Blind = {},
-        Edition = {},
+        Edition = {
+            e_valk_cosmic = {
+                name = "Cosmic",
+                text = {
+                    "{X:slib_echips,C:white}^#1#{} Chips",
+                },
+            },
+            e_valk_glow = {
+                name = "Glow in the Dark",
+                text = {
+                    "Creates a random",
+                    "{C:tarot}Tarot{} or {C:planet}Planet{} card",
+                    "when triggered",
+                },
+            },
+            e_valk_rgb = {
+                name = "R.G.B.",
+                text = {
+                    "{C:chips}+#1#{} Chips",
+                    "{X:mult,C:white}X#2#{} Mult",
+                },
+            },
+        },
         Enhanced = {
             m_valk_mirrored = {
                 name = "Mirrored",
@@ -403,6 +425,9 @@ return {
         },
         high_scores = {},
         labels = {
+            valk_cosmic = "Cosmic",
+            valk_rgb = "R.G.B",
+            valk_glow = "Glow in the Dark",
             k_valk_renowned = "Renowned",
         },
         poker_hand_descriptions = {},

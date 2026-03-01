@@ -4,7 +4,7 @@ function SMODS.create_mod_badges(obj, badges)
     if not obj then return end
 
     for _, badge in pairs(Valk.badges) do
-        if badge.should_apply(obj) then table.insert(badges, 2, Valk.util.generate_badge(badge, obj)) end
+        if badge.should_apply(obj) then table.insert(badges, 1, Valk.util.generate_badge(badge, obj)) end
     end
 
     if not SMODS.config.no_mod_badges and obj and obj.valk_artist then
@@ -104,7 +104,10 @@ Valk.badges = {
     },
     {
         should_apply = function(center)
-            return (not center.valk_artist) and center.original_mod and center.original_mod.id == Valk.mod.id
+            return not center.valk_artist
+                and center.original_mod
+                and center.original_mod.id == Valk.mod.id
+                and center.set ~= "Edition"
         end,
         get_text = function(center)
             return { localize("valk_badge_missing_art") }

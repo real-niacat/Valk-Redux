@@ -64,7 +64,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- code here
         if context.joker_main then return {
-            asc = card.ability.extra.asc,
+            plus_asc = card.ability.extra.asc,
         } end
 
         if context.before and context.scoring_name == card.ability.extra.poker_hand then
