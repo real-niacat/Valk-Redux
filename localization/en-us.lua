@@ -688,13 +688,15 @@ return {
             k_created_ex = "Created!",
             k_valk_renowned = "Renowned",
             ph_upcoming_gate = "Upcoming Ante Gate:",
+            ph_gate_intensity = "Gate Intensity:",
             k_level = "Level ",
             ph_gate_consequences = {
                 "If below Gate Level",
                 "at start of the ante,",
                 "Blinds will get stronger.",
             },
-
+            ph_active_gates = "Active Gates",
+            ph_no_gates = "No gates active!",
             ph_gate_ExtraScaling = "Extra Blind Scaling",
             ph_gate_BigBoss = "Big Blind is now a Boss Blind",
             ph_gate_ExpensiveCards = "Cards cost more money",

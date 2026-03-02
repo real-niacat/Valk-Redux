@@ -12,7 +12,7 @@ function Valk.ui.create_UIBox_level_progress()
         nodes = {
             {
                 n = G.UIT.C,
-                config = {},
+                config = { padding = 0.025 },
                 nodes = {
                     {
                         n = G.UIT.R,
@@ -87,12 +87,71 @@ function Valk.ui.create_UIBox_level_progress()
                             },
                         },
                     },
+                    {
+                        n = G.UIT.R,
+                        config = { colour = HEX("545D60"), r = 0.02, padding = 0.025 },
+                        nodes = {
+                            {
+                                n = G.UIT.C,
+                                config = { maxw = 2, colour = G.C.BLACK, padding = 0.025, r = 0.05 },
+                                nodes = {
+                                    {
+                                        n = G.UIT.R,
+                                        config = { align = "cm" },
+                                        nodes = {
+                                            {
+                                                n = G.UIT.T,
+                                                config = { text = localize("ph_gate_intensity"), scale = text_scale * 0.7 },
+                                            },
+                                        },
+                                    },
+                                    {
+                                        n = G.UIT.R,
+                                        config = { align = "cm" },
+                                        nodes = {
+                                            {
+                                                n = G.UIT.T,
+                                                config = { ref_table = G.GAME.valk_leveling, ref_value = "gate_intensity", scale = text_scale, colour = SMODS.Gradients.valk_grad1 },
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                            {
+                                n = G.UIT.C,
+                                config = { hover = true, colour = G.C.RED, r = 0.05, maxw = 1.5, maxh = 0.5, button = "gate_tooltip", align = "cm", padding = 0.05 },
+                                nodes = {
+                                    {
+                                        n = G.UIT.T,
+                                        config = { text = localize("ph_active_gates"), scale = text_scale },
+                                    },
+                                },
+                            },
+                        },
+                    },
                 },
             },
         },
     }
 
     return built
+end
+
+function G.FUNCS.gate_tooltip(e)
+    if not e.parent then
+        return
+    end
+    if not e.parent.children.desc_popup then
+        e.parent.children.desc_popup = UIBox {
+            definition = Valk.ui.generate_tooltip(Valk.leveling.generate_gate_text()),
+            config = { align = "cm", offset = { x = -1, y = 1 }, major = e.parent, instance_type = "POPUP" },
+        }
+        e.parent.children.desc_popup.states.collide.can = false
+    elseif e.parent.children.desc_popup then
+        -- print(3)
+        e.parent.children.desc_popup:remove()
+        e.parent.children.desc_popup = nil
+    end
 end
 
 function Valk.ui.create_UIBox_level_toggle()

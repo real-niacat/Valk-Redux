@@ -10,19 +10,18 @@
     DONE
 -- reimplement planetoid cards
     DONE
+-- reimplement and rework decks
+    DONE
 -- reimplement exquisite jokers
     not started / high prio
 -- concept leveling rework and implement it
     90% done
     left to do:
-        - Gate Current UI
--- reimplement and rework decks
-    not started / low prio
+        - Gate Current UI 
 -- reimplement spectral cards
     not started
 -- reimplement and rework semirare tarots (plus recolouring)
     not started
-
 -- rework and reimplement superplanet cards
     not started / low prio
 -- reimplement all vouchers (rework a few too)
@@ -32,7 +31,7 @@
 -- add main menu logo
     stalled / low prio
 -- add credits ui
-    working on / low prio
+    not started / low prio
 -- remove loss
     not started / SUPER high prio
 -- get modders to meow for me

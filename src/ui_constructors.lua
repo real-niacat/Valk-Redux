@@ -68,3 +68,53 @@ Valk.util.hook_before("UIElement.update", function(original, self, dt)
         G.FUNCS[self.config.update_func](self)
     end
 end)
+
+function Valk.ui.generate_tooltip(tooltip)
+    local title = tooltip.title or nil
+    local text = tooltip.text or {}
+    local rows = {}
+    if title then
+        local r = {
+            n = G.UIT.R,
+            config = { align = "cm" },
+            nodes = {
+                {
+                    n = G.UIT.C,
+                    config = { align = "cm" },
+                    nodes = {
+                        { n = G.UIT.T, config = { text = title, colour = G.C.UI.TEXT_DARK, scale = 0.4 } },
+                    },
+                },
+            },
+        }
+        table.insert(rows, r)
+    end
+    for i = 1, #text do
+        if type(text[i]) == "table" then
+            local r = {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.03 },
+                nodes = {
+                    { n = G.UIT.T, config = { ref_table = text[i].ref_table, ref_value = text[i].ref_value, colour = G.C.UI.TEXT_DARK, scale = 0.4 } },
+                },
+            }
+            table.insert(rows, r)
+        else
+            local r = {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.03 },
+                nodes = SMODS.localize_box(loc_parse_string(text[i]), { scale = 1 }),
+            }
+            table.insert(rows, r)
+        end
+    end
+    if tooltip.filler then
+        table.insert(rows, tooltip.filler.func(tooltip.filler.args))
+    end
+    local t = {
+        n = G.UIT.ROOT,
+        config = { align = "cm", padding = 0.05, r = 0.1, colour = G.C.L_BLACK, emboss = 0.01 },
+        nodes = { { n = G.UIT.C, config = { align = "cm", padding = 0.05, r = 0.1, colour = G.C.WHITE, emboss = 0.01 }, nodes = rows } },
+    }
+    return t
+end

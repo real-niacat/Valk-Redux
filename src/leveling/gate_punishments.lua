@@ -15,6 +15,22 @@ Valk.leveling.threshes = {
     Skimming = 17, -- lose $1 at end of round per joker owned
 }
 
+function Valk.leveling.generate_gate_text()
+    local t = {}
+    for key, v in pairs(Valk.leveling.get_active_gates()) do
+        if v then
+            table.insert(t, localize("ph_gate_" .. key))
+        end
+    end
+    if #t == 0 then
+        table.insert(t, localize("ph_no_gates"))
+    end
+    return {
+        title = localize("ph_active_gates"),
+        text = t,
+    }
+end
+
 function Valk.leveling.get_active_gates()
     local cur = Valk.leveling.current_gate()
     local t = {}
