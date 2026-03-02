@@ -172,6 +172,10 @@ SMODS.Joker {
                 SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "xmult", scalar_value = "gain" })
             end
         end
+
+        if context.joker_main then
+            return { xmult = card.ability.extra.xmult }
+        end
     end,
     valk_artist = "mailingway",
     pools = { Kitty = true },

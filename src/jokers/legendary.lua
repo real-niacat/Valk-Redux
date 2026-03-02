@@ -10,7 +10,7 @@ SMODS.Joker {
         return { vars = { card.ability.extra.cards } }
     end,
     calculate = function(self, card, context)
-        if context.setting_blind then
+        if context.first_hand_drawn then
             G.E_MANAGER:add_event(Event {
                 trigger = "after",
                 func = function()
@@ -19,6 +19,7 @@ SMODS.Joker {
                         new_card:set_ability(Valk.util.poll_set("Planet", self.key))
                         new_card:set_edition(SMODS.poll_edition { guaranteed = true, key = self.key })
                         G.hand:emplace(new_card)
+                        table.insert(G.playing_cards, new_card)
                     end
 
                     return true
