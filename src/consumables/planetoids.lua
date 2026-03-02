@@ -65,11 +65,15 @@ for i, oid in ipairs(planetoid_cards) do
             }
         end,
         use = function(self, card, area, copier)
+            -- we don't add 1 to the level here because it immedietely increments the times used when you click use
             SMODS.upgrade_poker_hands {
                 hands = { card.ability.extra.hand },
-                level_up = Valk.content.times_used(self.key) + 1,
+                level_up = Valk.content.times_used(self.key),
                 from = card,
             }
+        end,
+        can_use = function(self, card)
+            return true
         end,
         valk_artist = "mailingway",
     }

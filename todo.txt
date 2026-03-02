@@ -8,6 +8,8 @@
     DONE
 -- reimplement legendary jokers
     DONE
+-- reimplement planetoid cards
+    DONE
 -- reimplement exquisite jokers
     not started / high prio
 -- concept leveling rework and implement it
@@ -20,8 +22,7 @@
     not started
 -- reimplement and rework semirare tarots (plus recolouring)
     not started
--- reimplement planetoid cards
-    not started / low prio
+
 -- rework and reimplement superplanet cards
     not started / low prio
 -- reimplement all vouchers (rework a few too)
