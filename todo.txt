@@ -12,12 +12,10 @@
     DONE
 -- reimplement and rework decks
     DONE
+-- concept leveling rework and implement it
+    DONE
 -- reimplement exquisite jokers
     not started / high prio
--- concept leveling rework and implement it
-    90% done
-    left to do:
-        - Gate Current UI 
 -- reimplement spectral cards
     not started
 -- reimplement and rework semirare tarots (plus recolouring)
