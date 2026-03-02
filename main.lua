@@ -20,6 +20,12 @@ Valk = {
     },
 }
 
+setmetatable(Valk.load_order, {
+    __index = function(t, k)
+        return rawget(t, k) or 0 -- afformentioned metatable magic
+    end,
+})
+
 Valk.mod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
@@ -28,12 +34,6 @@ Valk.mod.optional_features = {
 Valk.mod.spectrallib_features = {
     "ascension_power",
 }
-
-setmetatable(Valk.load_order, {
-    __index = function(t, k)
-        return rawget(t, k) or 0 -- afformentioned metatable magic
-    end,
-})
 
 local blacklist = {
     assets = true,

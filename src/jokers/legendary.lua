@@ -287,3 +287,42 @@ SMODS.Joker {
     valk_artist = "slipstream",
     -- no calculate necessary
 }
+
+SMODS.Joker {
+    key = "illena",
+    atlas = "float",
+    pos = { x = 0, y = 4 },
+    soul_pos = { x = 1, y = 4 },
+    config = { extra = { gain = 2 } },
+    rarity = 4,
+    cost = 20,
+    immutable = true,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.gain, 1 / card.ability.extra.gain } }
+    end,
+    calculate = function(self, card, context)
+        -- code here
+        if context.end_of_round and context.main_eval then
+            local available_jokers = {}
+            for _, joker in pairs(G.jokers.cards) do
+                if not joker.config.center.immutable then
+                    table.insert(available_jokers, joker)
+                end
+            end
+            if #available_jokers < 2 then
+                return
+            end
+
+            local gain_joker_index = pseudorandom("valk_illena_gain", 1, #available_jokers)
+            local gain_joker = available_jokers[gain_joker_index]
+            table.remove(available_jokers, gain_joker_index)
+            local loss_joker = pseudorandom_element(available_jokers, "valk_illena_loss")
+            Spectrallib.manipulate(gain_joker, { value = card.ability.extra.gain })
+            Spectrallib.manipulate(loss_joker, { value = 1 / card.ability.extra.gain })
+
+            SMODS.calculate_effect({ message = localize("k_upgrade_ex") }, gain_joker)
+            SMODS.calculate_effect({ message = localize("k_downgrade_ex") }, loss_joker)
+        end
+    end,
+    valk_artist = "scraptake",
+}

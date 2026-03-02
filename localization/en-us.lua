@@ -440,6 +440,14 @@ return {
                     "{C:dark_edition}#1#{} Jokers may now spawn {C:spectral}Spectral{} cards",
                 },
             },
+            j_valk_illena = {
+                name = "Illena Vera",
+                text = {
+                    "At end of round, picks {C:attention}two{} random {C:attention}Jokers{}",
+                    "Multiplies one of their values by {C:attention}X#1#{}",
+                    "and multiplies the others values by {C:attention}X#2#{}",
+                },
+            },
         },
         Other = {
             undiscovered_Planetoid = {
@@ -710,6 +718,7 @@ return {
 
             b_planetoid_cards = "Planetoid Cards",
             k_planetoid = "Planetoid",
+            k_downgrade_ex = "Downgraded!",
         },
         high_scores = {},
         labels = {
