@@ -2,6 +2,7 @@ SMODS.Enhancement {
     key = "mirrored",
     atlas = "misc",
     pos = { x = 3, y = 6 },
+    valk_artist = "mailingway",
 }
 
 -- copying seal, edition, rank and suit code

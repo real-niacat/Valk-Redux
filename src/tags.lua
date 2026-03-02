@@ -8,6 +8,7 @@ SMODS.Tag {
     loc_vars = function(self, info_queue, tag)
         return { vars = { G.GAME.kitty_tag_chips } }
     end,
+    valk_artist = "scraptake",
 }
 
 ---@return number owned Kitty tags currently owned
@@ -47,4 +48,5 @@ SMODS.Tag {
             end
         end
     end,
+    valk_artist = "pangaea",
 }

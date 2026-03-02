@@ -27,6 +27,7 @@ SMODS.Joker {
         end
     end,
     valk_artist = "mailingway",
+    pools = { Kitty = true }, -- close enough
 }
 
 SMODS.Joker {
@@ -137,6 +138,7 @@ SMODS.Joker {
             }
         end
     end,
+    valk_artist = "slipstream",
 }
 
 SMODS.Joker {
@@ -161,6 +163,7 @@ SMODS.Joker {
             return { xmult = card.ability.extra.xmult }
         end
     end,
+    valk_artist = "slipstream",
 }
 
 SMODS.Joker {
@@ -185,6 +188,7 @@ SMODS.Joker {
             return { emult = 1.1 }
         end
     end,
+    valk_artist = "slipstream",
 }
 
 SMODS.Joker {
@@ -209,6 +213,7 @@ SMODS.Joker {
             return { chips = card.ability.extra.chipsmult, mult = card.ability.extra.chipsmult }
         end
     end,
+    valk_artist = "slipstream",
 }
 
 SMODS.Joker {
@@ -233,6 +238,7 @@ SMODS.Joker {
             return { echips = card.ability.extra.echips }
         end
     end,
+    valk_artist = "slipstream",
 }
 
 SMODS.Joker {
@@ -261,6 +267,7 @@ SMODS.Joker {
             }
         end
     end,
+    valk_artist = "slipstream",
 }
 
 SMODS.Joker {
@@ -276,5 +283,6 @@ SMODS.Joker {
             vars = { localize { type = "name_text", set = "Edition", key = card.ability.extra.aesthetijoker_edition } },
         }
     end,
+    valk_artist = "slipstream",
     -- no calculate necessary
 }

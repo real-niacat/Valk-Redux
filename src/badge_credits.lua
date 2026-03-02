@@ -27,7 +27,7 @@ function SMODS.create_mod_badges(obj, badges)
         end
         local scale_fac = {}
         local min_scale_fac = 1
-        local strings = { Valk.mod.display_name, localize("k_valk_artby") .. Valk.artists[obj.valk_artist].display_name }
+        local strings = { Valk.mod.display_name, localize(obj.valk_art_type or "k_valk_artby") .. Valk.artists[obj.valk_artist].display_name }
         for i = 1, #strings do
             scale_fac[i] = calc_scale_fac(strings[i])
             min_scale_fac = math.min(min_scale_fac, scale_fac[i])
@@ -94,6 +94,7 @@ end
 ---@type Badge[]
 Valk.badges = {
     {
+        key = "kitty",
         should_apply = function(center)
             return center.pools and center.pools.Kitty
         end,
@@ -105,8 +106,9 @@ Valk.badges = {
         end,
     },
     {
+        key = "creditless",
         should_apply = function(center)
-            return not center.valk_artist and center.original_mod and center.original_mod.id == Valk.mod.id and center.set ~= "Edition"
+            return not center.valk_artist and center.original_mod and center.original_mod.id == Valk.mod.id
         end,
         get_text = function(center)
             return { localize("valk_badge_missing_art") }
@@ -119,6 +121,11 @@ Valk.badges = {
         end,
     },
 }
+
+Valk.badges_keyed = {}
+for i, entry in ipairs(Valk.badges) do
+    Valk.badges_keyed[entry.key] = entry
+end
 
 function Valk.util.generate_badge(badge, obj)
     local strs = badge.get_text(obj)

@@ -34,6 +34,8 @@ SMODS.Edition {
     config = { echips = 1.05 },
     extra_cost = 3,
     weight = 5,
+    valk_artist = "lily",
+    valk_art_type = "k_valk_shaderby",
 }
 
 SMODS.Edition {
@@ -53,6 +55,8 @@ SMODS.Edition {
     config = { chips = 25, xmult = 1.25 },
     extra_cost = 3,
     weight = 8,
+    valk_artist = "lily",
+    valk_art_type = "k_valk_shaderby",
 }
 
 SMODS.Edition {
@@ -71,4 +75,6 @@ SMODS.Edition {
     end,
     extra_cost = 12,
     weight = 4,
+    valk_artist = "lily",
+    valk_art_type = "k_valk_shaderby",
 }

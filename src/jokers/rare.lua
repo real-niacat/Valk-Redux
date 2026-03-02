@@ -42,6 +42,7 @@ SMODS.Joker {
         end
     end,
     valk_artist = "duck",
+    pools = { Kitty = true },
 }
 
 SMODS.Joker {
@@ -66,6 +67,7 @@ SMODS.Joker {
         end
     end,
     valk_artist = "mailingway",
+    pools = { Kitty = true },
 }
 
 SMODS.Joker {
@@ -86,6 +88,7 @@ SMODS.Joker {
         end
     end,
     valk_artist = "mailingway",
+    pools = { Kitty = true },
 }
 
 SMODS.Joker {
@@ -140,6 +143,7 @@ SMODS.Joker {
         return card.ability.extra.base_den + (math.floor(Valk.util.get_kitty_tags() / card.ability.extra.den_req) * card.ability.extra.den_increase)
     end,
     valk_artist = "mailingway",
+    pools = { Kitty = true },
 }
 
 SMODS.Joker {
@@ -170,6 +174,7 @@ SMODS.Joker {
         end
     end,
     valk_artist = "mailingway",
+    pools = { Kitty = true },
 }
 
 SMODS.Joker {
@@ -284,4 +289,5 @@ SMODS.Joker {
         end
     end,
     valk_artist = "mailingway",
+    pools = { Kitty = true },
 }

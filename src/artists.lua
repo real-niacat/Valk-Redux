@@ -50,6 +50,11 @@ Valk.artist {
     display_name = "Aduckted",
 }
 
+Valk.artist {
+    key = "lily",
+    display_name = "Lily Felli",
+}
+
 Valk.util.hook_after("SMODS.injectItems", function()
     for _, center in pairs(G.P_CENTERS) do
         if center.valk_artist then

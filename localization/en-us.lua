@@ -678,6 +678,7 @@ return {
         dictionary = {
             -- when you do localize(x) it looks here for an entry with key x
             k_valk_artby = "Art by: ",
+            k_valk_shaderby = "Shader by: ",
             k_plus_kitty_tag = "+1 Kitty Tag",
             k_replaced_ex = "Replaced!",
             ph_lv_display = "Lv. ",

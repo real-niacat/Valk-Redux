@@ -96,6 +96,22 @@ SMODS.Keybind {
     end,
 }
 
+SMODS.Keybind {
+    key = "reveal_missing_credits",
+    key_pressed = "l",
+    action = function(self)
+        local centers = {}
+        for key, center in pairs(G.P_CENTERS) do
+            if Valk.badges_keyed["creditless"].should_apply(center) then
+                table.insert(centers, center)
+            end
+        end
+        G.FUNCS.overlay_menu {
+            definition = SMODS.card_collection_UIBox(centers, { 5, 5, 5 }, { back_func = "exit_overlay_menu" }),
+        }
+    end,
+}
+
 function Valk.util.poll_hand(seed, visible_only, exclude)
     local poker_hands = {}
     for handname, _ in pairs(G.GAME.hands) do

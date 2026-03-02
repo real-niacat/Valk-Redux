@@ -494,4 +494,5 @@ SMODS.Joker {
         end
     end,
     valk_artist = "mailingway",
+    pools = { Kitty = true },
 }
