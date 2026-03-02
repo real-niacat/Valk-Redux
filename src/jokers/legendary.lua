@@ -63,9 +63,11 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if context.joker_main then return {
-            plus_asc = card.ability.extra.asc,
-        } end
+        if context.joker_main then
+            return {
+                plus_asc = card.ability.extra.asc,
+            }
+        end
 
         if context.before and context.scoring_name == card.ability.extra.poker_hand then
             SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "asc", scalar_value = "gain" })
@@ -84,14 +86,18 @@ SMODS.Joker {
 
 function Valk.content.aesthetijoker_owned(area)
     for _, card in pairs(area.cards) do
-        if Spectrallib.safe_get(card, "ability", "extra", "aesthetijoker_edition") then return true end
+        if Spectrallib.safe_get(card, "ability", "extra", "aesthetijoker_edition") then
+            return true
+        end
     end
     return false
 end
 
 -- AesthetiJoker hook
 Valk.util.hook_after("Card.stop_drag", function(original, self)
-    if not Valk.content.aesthetijoker_owned(self.area) then return end
+    if not Valk.content.aesthetijoker_owned(self.area) then
+        return
+    end
     for _, card in pairs(self.area.cards) do
         local left_card = self.area.cards[Valk.util.get_index(card) - 1]
         local right_card = self.area.cards[Valk.util.get_index(card) + 1]
@@ -125,11 +131,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if
-            context.post_trigger
-            and Spectrallib.safe_get(context, "other_card", "edition", "key")
-                == card.ability.extra.aesthetijoker_edition
-        then
+        if context.post_trigger and Spectrallib.safe_get(context, "other_card", "edition", "key") == card.ability.extra.aesthetijoker_edition then
             return {
                 xchips = card.ability.extra.xchips,
             }
@@ -155,11 +157,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if
-            context.post_trigger
-            and Spectrallib.safe_get(context, "other_card", "edition", "key")
-                == card.ability.extra.aesthetijoker_edition
-        then
+        if context.post_trigger and Spectrallib.safe_get(context, "other_card", "edition", "key") == card.ability.extra.aesthetijoker_edition then
             return { xmult = card.ability.extra.xmult }
         end
     end,
@@ -183,11 +181,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if
-            context.post_trigger
-            and Spectrallib.safe_get(context, "other_card", "edition", "key")
-                == card.ability.extra.aesthetijoker_edition
-        then
+        if context.post_trigger and Spectrallib.safe_get(context, "other_card", "edition", "key") == card.ability.extra.aesthetijoker_edition then
             return { emult = 1.1 }
         end
     end,
@@ -211,11 +205,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if
-            context.post_trigger
-            and Spectrallib.safe_get(context, "other_card", "edition", "key")
-                == card.ability.extra.aesthetijoker_edition
-        then
+        if context.post_trigger and Spectrallib.safe_get(context, "other_card", "edition", "key") == card.ability.extra.aesthetijoker_edition then
             return { chips = card.ability.extra.chipsmult, mult = card.ability.extra.chipsmult }
         end
     end,
@@ -239,11 +229,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if
-            context.post_trigger
-            and Spectrallib.safe_get(context, "other_card", "edition", "key")
-                == card.ability.extra.aesthetijoker_edition
-        then
+        if context.post_trigger and Spectrallib.safe_get(context, "other_card", "edition", "key") == card.ability.extra.aesthetijoker_edition then
             return { echips = card.ability.extra.echips }
         end
     end,
@@ -268,11 +254,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if
-            context.post_trigger
-            and Spectrallib.safe_get(context, "other_card", "edition", "key")
-                == card.ability.extra.aesthetijoker_edition
-        then
+        if context.post_trigger and Spectrallib.safe_get(context, "other_card", "edition", "key") == card.ability.extra.aesthetijoker_edition then
             return {
                 mult = card.ability.extra.mult,
                 xchips = card.ability.extra.xchips,

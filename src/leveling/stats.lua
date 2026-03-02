@@ -15,10 +15,14 @@ Valk.util.hook("Game.init_game_object", function(original, ...)
 end)
 
 Valk.util.hook_after("Game.update", function()
-    if not G.GAME.valk_leveling then return end
+    if not G.GAME.valk_leveling then
+        return
+    end
 
     for key, value in pairs(G.GAME.valk_leveling) do
-        if type(value) == "number" then G.GAME.valk_leveling[key .. "_display"] = string.format("%.0f", value) end
+        if type(value) == "number" then
+            G.GAME.valk_leveling[key .. "_display"] = string.format("%.0f", value)
+        end
     end
 end)
 
@@ -55,6 +59,8 @@ end
 
 function Valk.leveling.get_next_gate()
     local cur_ante = G.GAME.round_resets.ante
-    if cur_ante >= G.GAME.win_ante then return cur_ante + 1 end
+    if cur_ante >= G.GAME.win_ante then
+        return cur_ante + 1
+    end
     return G.GAME.win_ante + 1
 end

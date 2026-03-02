@@ -34,19 +34,12 @@ SMODS.Joker {
         if context.individual and context.cardarea == G.play then
             card.ability.extra.cards_left = card.ability.extra.cards_left - 1
             if card.ability.extra.cards_left <= 0 then
-                SMODS.scale_card(
-                    card,
-                    { ref_table = card.ability.extra, ref_value = "retriggers", scalar_value = "retrigger_gain" }
-                )
+                SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "retriggers", scalar_value = "retrigger_gain" })
                 card.ability.extra.cards_left = card.ability.extra.cards_required
             end
         end
 
-        if
-            context.retrigger_joker_check
-            and Valk.util.get_index(context.other_card) == Valk.util.get_index(card) - 1
-            and card.ability.extra.retriggers > 0
-        then
+        if context.retrigger_joker_check and Valk.util.get_index(context.other_card) == Valk.util.get_index(card) - 1 and card.ability.extra.retriggers > 0 then
             return { repetitions = card.ability.extra.retriggers }
         end
     end,
@@ -72,7 +65,9 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if context.individual and context.cardarea == G.play then return { chips = card.ability.extra.chips } end
+        if context.individual and context.cardarea == G.play then
+            return { chips = card.ability.extra.chips }
+        end
     end,
     add_to_deck = function(self, card, from_debuff)
         SMODS.change_play_limit(card.ability.extra.selection_limit)
@@ -100,11 +95,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if
-            context.individual
-            and context.cardarea == G.play
-            and context.other_card:is_suit(G.GAME.current_round.ancient_card.suit)
-        then
+        if context.individual and context.cardarea == G.play and context.other_card:is_suit(G.GAME.current_round.ancient_card.suit) then
             G.hand:change_size(card.ability.extra.handsize)
             card.ability.extra.sum = card.ability.extra.sum + card.ability.extra.handsize
         end
@@ -130,9 +121,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if
-            context.retrigger_joker_check and Spectrallib.safe_get(context.other_card.config.center, "pools", "Kitty")
-        then
+        if context.retrigger_joker_check and Spectrallib.safe_get(context.other_card.config.center, "pools", "Kitty") then
             return { repetitions = Valk.util.get_kitty_jokers() }
         end
     end,
@@ -160,11 +149,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if
-            context.individual
-            and context.cardarea == G.play
-            and SMODS.has_enhancement(context.other_card, "m_wild")
-        then
+        if context.individual and context.cardarea == G.play and SMODS.has_enhancement(context.other_card, "m_wild") then
             local bonus = (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
             card.ability.extra.emult_gain = card.ability.extra.emult_gain_base + bonus
             SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "emult", scalar_value = "emult_gain" })
@@ -177,7 +162,9 @@ SMODS.Joker {
             }
         end
 
-        if context.joker_main then return { emult = card.ability.extra.emult } end
+        if context.joker_main then
+            return { emult = card.ability.extra.emult }
+        end
     end,
     pools = { Kitty = true },
     cost = 10,
@@ -206,11 +193,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if
-            context.individual
-            and context.cardarea == G.play
-            and SMODS.has_enhancement(context.other_card, "m_stone")
-        then
+        if context.individual and context.cardarea == G.play and SMODS.has_enhancement(context.other_card, "m_stone") then
             local bonus = (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
             card.ability.extra.emult_gain = card.ability.extra.emult_gain_base + bonus
             SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "emult", scalar_value = "emult_gain" })
@@ -223,7 +206,9 @@ SMODS.Joker {
             }
         end
 
-        if context.joker_main then return { emult = card.ability.extra.emult } end
+        if context.joker_main then
+            return { emult = card.ability.extra.emult }
+        end
     end,
     pools = { Kitty = true },
     cost = 10,

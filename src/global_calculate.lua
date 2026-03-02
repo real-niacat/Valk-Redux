@@ -41,7 +41,9 @@ Valk.mod.calculate = function(self, context)
         })
     end
 
-    if context.modify_ante and context.ante_end then Valk.leveling.calc_gate(context.modify_ante) end
+    if context.modify_ante and context.ante_end then
+        Valk.leveling.calc_gate(context.modify_ante)
+    end
 
     if context.setting_blind and Valk.leveling.get_active_gates().HalfDiscards then
         ease_discard(-G.GAME.current_round.discards_left / 2)

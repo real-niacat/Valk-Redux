@@ -1,10 +1,14 @@
 local create_mod_badges_hook = SMODS.create_mod_badges
 function SMODS.create_mod_badges(obj, badges)
     create_mod_badges_hook(obj, badges)
-    if not obj then return end
+    if not obj then
+        return
+    end
 
     for _, badge in pairs(Valk.badges) do
-        if badge.should_apply(obj) then table.insert(badges, 1, Valk.util.generate_badge(badge, obj)) end
+        if badge.should_apply(obj) then
+            table.insert(badges, 1, Valk.util.generate_badge(badge, obj))
+        end
     end
 
     if not SMODS.config.no_mod_badges and obj and obj.valk_artist then
@@ -15,8 +19,7 @@ function SMODS.create_mod_badges(obj, badges)
             local calced_text_width = 0
             -- Math reproduced from DynaText:update_text
             for _, c in utf8.chars(text) do
-                local tx = font.FONT:getWidth(c) * (0.33 * size) * G.TILESCALE * font.FONTSCALE
-                    + 2.7 * 1 * G.TILESCALE * font.FONTSCALE
+                local tx = font.FONT:getWidth(c) * (0.33 * size) * G.TILESCALE * font.FONTSCALE + 2.7 * 1 * G.TILESCALE * font.FONTSCALE
                 calced_text_width = calced_text_width + tx / (G.TILESIZE * G.TILESCALE)
             end
             local scale_fac = calced_text_width > max_text_width and max_text_width / calced_text_width or 1
@@ -24,8 +27,7 @@ function SMODS.create_mod_badges(obj, badges)
         end
         local scale_fac = {}
         local min_scale_fac = 1
-        local strings =
-            { Valk.mod.display_name, localize("k_valk_artby") .. Valk.artists[obj.valk_artist].display_name }
+        local strings = { Valk.mod.display_name, localize("k_valk_artby") .. Valk.artists[obj.valk_artist].display_name }
         for i = 1, #strings do
             scale_fac[i] = calc_scale_fac(strings[i])
             min_scale_fac = math.min(min_scale_fac, scale_fac[i])
@@ -104,10 +106,7 @@ Valk.badges = {
     },
     {
         should_apply = function(center)
-            return not center.valk_artist
-                and center.original_mod
-                and center.original_mod.id == Valk.mod.id
-                and center.set ~= "Edition"
+            return not center.valk_artist and center.original_mod and center.original_mod.id == Valk.mod.id and center.set ~= "Edition"
         end,
         get_text = function(center)
             return { localize("valk_badge_missing_art") }
@@ -123,7 +122,9 @@ Valk.badges = {
 
 function Valk.util.generate_badge(badge, obj)
     local strs = badge.get_text(obj)
-    if type(strs) == "string" then strs = { strs } end
+    if type(strs) == "string" then
+        strs = { strs }
+    end
     local strings = {}
     for i = 1, #strs do
         strings[i] = {

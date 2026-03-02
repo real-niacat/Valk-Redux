@@ -52,6 +52,8 @@ Valk.artist {
 
 Valk.util.hook_after("SMODS.injectItems", function()
     for _, center in pairs(G.P_CENTERS) do
-        if center.valk_artist then table.insert(Valk.artists[center.valk_artist].drawn, center.key) end
+        if center.valk_artist then
+            table.insert(Valk.artists[center.valk_artist].drawn, center.key)
+        end
     end
 end)

@@ -41,7 +41,9 @@ end
 
 function Valk.util.get_index(card)
     for i, i_card in ipairs(card.area.cards) do
-        if i_card == card then return i end
+        if i_card == card then
+            return i
+        end
     end
     error("Card not found in its own area. What the fuck are you doing?")
 end
@@ -79,7 +81,9 @@ end
 
 function Valk.util.reload_localization()
     for i, v in pairs(SMODS.Mods) do
-        if v.can_load and v.path then SMODS.handle_loc_file(v.path) end
+        if v.can_load and v.path then
+            SMODS.handle_loc_file(v.path)
+        end
     end
     return init_localization()
 end

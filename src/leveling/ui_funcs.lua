@@ -122,7 +122,9 @@ function Valk.leveling.ease_xp(amount, leveling_callback)
     for i, ease_to in ipairs(xps) do
         local time = base_time / (2 ^ (i - 1))
         local final = (i == #xps)
-        if final then time = base_time * 1.5 end
+        if final then
+            time = base_time * 1.5
+        end
         total_time_taken = total_time_taken + time
         G.E_MANAGER:add_event(Event {
             trigger = "after",
@@ -155,7 +157,9 @@ function Valk.leveling.ease_xp(amount, leveling_callback)
                                 leveling.xp = 0
                                 leveling.req = Valk.leveling.get_requirement(leveling.level)
                                 Valk.leveling.level_up(leveling.level)
-                                if leveling_callback then leveling_callback(leveling.level) end
+                                if leveling_callback then
+                                    leveling_callback(leveling.level)
+                                end
                             end
                             if amount == 0 then
                                 -- nope!
@@ -169,7 +173,9 @@ function Valk.leveling.ease_xp(amount, leveling_callback)
                                     offset = { x = 0, y = 2 },
                                 }
                             end
-                            if final then leveling.in_animation = false end
+                            if final then
+                                leveling.in_animation = false
+                            end
                             return true
                         end,
                     },

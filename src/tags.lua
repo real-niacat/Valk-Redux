@@ -14,7 +14,9 @@ SMODS.Tag {
 function Valk.util.get_kitty_tags()
     local count = 0
     for _, tag in pairs(G.GAME.tags) do
-        if tag.key == "tag_valk_kitty" then count = count + 1 end
+        if tag.key == "tag_valk_kitty" then
+            count = count + 1
+        end
     end
     return count
 end

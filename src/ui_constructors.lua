@@ -10,12 +10,14 @@ function Valk.ui.DynaBar(args)
     args.h = args.h or 0.5
     args.label_scale = args.label_scale or 0.5
     args.text_scale = args.text_scale or 0.3
-    if type(args.min) == "number" then args.min = { value = args.min } end
-    if type(args.max) == "number" then args.max = { value = args.max } end
+    if type(args.min) == "number" then
+        args.min = { value = args.min }
+    end
+    if type(args.max) == "number" then
+        args.max = { value = args.max }
+    end
     args.decimal_places = args.decimal_places or 0
-    local startval = args.w
-        * (args.ref_table[args.ref_value] - Valk.ui.get_value(args.min))
-        / (Valk.ui.get_value(args.max) - Valk.ui.get_value(args.min))
+    local startval = args.w * (args.ref_table[args.ref_value] - Valk.ui.get_value(args.min)) / (Valk.ui.get_value(args.max) - Valk.ui.get_value(args.min))
 
     local t = {
         n = G.UIT.C,
@@ -56,15 +58,13 @@ end
 function G.FUNCS.update_bar(e)
     local c = e.children[1]
     local rt = c.config.ref_table
-    rt.text = (rt.ref_table[rt.ref_value] - Valk.ui.get_value(rt.min))
-        / (Valk.ui.get_value(rt.max) - Valk.ui.get_value(rt.min))
-        * rt.w
-    c.T.w = (rt.ref_table[rt.ref_value] - Valk.ui.get_value(rt.min))
-        / (Valk.ui.get_value(rt.max) - Valk.ui.get_value(rt.min))
-        * rt.w
+    rt.text = (rt.ref_table[rt.ref_value] - Valk.ui.get_value(rt.min)) / (Valk.ui.get_value(rt.max) - Valk.ui.get_value(rt.min)) * rt.w
+    c.T.w = (rt.ref_table[rt.ref_value] - Valk.ui.get_value(rt.min)) / (Valk.ui.get_value(rt.max) - Valk.ui.get_value(rt.min)) * rt.w
     c.config.w = c.T.w
 end
 
 Valk.util.hook_before("UIElement.update", function(original, self, dt)
-    if self.config and self.config.update_func then G.FUNCS[self.config.update_func](self) end
+    if self.config and self.config.update_func then
+        G.FUNCS[self.config.update_func](self)
+    end
 end)

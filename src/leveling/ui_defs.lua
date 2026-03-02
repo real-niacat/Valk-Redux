@@ -253,7 +253,9 @@ Valk.util.hook_after("Game.start_run", function(_, self, args)
 end)
 
 function Valk.ui.refresh_level_progress()
-    if G.valk_level_progress then G.valk_level_progress:remove() end
+    if G.valk_level_progress then
+        G.valk_level_progress:remove()
+    end
     G.valk_level_progress = UIBox {
         definition = Valk.ui.create_UIBox_level_progress(),
         config = { major = G.jokers, offset = { x = 0, y = -3 }, align = "cm", instance_type = "CARD" },
@@ -261,7 +263,9 @@ function Valk.ui.refresh_level_progress()
 end
 
 function Valk.ui.refresh_level_toggle()
-    if G.valk_level_toggle then G.valk_level_toggle:remove() end
+    if G.valk_level_toggle then
+        G.valk_level_toggle:remove()
+    end
     G.valk_level_toggle = UIBox {
         definition = Valk.ui.create_UIBox_level_toggle(),
         config = { major = G.consumeables, offset = { x = 1, y = 0 }, align = "tl", instance_type = "CARD" },

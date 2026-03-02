@@ -17,8 +17,12 @@ function Card:calc_mirrored(source)
         local left_card = self.area.cards[Valk.util.get_index(self) - 1]
         local right_card = self.area.cards[Valk.util.get_index(self) + 1]
 
-        if left_card and left_card ~= source then left_card:calc_mirrored(self) end
-        if right_card and right_card ~= source then right_card:calc_mirrored(self) end
+        if left_card and left_card ~= source then
+            left_card:calc_mirrored(self)
+        end
+        if right_card and right_card ~= source then
+            right_card:calc_mirrored(self)
+        end
 
         if right_card then
             self:set_seal(right_card.seal, true, true)

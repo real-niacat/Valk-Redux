@@ -46,7 +46,9 @@ SMODS.Joker {
         return { vars = { card.ability.extra.mult } }
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == "unscored" then return { mult = card.ability.extra.mult } end
+        if context.individual and context.cardarea == "unscored" then
+            return { mult = card.ability.extra.mult }
+        end
     end,
     cost = 3,
     valk_artist = "mailingway",
@@ -65,11 +67,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if
-            context.end_of_round
-            and context.main_eval
-            and SMODS.pseudorandom_probability(card, "kitty", 1, card.ability.extra.den)
-        then
+        if context.end_of_round and context.main_eval and SMODS.pseudorandom_probability(card, "kitty", 1, card.ability.extra.den) then
             add_tag(Tag("tag_valk_kitty"))
             SMODS.calculate_effect({ message = localize("k_plus_kitty_tag") }, card)
         end
@@ -129,8 +127,12 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if context.initial_scoring_step then return { mult = card.ability.extra.mult } end
-        if context.final_scoring_step then return { mult = -card.ability.extra.mult } end
+        if context.initial_scoring_step then
+            return { mult = card.ability.extra.mult }
+        end
+        if context.final_scoring_step then
+            return { mult = -card.ability.extra.mult }
+        end
     end,
     valk_artist = "mailingway",
 }

@@ -81,7 +81,9 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if context.reroll_shop then add_tag(Tag("tag_valk_kitty")) end
+        if context.reroll_shop then
+            add_tag(Tag("tag_valk_kitty"))
+        end
     end,
     valk_artist = "mailingway",
 }
@@ -120,10 +122,7 @@ SMODS.Joker {
             end
             local to_remove = {}
             for _, tag in pairs(G.GAME.tags) do
-                if
-                    (tag.key == "tag_valk_kitty")
-                    and SMODS.pseudorandom_probability(card, "kittydupe", 1, card.ability.extra.base_destroy)
-                then
+                if (tag.key == "tag_valk_kitty") and SMODS.pseudorandom_probability(card, "kittydupe", 1, card.ability.extra.base_destroy) then
                     table.insert(to_remove, tag)
                 end
             end
@@ -138,8 +137,7 @@ SMODS.Joker {
         end
     end,
     get_denominator = function(self, card)
-        return card.ability.extra.base_den
-            + (math.floor(Valk.util.get_kitty_tags() / card.ability.extra.den_req) * card.ability.extra.den_increase)
+        return card.ability.extra.base_den + (math.floor(Valk.util.get_kitty_tags() / card.ability.extra.den_req) * card.ability.extra.den_increase)
     end,
     valk_artist = "mailingway",
 }
@@ -160,7 +158,9 @@ SMODS.Joker {
         if context.end_of_round and context.main_eval then
             local to_remove = {}
             for _, tag in pairs(G.GAME.tags) do
-                if tag.key == "tag_valk_kitty" then table.insert(to_remove, tag) end
+                if tag.key == "tag_valk_kitty" then
+                    table.insert(to_remove, tag)
+                end
             end
 
             for _, remove_tag in pairs(to_remove) do
@@ -218,7 +218,9 @@ SMODS.Joker {
             SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "chips", scalar_value = "chips_gain" })
         end
 
-        if context.joker_main then return { chips = card.ability.extra.chips } end
+        if context.joker_main then
+            return { chips = card.ability.extra.chips }
+        end
     end,
     valk_artist = "mailingway",
 }

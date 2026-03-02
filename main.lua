@@ -44,25 +44,17 @@ local blacklist = {
 }
 
 local function load_file_native(path, id)
-    if not path or path == "" then error("No path was provided to load.") end
+    if not path or path == "" then
+        error("No path was provided to load.")
+    end
     local file_content, readerr = SMODS.NFS.read(path)
     if not file_content then
-        local error_message = "Error reading file '"
-            .. path
-            .. "' for mod with ID '"
-            .. SMODS.current_mod.id
-            .. "': "
-            .. readerr
+        local error_message = "Error reading file '" .. path .. "' for mod with ID '" .. SMODS.current_mod.id .. "': " .. readerr
         return nil, error_message
     end
     local chunk, loaderr = load(file_content, "=[SMODS " .. SMODS.current_mod.id .. ' "' .. path .. '"]')
     if not chunk then
-        local error_message = "Error processing file '"
-            .. path
-            .. "' for mod with ID '"
-            .. SMODS.current_mod.id
-            .. "': "
-            .. loaderr
+        local error_message = "Error processing file '" .. path .. "' for mod with ID '" .. SMODS.current_mod.id .. "': " .. loaderr
         return nil, error_message
     end
     return chunk
@@ -70,7 +62,9 @@ end
 local function load_files(path, dirs_only, initial)
     local info = SMODS.NFS.getDirectoryItemsInfo(path)
     local to_load = {}
-    if initial == nil then initial = true end
+    if initial == nil then
+        initial = true
+    end
     for i, v in pairs(info) do
         if v.type == "directory" and not blacklist[v.name] then
             to_load = SMODS.merge_lists { to_load, load_files(path .. "/" .. v.name, false, false) }
@@ -83,7 +77,9 @@ local function load_files(path, dirs_only, initial)
         end
     end
 
-    if not initial then return to_load end
+    if not initial then
+        return to_load
+    end
 
     local function sanitize(file)
         return file:match("([^/]+)$")
