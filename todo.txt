@@ -1,23 +1,24 @@
 -- reimplement common through rare jokers
     DONE
 -- reimplement renowned jokers
-    not started / med prio
--- overscoring reimplementation
-    not started
--- reimplement legendary and exquisite jokers
-    not started / high prio
--- concept leveling rework and implement it
-    left to do:
-        - Gate UI
-        - Gate functionality
-    
--- reimplement and rework decks
-    not started / low prio
+    DONE
 -- reimplement tags
     DONE
+-- reimplement editions
+    DONE
+-- reimplement legendary jokers
+    DONE
+-- reimplement exquisite jokers
+    not started / high prio
+-- concept leveling rework and implement it
+    90% done
+    left to do:
+        - Gate Current UI
+-- reimplement and rework decks
+    not started / low prio
 -- reimplement spectral cards
     not started
--- reimplement and rework semirare tarots
+-- reimplement and rework semirare tarots (plus recolouring)
     not started
 -- reimplement planetoid cards
     not started / low prio
@@ -26,8 +27,6 @@
 -- reimplement all vouchers (rework a few too)
     not started / low prio
 -- reimplement aesthetic cards
-    not started
--- reimplement editions
     not started
 -- add main menu logo
     stalled / low prio
