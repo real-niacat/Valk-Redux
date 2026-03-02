@@ -10,6 +10,7 @@ Valk.util.hook("Game.init_game_object", function(original, ...)
         ui_state = { complete = true },
         gate_intensity = 0,
         leniency = 2, -- higher number = easier to gain 100% xp per blind
+        xp_multiplier = 1,
     }
     return game
 end)
@@ -63,4 +64,8 @@ function Valk.leveling.get_next_gate()
         return cur_ante + 1
     end
     return G.GAME.win_ante + 1
+end
+
+function Valk.leveling.get_xp_coefficient(original_amount)
+    return G.GAME.valk_leveling.xp_multiplier or 1
 end

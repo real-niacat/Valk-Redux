@@ -1,6 +1,21 @@
 return {
     descriptions = {
-        Back = {},
+        Back = {
+            b_valk_inertia = {
+                name = "Inertia Deck",
+                text = {
+                    "{X:dark_edition,C:white}^#1#{} Blind Size",
+                    "{X:valk_grad2,C:white}X#2#{} XP Gain",
+                },
+            },
+            b_valk_encore = {
+                name = "Encore Deck",
+                text = {
+                    "Retrigger all Jokers {C:attention}once{}",
+                    "{C:attention}#1#{} Joker slots",
+                },
+            },
+        },
         Blind = {},
         Edition = {
             e_valk_cosmic = {
@@ -195,6 +210,13 @@ return {
                 text = {
                     "{C:attention}#1#{} to the next",
                     "change in {C:attention}ante{}",
+                },
+            },
+            j_valk_kopa = {
+                name = "Kopa",
+                text = {
+                    "If {C:attention}first hand{} of round has only {C:attention}one{}",
+                    "card, apply {C:dark_edition}Polychrome{} to it",
                 },
             },
             j_valk_takeyourage = {

@@ -470,3 +470,28 @@ SMODS.Joker {
     end,
     valk_artist = "mailingway",
 }
+
+SMODS.Joker {
+    key = "kopa",
+    atlas = "jokers",
+    pos = { x = 1, y = 4 },
+    config = { extra = {} },
+    rarity = 2,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    calculate = function(self, card, context)
+        -- code here
+        if context.first_hand_drawn and not context.blueprint then
+            local eval = function()
+                return G.GAME.current_round.hands_played == 0 and not G.RESET_JIGGLES
+            end
+            juice_card_until(card, eval, true)
+        end
+        if context.before and G.GAME.current_round.hands_played == 0 and #context.full_hand == 1 then
+            context.full_hand[1]:set_edition("e_polychrome")
+        end
+    end,
+    valk_artist = "mailingway",
+}

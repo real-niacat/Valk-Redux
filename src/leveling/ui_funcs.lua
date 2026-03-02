@@ -239,6 +239,7 @@ function Valk.leveling.full_ease_xp(amount, skip, callback)
 end
 
 function Valk.leveling.add_round_eval_row(xp, source)
+    xp = xp * Valk.leveling.get_xp_coefficient(xp)
     G.GAME.valk_leveling.to_add = G.GAME.valk_leveling.to_add or 0
     G.GAME.valk_leveling.to_add = G.GAME.valk_leveling.to_add + xp
     add_round_eval_row {

@@ -83,5 +83,6 @@ for i, oid in ipairs(planetoid_cards) do
             return true
         end,
         valk_artist = "mailingway",
+        display_size = { w = 65, h = 79 },
     }
 end
