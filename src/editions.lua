@@ -64,7 +64,10 @@ SMODS.Edition {
             or (context.main_scoring and context.cardarea == G.play)
         then
             card:juice_up()
-            SMODS.add_card { set = "Tarot_Planet", area = G.consumeables }
+            local sets = { "Planet", "Tarot" }
+            if next(SMODS.find_card("j_valk_arkade")) then table.insert(sets, "Spectral") end
+            local chosen = Valk.util.poll_sets(sets, "valk_glowdark")
+            SMODS.add_card { key = chosen, area = G.consumeables }
         end
     end,
     extra_cost = 12,

@@ -362,6 +362,62 @@ return {
                     "{C:inactive}(Currently {C:gold}+#3#{C:inactive} Ascension Power)",
                 },
             },
+            j_valk_frutiger = {
+                name = "Frutiger",
+                text = {
+                    "Adjacent {C:attention}Jokers{} are given {C:dark_edition}#1#{}",
+                    "All other Jokers have their editions {C:red}removed{}",
+                    "{C:dark_edition}#1#{} Jokers additionally give {X:chips,C:white}X#2#{} Chips",
+                },
+            },
+            j_valk_synth = {
+                name = "Synth",
+                text = {
+                    "Adjacent {C:attention}Jokers{} are given {C:dark_edition}#1#{}",
+                    "All other Jokers have their editions {C:red}removed{}",
+                    "{C:dark_edition}#1#{} Jokers additionally give {X:mult,C:white}X#2#{} Mult",
+                },
+            },
+            j_valk_chrome = {
+                name = "Chrome",
+                text = {
+                    "Adjacent {C:attention}Jokers{} are given {C:dark_edition}#1#{}",
+                    "All other Jokers have their editions {C:red}removed{}",
+                    "{C:dark_edition}#1#{} Jokers additionally give {X:slib_emult,C:white}^#2#{} Mult",
+                },
+            },
+            j_valk_vapor = {
+                name = "Vapor",
+                text = {
+                    "Adjacent {C:attention}Jokers{} are given {C:dark_edition}#1#{}",
+                    "All other Jokers have their editions {C:red}removed{}",
+                    "{C:dark_edition}#1#{} Jokers additionally give {C:chips}+#2#{} Chips and {C:mult}+#2#{} Mult",
+                },
+            },
+            j_valk_memphis = {
+                name = "Memphis",
+                text = {
+                    "Adjacent {C:attention}Jokers{} are given {C:dark_edition}#1#{}",
+                    "All other Jokers have their editions {C:red}removed{}",
+                    "{C:dark_edition}#1#{} Jokers additionally give {X:slib_echips,C:white}^#2#{} Chips",
+                },
+            },
+            j_valk_scene = {
+                name = "Scene",
+                text = {
+                    "Adjacent {C:attention}Jokers{} are given {C:dark_edition}#1#{}",
+                    "All other Jokers have their editions {C:red}removed{}",
+                    "{C:dark_edition}#1#{} Jokers additionally give {C:mult}+#2#{} Mult and {X:chips,C:white}X#3#{} Chips",
+                },
+            },
+            j_valk_arkade = {
+                name = "Arkade",
+                text = {
+                    "Adjacent {C:attention}Jokers{} are given {C:dark_edition}#1#{}",
+                    "All other Jokers have their editions {C:red}removed{}",
+                    "{C:dark_edition}#1#{} Jokers may now spawn {C:spectral}Spectral{} cards",
+                },
+            },
         },
         Other = {},
         Planet = {},

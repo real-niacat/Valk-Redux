@@ -25,6 +25,20 @@ function Valk.util.poll_set(set, seed)
     return element
 end
 
+function Valk.util.poll_sets(sets, seed)
+    local pool = {}
+    for _, set in ipairs(sets) do
+        pool = Valk.util.merge_arrays(pool, copy_table(get_current_pool(set)))
+    end
+    local i = 1
+    local element = pseudorandom_element(pool, seed .. i)
+    while element == "UNAVAILABLE" do
+        i = i + 1
+        element = pseudorandom_element(pool, seed .. i)
+    end
+    return element
+end
+
 function Valk.util.get_index(card)
     for i, i_card in ipairs(card.area.cards) do
         if i_card == card then return i end
@@ -40,6 +54,17 @@ function Valk.util.merge_tables(a, b)
     end
     for key, value in pairs(b) do
         new[key] = value
+    end
+    return new
+end
+
+function Valk.util.merge_arrays(a, b)
+    local new = {}
+    for i, value in ipairs(a) do
+        table.insert(new, value)
+    end
+    for i, value in ipairs(b) do
+        table.insert(new, value)
     end
     return new
 end
