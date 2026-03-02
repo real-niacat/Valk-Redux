@@ -14,6 +14,13 @@ SMODS.Atlas {
     py = 79,
 }
 
+SMODS.UndiscoveredSprite { -- undiscovered sprite
+    key = "Planetoid",
+    atlas = "oid",
+    pos = { x = 0, y = 5 },
+    no_overlay = true,
+}
+
 local planetoid_cards = {
 
     { pos = { x = 0, y = 0 }, hand = "High Card", key = "kerberos" },
