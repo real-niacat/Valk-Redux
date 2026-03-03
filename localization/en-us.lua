@@ -265,7 +265,7 @@ return {
                         "chance to duplicate at end of round",
                     },
                     {
-                        "Increase denominator by {C:attention}#3#{} for every {C:attention}#4{}",
+                        "Increase denominator by {C:attention}#3#{} for every {C:attention}#4#{}",
                         "{C:attention}Kitty Tags{} owned",
                     },
                     {
@@ -446,6 +446,24 @@ return {
                     "At end of round, picks {C:attention}two{} random {C:attention}Jokers{}",
                     "Multiplies one of their values by {C:attention}X#1#{}",
                     "and multiplies the others values by {C:attention}X#2#{}",
+                },
+            },
+            j_valk_ruby = {
+                name = "Ruby Crimsonfang",
+                text = {
+                    "When {C:attention}Blind{} selected, if the ",
+                    "Joker to the right is a {C:attention}Kitty{} Joker,",
+                    "destroy it and gain {X:mult,C:white}X#1#{} Mult",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+                },
+            },
+            j_valk_madstone_whiskey = {
+                name = "Madstone Whiskey",
+                text = {
+                    "When {C:attention}The Fool{} is used, create a",
+                    "{C:tarot}Charm Tag{} and a random {C:tarot}Tarot{} card",
+                    "Gains {X:mult,C:white}X#1#{} Mult when a {C:tarot}Tarot{} card is sold",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
                 },
             },
         },
@@ -695,6 +713,7 @@ return {
             ph_valk_xp_score = "(Score Precision)",
             k_created_ex = "Created!",
             k_valk_renowned = "Renowned",
+            k_valk_exquisite = "Exquisite",
             ph_upcoming_gate = "Upcoming Ante Gate:",
             ph_gate_intensity = "Gate Intensity:",
             k_level = "Level ",
@@ -726,6 +745,7 @@ return {
             valk_rgb = "R.G.B",
             valk_glow = "Glow in the Dark",
             k_valk_renowned = "Renowned",
+            k_valk_exquisite = "Exquisite",
             Planetoid = "Planetoid",
         },
         poker_hand_descriptions = {},

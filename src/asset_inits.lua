@@ -25,3 +25,8 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
+
+SMODS.Sound {
+    key = "gore",
+    path = "gore.ogg",
+}

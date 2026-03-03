@@ -51,6 +51,11 @@ Valk.artist {
 }
 
 Valk.artist {
+    key = "ruby",
+    display_name = "lord.ruby",
+}
+
+Valk.artist {
     key = "lily",
     display_name = "Lily Felli",
 }

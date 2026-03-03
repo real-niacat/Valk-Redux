@@ -97,7 +97,7 @@ end
 
 -- AesthetiJoker hook
 Valk.util.hook_after("Card.stop_drag", function(original, self)
-    if not Valk.content.aesthetijoker_owned(self.area) then
+    if (not Valk.content.aesthetijoker_owned(self.area)) or self.area.config.collection then
         return
     end
     for _, card in pairs(self.area.cards) do
@@ -325,4 +325,48 @@ SMODS.Joker {
         end
     end,
     valk_artist = "scraptake",
+    pools = { Kitty = true },
+}
+
+SMODS.Joker {
+    key = "ruby",
+    atlas = "float",
+    pos = { x = 5, y = 8 },
+    soul_pos = { x = 6, y = 8 },
+    config = { extra = { xmult = 1, gain = 1 } },
+    rarity = 4,
+    cost = 20,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.gain, card.ability.extra.xmult } }
+    end,
+    calculate = function(self, card, context)
+        if context.setting_blind and not context.blueprint then
+            local index = Valk.util.get_index(card)
+            local gored_card = G.jokers.cards[index + 1]
+            if index and gored_card and Spectrallib.safe_get(gored_card, "config", "center", "pools", "Kitty") and (not SMODS.is_eternal(gored_card, card)) and not gored_card.getting_sliced then
+                gored_card.getting_sliced = true
+                G.GAME.joker_buffer = G.GAME.joker_buffer - 1
+                G.E_MANAGER:add_event(Event {
+                    func = function()
+                        G.GAME.joker_buffer = 0
+                        SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "xmult", scalar_value = "gain", no_message = true })
+                        card:juice_up(0.8, 0.8)
+                        gored_card:start_dissolve({ HEX("D60000") }, nil, 1.6)
+                        play_sound("valk_gore", 0.96 + math.random() * 0.08)
+                        return true
+                    end,
+                })
+                return {
+                    message = localize { type = "variable", key = "a_xmult", vars = { card.ability.extra.xmult } },
+                    colour = G.C.RED,
+                    no_juice = true,
+                }
+            end
+        end
+
+        if context.joker_main then
+            return { xmult = card.ability.extra.xmult }
+        end
+    end,
+    valk_artist = "ruby",
 }
