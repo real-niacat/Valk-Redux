@@ -75,3 +75,30 @@ SMODS.Joker {
     end,
     valk_artist = "pangaea",
 }
+
+SMODS.Joker {
+    key = "astracola",
+    atlas = "float",
+    pos = { x = 0, y = 5 },
+    soul_pos = { x = 2, y = 5 },
+    third_pos = { x = 1, y = 5 },
+    config = { extra = { levels = 2, levels_gain = 1 } },
+    rarity = "valk_exquisite",
+    cost = 50,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.levels, card.ability.extra.levels_gain } }
+    end,
+    calculate = function(self, card, context)
+        -- code here
+
+        if context.selling_card and context.card.config.center.set == "Planet" then
+            SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "levels", scalar_value = "levels_gain" })
+        end
+
+        if context.using_consumeable and context.consumeable.config.center.set == "Planet" then
+            local hand = Valk.util.poll_hand("valk_astracola", true)
+            SMODS.upgrade_poker_hands { hands = { hand }, level_up = card.ability.extra.levels, from = card }
+        end
+    end,
+    valk_artist = "pangaea",
+}

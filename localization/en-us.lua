@@ -466,6 +466,15 @@ return {
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
                 },
             },
+            j_valk_astracola = {
+                name = "Astracola",
+                text = {
+                    "When a {C:planet}Planet{} card is used, level up",
+                    "a random {C:attention}poker hand{} by {C:attention}#1#{} levels",
+                    "Increase by {C:attention}#2#{} level when a {C:planet}Planet{}",
+                    "card is sold",
+                },
+            },
         },
         Other = {
             undiscovered_Planetoid = {

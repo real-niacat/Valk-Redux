@@ -27,7 +27,7 @@
 -- reimplement aesthetic cards
     not started
 -- add main menu logo
-    stalled / low prio
+    waiting for art / low prio
 -- add credits ui
     not started / low prio
 -- remove loss
