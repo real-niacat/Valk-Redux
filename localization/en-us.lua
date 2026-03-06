@@ -16,7 +16,39 @@ return {
                 },
             },
         },
-        Blind = {},
+        Blind = {
+            bl_valk_high_road = {
+                name = "The High Road",
+                text = {
+                    "Start with {C:blue}#1#{} Hands and {C:red}#2#{} Discards",
+                    "Losing this blind {C:attention}does not end the run{}",
+                    "Winning this blind creates an {C:valk_exquisite}Exquisite{} Joker",
+                },
+            },
+        },
+        Passive = {
+            psv_valk_overscore = {
+                name = "Upper Limit",
+                text = {
+                    "{C:red}Instantly lose{} if you score",
+                    "more than {C:attention}#1#{}",
+                },
+            },
+            psv_valk_swap = {
+                name = "Card Swap",
+                text = {
+                    "Gain a {C:red}Discard{} when playing hand",
+                    "Gain a {C:blue}Hand{} when discarding cards",
+                },
+            },
+            psv_valk_antihighcard = {
+                name = "Higher and Higher",
+                text = {
+                    "Playing a {C:attention}High Card{} will",
+                    "multiply Blind Size by {C:attention}X#1#{}",
+                },
+            },
+        },
         Edition = {
             e_valk_cosmic = {
                 name = "Cosmic",
@@ -488,7 +520,15 @@ return {
             },
         },
         Planet = {},
-        Spectral = {},
+        Spectral = {
+            c_valk_freeway = {
+                name = "Freeway",
+                text = {
+                    "Upcoming {C:attention}Boss Blind{} is",
+                    "replaced by {C:valk_exquisite}The High Road{}",
+                },
+            },
+        },
         Stake = {},
         Tag = {
             tag_valk_kitty = {
@@ -747,6 +787,7 @@ return {
             b_planetoid_cards = "Planetoid Cards",
             k_planetoid = "Planetoid",
             k_downgrade_ex = "Downgraded!",
+            k_failed = "FAILED",
         },
         high_scores = {},
         labels = {

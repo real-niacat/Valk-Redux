@@ -57,7 +57,7 @@ Valk.artist {
 
 Valk.artist {
     key = "lily",
-    display_name = "Lily Felli",
+    display_name = "Ophelia",
 }
 
 Valk.util.hook_after("SMODS.injectItems", function()

@@ -121,3 +121,18 @@ function Valk.util.poll_hand(seed, visible_only, exclude)
     end
     return pseudorandom_element(poker_hands, seed)
 end
+
+function Valk.util.mod_blind_size(func)
+    local new = func(G.GAME.blind.chips)
+    G.E_MANAGER:add_event(Event {
+        trigger = "ease",
+        ease = "insine", --easing type
+        ref_table = G.GAME.blind,
+        ref_value = "chips",
+        ease_to = new, --end value
+        delay = 2, --time taken
+        func = function(t)
+            return t
+        end,
+    })
+end

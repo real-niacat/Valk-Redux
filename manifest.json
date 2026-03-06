@@ -1,7 +1,7 @@
 {
 	"id": "valkredux",
 	"name": "Valk:Redux", 
-	"author": ["Lily Felli", "The VallKarri Discord Server"], 
+	"author": ["Ophelia Felli", "The VallKarri Discord Server"], 
 	"description": "Beyond the finale: The return of a kittycat",
 	"prefix": "valk",
 	"main_file": "main.lua",
@@ -10,6 +10,7 @@
 	"version": "1.0.0", 
 	"dependencies": [ 
 		"Spectrallib",
+		"blindexpander",
 		"Steamodded (>=1.0.0~BETA-01224a)",
 	],
     "conflicts": [

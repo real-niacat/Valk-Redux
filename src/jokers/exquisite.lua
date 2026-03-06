@@ -12,8 +12,8 @@ SMODS.DrawStep {
                 self.children.third_pos.states.click.can = false
             end
 
-            local time = G.TIMERS.REAL + (math.pi / 2)
-            local dampen = 0.6
+            local dampen = 1.15
+            local time = (G.TIMERS.REAL * dampen) + (math.pi / 2)
             local scale_mod = 0.07 + 0.02 * math.sin(1.8 * time) + 0.00 * math.sin((time - math.floor(time)) * math.pi * 14) * (1 - (time - math.floor(time))) ^ 3
             local rotate_mod = 0.05 * math.sin(1.219 * time) + 0.00 * math.sin(time * math.pi * 5) * (1 - (time - math.floor(time))) ^ 2
 
@@ -51,8 +51,8 @@ SMODS.Joker {
     key = "madstone_whiskey",
     atlas = "float",
     pos = { x = 7, y = 4 },
-    soul_pos = { x = 8, y = 4 },
-    third_pos = { x = 9, y = 4 },
+    soul_pos = { x = 9, y = 4 },
+    third_pos = { x = 8, y = 4 },
     config = { extra = { gain = 1, xmult = 1 } },
     rarity = "valk_exquisite",
     cost = 50,

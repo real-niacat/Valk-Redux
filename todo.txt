@@ -16,6 +16,18 @@
     DONE
 -- reimplement exquisite jokers
     not started / high prio
+
+    obtainment rework:
+        Freeway → Next boss blind is replaced with High Road
+        High Road →
+            Must not score more than (blindsize)*sqrt(ante)
+            Must not play High Card
+            Set discards to 0 and hands to 1
+            When playing hand, +1 discard
+            When discarding cards, +1 hand
+            Losing this blind does not end your run.
+            Winning this blind will create a random Exquisite Joker
+
 -- reimplement spectral cards
     not started
 -- reimplement and rework semirare tarots (plus recolouring)
@@ -33,9 +45,11 @@
 -- remove loss
     not started / SUPER high prio
 -- get modders to meow for me
-    not started / EXTREMELY high priority
+    not started / EXTREMELY high priority / post release
+-- auto dependency installer
+    not started / lowest prio / post release
 -- add achievements
-    not started / super low prio
+    not started / super low prio / post release
 
     achievement ideas:
         Hall of Mirrors - Play a flush five containing four or more mirrored cards

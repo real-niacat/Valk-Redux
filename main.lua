@@ -11,6 +11,7 @@ Valk = {
     content = {},
     leveling = {},
     load_order = { --defaults to 0 with metatable magic
+        ["background_colour.lua"] = 0,
         ["common.lua"] = 5,
         ["uncommon.lua"] = 10,
         ["rare.lua"] = 15,

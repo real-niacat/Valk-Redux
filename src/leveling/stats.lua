@@ -47,6 +47,17 @@ end
 
 function Valk.leveling.get_xp_gained(blind_size, score)
     local d = G.GAME.valk_leveling.leniency
+    if blind_size <= 0 then
+        local diff = 1 - blind_size
+        blind_size = blind_size + diff
+        score = score + diff
+    end
+    if score <= 0 then
+        local diff = 1 - score
+        blind_size = blind_size + diff
+        score = score + diff
+    end
+
     local numerator = blind_size ^ (1 / d)
     local denominator = score ^ (1 / d)
     local percent = numerator / denominator
