@@ -15,18 +15,9 @@
 -- concept leveling rework and implement it
     DONE
 -- reimplement exquisite jokers
-    not started / high prio
+    mostly finished // TODO - IMPLEMENT MORE
 
-    obtainment rework:
-        Freeway → Next boss blind is replaced with High Road
-        High Road →
-            Must not score more than (blindsize)*sqrt(ante)
-            Must not play High Card
-            Set discards to 0 and hands to 1
-            When playing hand, +1 discard
-            When discarding cards, +1 hand
-            Losing this blind does not end your run.
-            Winning this blind will create a random Exquisite Joker
+    obtainment rework // DONE
 
 -- reimplement spectral cards
     not started
@@ -44,12 +35,17 @@
     not started / low prio
 -- remove loss
     not started / SUPER high prio
+
+----------------------------------
+------ POST INITIAL RELEASE ------
+----------------------------------
+
+-- Raas Busok Joker (legendary)
+-- KS-4 (Erika Utomo) Joker (legendary)
+-- brainfuck joker
 -- get modders to meow for me
-    not started / EXTREMELY high priority / post release
 -- auto dependency installer
-    not started / lowest prio / post release
 -- add achievements
-    not started / super low prio / post release
 
     achievement ideas:
         Hall of Mirrors - Play a flush five containing four or more mirrored cards

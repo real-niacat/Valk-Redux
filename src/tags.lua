@@ -11,6 +11,17 @@ SMODS.Tag {
     valk_artist = "scraptake",
 }
 
+function Valk.util.realign_tags()
+    if #G.HUD_tags >= 13 then
+        for i = 2, #G.HUD_tags do
+            G.HUD_tags[i].config.offset.y = 0.9 - 0.9 * 13 / #G.HUD_tags
+        end
+    end
+end
+
+Valk.util.hook_after("add_tag", Valk.util.realign_tags)
+Valk.util.hook_after("Tag.remove", Valk.util.realign_tags)
+
 ---@return number owned Kitty tags currently owned
 function Valk.util.get_kitty_tags()
     local count = 0

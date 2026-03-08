@@ -136,3 +136,27 @@ function Valk.util.mod_blind_size(func)
         end,
     })
 end
+
+Valk.util.hook_after("Card.add_to_deck", function(orig, self)
+    if self.config.center.set == "Joker" then
+        G.GAME.jokers_owned[self.config.center.key] = true
+    end
+end)
+
+function Valk.util.unique_jokers()
+    local c = 0
+    for k, v in pairs(G.GAME.jokers_owned) do
+        c = c + 1
+    end
+    return c
+end
+
+function Valk.util.get_matching(tab, func)
+    local r = {}
+    for k, v in pairs(tab) do
+        if func(v) then
+            table.insert(r, v)
+        end
+    end
+    return r
+end

@@ -84,6 +84,8 @@ SMODS.Blind {
             self.config.starting_discards,
         } }
     end,
+    atlas = "blinds",
+    pos = { x = 0, y = 0 },
 }
 
 Valk.util.hook("end_round", function(original, ...)

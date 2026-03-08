@@ -507,6 +507,24 @@ return {
                     "card is sold",
                 },
             },
+            j_valk_phylactequila = {
+                name = "Phylactequila",
+                text = {
+                    "{C:spectral}Spectral{} cards may appear in the shop",
+                    "Buying a {C:spectral}Spectral{} card from the shop",
+                    "has a {C:green}#1# in #2#{} chance to destroy it",
+                    "and give this Joker {X:slib_emult,C:white}^#3#{} Mult",
+                    "{C:inactive}(Currently {X:slib_emult,C:white}^#4#{C:inactive} Mult)",
+                },
+            },
+            j_valk_lily = {
+                name = "Lily Felli",
+                text = {
+                    "{X:slib_echips,C:white}^#1#{} Chips for every",
+                    "{C:attention}unique{} Joker owned this run",
+                    "{C:inactive}(Currently {X:slib_echips,C:white}^#2#{C:inactive} Chips)",
+                },
+            },
         },
         Other = {
             undiscovered_Planetoid = {
@@ -528,6 +546,35 @@ return {
                     "replaced by {C:valk_exquisite}The High Road{}",
                 },
             },
+            c_valk_soteria = {
+                name = "Soteria",
+                text = {
+                    "{C:attention}+#1#{} Card Selection Limit",
+                    "{C:attention}+#2#%{} Blind Size",
+                },
+            },
+            c_valk_thilykotita = {
+                name = "Thilykotita",
+                text = {
+                    "Converts up to {C:attention}#1# non-Queen{}",
+                    "cards in hand into {C:attention}Queens{}",
+                },
+            },
+            c_valk_andrisimos = {
+                name = "Andrisimos",
+                text = {
+                    "Converts up to {C:attention}#1# non-Jack{}",
+                    "cards in hand into {C:attention}Jacks{}",
+                },
+            },
+            c_valk_luck = {
+                name = "Luck",
+                text = {
+                    "Multiply the values of",
+                    "up to {C:attention}#1#{} Jokers",
+                    "by either {C:attention}X#1#{} or {C:attention}X#2#{}",
+                },
+            },
         },
         Stake = {},
         Tag = {
@@ -547,7 +594,16 @@ return {
                 },
             },
         },
-        Tarot = {},
+        Tarot = {
+            c_valk_judgemeownt = {
+                name = "Judgemeownt",
+                text = {
+                    "Creates a random",
+                    "{C:attention}Kitty{} Joker",
+                    "{C:inactive}(Must have room)",
+                },
+            },
+        },
         Voucher = {},
         Planetoid = {
             c_valk_kerberos = {
@@ -805,7 +861,9 @@ return {
         suits_plural = {},
         suits_singular = {},
         tutorial = {},
-        v_dictionary = {},
+        v_dictionary = {
+            k_plus_sel_limit = "+#1# Selection Limit",
+        },
         v_text = {},
     },
 }

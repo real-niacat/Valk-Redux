@@ -102,3 +102,68 @@ SMODS.Joker {
     end,
     valk_artist = "pangaea",
 }
+
+SMODS.Joker {
+    key = "phylactequila",
+    atlas = "float",
+    pos = { x = 3, y = 5 },
+    soul_pos = { x = 5, y = 5 },
+    third_pos = { x = 4, y = 5 },
+    config = { extra = { spectral_rate = 12, emult = 1, gain = 0.1, den = 2 } },
+    rarity = "valk_exquisite",
+    cost = 50,
+    loc_vars = function(self, info_queue, card)
+        local n, d = SMODS.get_probability_vars(card, 1, card.ability.extra.den)
+        return { vars = {
+            n,
+            d,
+            card.ability.extra.gain,
+            card.ability.extra.emult,
+        } }
+    end,
+    calculate = function(self, card, context)
+        -- code here
+        if context.buying_card and context.card.config.center.set == "Spectral" and SMODS.pseudorandom_probability(card, "valk_phyl", 1, card.ability.extra.den) then
+            SMODS.destroy_cards(context.card)
+            SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "emult", scalar_value = "gain" })
+        end
+
+        if context.joker_main then
+            return { emult = card.ability.extra.emult }
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        G.GAME.spectral_rate = G.GAME.spectral_rate + card.ability.extra.spectral_rate
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        G.GAME.spectral_rate = G.GAME.spectral_rate - card.ability.extra.spectral_rate
+    end,
+    valk_artist = "pangaea",
+}
+
+SMODS.Joker {
+    key = "lily", -- the charactre
+    atlas = "float",
+    pos = { x = 9, y = 5 },
+    soul_pos = { x = 0, y = 6 },
+    third_pos = { x = 1, y = 6 },
+    config = { extra = { echips_gain = 0.02 } },
+    rarity = "valk_exquisite",
+    cost = 50,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.echips_gain, self:get_echips(card) } }
+    end,
+    calculate = function(self, card, context)
+        -- code here
+        if context.joker_main then
+            return {
+                echips = self:get_echips(card),
+            }
+        end
+    end,
+    get_echips = function(self, card)
+        return 1 + (card.ability.extra.echips_gain * Valk.util.unique_jokers())
+    end,
+    valk_artist = "scraptake",
+    pools = { Kitty = true }, -- i hate you ruby
+}
