@@ -1,6 +1,6 @@
 Valk.leveling.easing_return = "outcirc"
 Valk.leveling.easing_drop = "outcirc"
-Valk.leveling.anim_runtime = 1
+Valk.leveling.anim_runtime = 0.75
 function Valk.leveling.drop_ui(skip_jokers)
     local time = Valk.leveling.anim_runtime
     local easing = Valk.leveling.easing_drop
@@ -115,7 +115,7 @@ function Valk.leveling.ease_xp(amount, leveling_callback)
         level = level + 1
         req = Valk.leveling.get_requirement(level)
     end
-    local base_time = 2.8
+    local base_time = 2.2
     local total_time_taken = 0
     local timertype = nil
 
