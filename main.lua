@@ -114,6 +114,13 @@ G.SPLASH_BACK:define_draw_steps({ -- meow?
         },
 })]]
 
+function Valk.util.ref_hook(ref_table, ref_value, func)
+    local original_function_object = ref_table[ref_value] or function() end
+    ref_table[ref_value] = function(...)
+        return func(original_function_object, ...)
+    end
+end
+
 ---@param func_path string String that defines where to find the function. e.g. "Game.main_menu"
 ---@param func function Function to replace the given function with. Takes in the args of (original_function, ...) where ... is the args of the original function
 function Valk.util.hook(func_path, func)
@@ -133,10 +140,7 @@ function Valk.util.hook(func_path, func)
             current_entry = next_entry
         end
     end
-    local original_function_object = current_entry[final_func]
-    current_entry[final_func] = function(...)
-        return func(original_function_object, ...)
-    end
+    Valk.util.ref_hook(current_entry, final_func, func)
 end
 
 -- Same as `Valk.util.hook` but it does not allow for modifying return values, and simply runs code *before* the hooked function

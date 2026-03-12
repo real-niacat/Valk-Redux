@@ -14,13 +14,12 @@
     DONE
 -- concept leveling rework and implement it
     DONE
+-- reimplement spectral cards
+    DONE
 -- reimplement exquisite jokers
     mostly finished // TODO - IMPLEMENT MORE
 
     obtainment rework // DONE
-
--- reimplement spectral cards
-    not started
 -- reimplement and rework semirare tarots (plus recolouring)
     not started
 -- rework and reimplement superplanet cards

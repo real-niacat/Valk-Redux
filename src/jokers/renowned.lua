@@ -171,8 +171,6 @@ SMODS.Joker {
     valk_artist = "mailingway",
 }
 
--- TODO: ADD ICE'S CAT HERE
-
 SMODS.Joker {
     key = "rocky",
     atlas = "jokers",

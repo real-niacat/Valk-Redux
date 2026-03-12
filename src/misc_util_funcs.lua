@@ -160,3 +160,131 @@ function Valk.util.get_matching(tab, func)
     end
     return r
 end
+
+function Valk.util.get_description_ui(desc, args, conf)
+    conf = conf or { align = "cm" }
+    args = args or {}
+    local result = {}
+    for _, line in ipairs(desc) do
+        local ui_line = SMODS.localize_box(loc_parse_string(line), args)
+        table.insert(result, {
+            n = G.UIT.R,
+            config = { align = args.align or "cm" },
+            nodes = ui_line,
+        })
+    end
+    return {
+        n = G.UIT.C,
+        config = conf,
+        nodes = result,
+    }
+end
+
+-- Mostly an analog to update_hand_text, but has some extra customizability
+function Valk.util.hand_text(config, vals)
+    config = config or {}
+    G.E_MANAGER:add_event(Event {
+        trigger = config.trigger or "before",
+        blockable = not config.immediate,
+        delay = config.delay or 0.8,
+        func = function()
+            local col = G.C.GREEN
+            for name, parameter in pairs(SMODS.Scoring_Parameters) do
+                if vals[name] then
+                    -- DIFFERENCE: base update_hand_text uses delta as the difference, this function doesn't do that
+                    -- give it the value you *want* to show up on screen
+                    local delta = is_number(vals[name]) and vals[name] or 0
+
+                    if delta < 0 then
+                        delta = number_format(delta)
+                        col = G.C.RED
+                    elseif delta > 0 then
+                        delta = "+" .. number_format(delta)
+                    else
+                        delta = number_format(delta)
+                    end
+
+                    if type(vals[name]) == "string" then
+                        delta = vals[name]
+                    end
+                    if not vals.StatusText then
+                        G.GAME.current_round.current_hand[name] = vals[name]
+                    end
+                    local uie = G.hand_text_area[name] or G.HUD:get_UIE_by_ID("hand_" .. name)
+                    if uie then
+                        uie:update(0)
+                        if vals.StatusText then
+                            local StatusText = {
+                                text = delta,
+                                scale = config.scale or 0.8,
+                                hold = config.hold or 1,
+                                cover = uie.parent,
+                                cover_colour = vals[name .. "_colour"] or vals.colour or G.C.WHITE, -- give it the colour, i'm not here to do the work for you
+                                emboss = 0.05,
+                                align = "cm",
+                                cover_align = uie.parent.config.align,
+                            }
+                            if type(vals.StatusText) == "string" then
+                                StatusText.text = vals.StatusText
+                            elseif type(vals.StatusText) == "table" then
+                                for k, v in pairs(vals.StatusText) do
+                                    if v ~= nil then
+                                        StatusText[k] = v
+                                    end
+                                end
+                            end
+
+                            attention_text(StatusText)
+                        end
+
+                        if (vals[name .. "_juice"] or parameter.juice_on_update) and not G.TAROT_INTERRUPT then
+                            G.hand_text_area[name]:juice_up()
+                        end
+                    end
+                end
+            end
+
+            if vals.handname then
+                G.GAME.current_round.current_hand.handname = vals.handname
+                if not config.nopulse then
+                    G.hand_text_area.handname.config.object:pulse(0.2)
+                end
+            end
+            if vals.chip_total then
+                G.GAME.current_round.current_hand.chip_total = vals.chip_total
+                G.hand_text_area.chip_total.config.object:pulse(0.5)
+            end
+            if vals.level and G.GAME.current_round.current_hand.hand_level ~= " " .. localize("k_lvl") .. tostring(vals.level) then
+                if vals.level == "" then
+                    G.GAME.current_round.current_hand.hand_level = vals.level
+                else
+                    G.GAME.current_round.current_hand.hand_level = " " .. localize("k_lvl") .. tostring(vals.level)
+                    if is_number(vals.level) then
+                        G.hand_text_area.hand_level.config.colour = G.C.HAND_LEVELS[math.floor(to_number(math.min(7, vals.level)))]
+                    else
+                        G.hand_text_area.hand_level.config.colour = G.C.HAND_LEVELS[1]
+                    end
+                    G.hand_text_area.hand_level:juice_up()
+                end
+            end
+            if config.sound and not config.modded then
+                play_sound(config.sound, config.pitch or 1, config.volume or 1)
+            end
+            if config.modded then
+                SMODS.juice_up_blind()
+                G.E_MANAGER:add_event(Event {
+                    trigger = "after",
+                    delay = 0.06 * G.SETTINGS.GAMESPEED,
+                    blockable = false,
+                    blocking = false,
+                    func = function()
+                        play_sound("tarot2", 0.76, 0.4)
+                        return true
+                    end,
+                })
+                play_sound("tarot2", 1, 0.4)
+            end
+            return true
+        end,
+    })
+end

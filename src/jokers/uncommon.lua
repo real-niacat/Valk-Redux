@@ -496,3 +496,245 @@ SMODS.Joker {
     valk_artist = "mailingway",
     pools = { Kitty = true },
 }
+
+function Valk.util.to_brainfuck(t)
+    local fixed = {}
+    for i, card in ipairs(t) do
+        table.insert(fixed, { suit = card.base.suit, face = not not card:is_face() })
+    end
+    local ref = {
+        ["Spades"] = { [true] = "+", [false] = "-" },
+        ["Hearts"] = { [true] = ">", [false] = "<" },
+        ["Clubs"] = { [true] = "[", [false] = "]" },
+        ["Diamonds"] = { [true] = ",", [false] = "." },
+    }
+    local b = ""
+    for i, en in ipairs(fixed) do
+        b = b .. (ref[en.suit] and ref[en.suit][en.face] or "")
+    end
+    return b
+end
+
+function Valk.content.interpret_bf(code)
+    local function incl_mod(x, l, u)
+        return (x - l) % (u - l + 1) + l
+    end
+
+    local function find_next(value, starting_index, tab)
+        for i = starting_index, #tab do
+            if tab[i] == value then
+                return i
+            end
+        end
+    end
+
+    local chars = {}
+    for i = 1, #code do
+        chars[i] = code:sub(i, i)
+    end
+
+    local tape = {}
+    for i = 1, 8 do
+        table.insert(tape, 0)
+    end
+    local loop_index_stack = {}
+    local output = {}
+    local index = 1
+    local ptr = 1
+    local done = false
+    local funcs = {
+        ["+"] = function()
+            tape[ptr] = (tape[ptr] + 1) -- intentionally does not loop like standardized brainfuck
+        end,
+        ["-"] = function()
+            tape[ptr] = (tape[ptr] - 1) -- intentionally does not loop like standardized brainfuck
+        end,
+        [">"] = function()
+            ptr = incl_mod(ptr + 1, 1, #tape)
+        end,
+        ["<"] = function()
+            ptr = incl_mod(ptr - 1, 1, #tape)
+        end,
+        ["["] = function()
+            if tape[ptr] ~= 0 then
+                table.insert(loop_index_stack, index)
+            else
+                index = find_next("]", index, chars)
+            end
+        end,
+        ["]"] = function()
+            if tape[ptr] ~= 0 then
+                index = loop_index_stack[#loop_index_stack]
+            else
+                index = find_next("]", index, chars)
+            end
+        end,
+        ["."] = function()
+            table.insert(output, tape[ptr])
+        end,
+        [","] = function() end,
+    }
+    while not done do
+        local func = funcs[chars[index]]
+        if func then
+            func()
+        end
+        index = index + 1
+        if chars[index] == nil then
+            done = true
+        end
+    end
+    return output
+end
+
+function Valk.content.get_bf_desc(effects)
+    local b = {}
+    for _, effect in pairs(effects) do
+        if effect.value ~= 0 then
+            local unparsed = G.localization.misc.v_dictionary["k_valk_bf_" .. effect.type]
+            unparsed = unparsed:gsub("#1#", format_ui_value(effect.value))
+            table.insert(b, unparsed)
+        end
+    end
+    return b
+end
+
+function Valk.content.get_bf_effects(outputs)
+    local ref = {
+        {
+            type = "chips",
+            conv = function(x)
+                return x
+            end,
+        },
+        {
+            type = "mult",
+            conv = function(x)
+                return x / 5
+            end,
+        },
+        {
+            type = "money",
+            conv = function(x)
+                return math.log10(x)
+            end,
+        },
+        {
+            type = "blindsize",
+            conv = function(x)
+                return math.log(x, 100)
+            end,
+            no_floor = true,
+        },
+        {
+            type = "forcetrigger",
+            conv = function(x)
+                return 3 * math.sin((math.pi * x) / (2 * 127))
+            end,
+        },
+        {
+            type = "ante",
+            conv = function(x)
+                return math.log10(x)
+            end,
+        },
+        {
+            type = "consumables",
+            conv = function(x)
+                return 3 * math.sin((math.pi * x) / (2 * 65))
+            end,
+        },
+        {
+            type = "negative_blindsize",
+            conv = function(x)
+                return x ^ 0.9
+            end,
+        },
+    }
+    local effects = {}
+    for i, value in ipairs(outputs) do
+        local v = ref[i]
+        if v and v.conv(value) > 0 then
+            table.insert(effects, { type = v.type, value = v.no_floor and v.conv(value) or math.floor(v.conv(value)) })
+        end
+    end
+    return effects
+end
+
+-- SMODS.Joker {
+local brainfuck = {
+    key = "brainfuck",
+    -- atlas = "",
+    -- pos = {x=,y=},
+    config = { extra = { code = "", effects = {} } },
+    rarity = 2,
+    cost = 10,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.area.config.collection and "+++" or card.ability.extra.code,
+                G.hand and Valk.util.to_brainfuck(G.hand.highlighted) or "[->++<].",
+            },
+            main_end = { Valk.util.get_description_ui(Valk.content.get_bf_desc(card.ability.extra.effects)) },
+        }
+    end,
+    calculate = function(self, card, context)
+        -- code here
+        if context.before and G.GAME.current_round.hands_played == 0 then
+            card.ability.extra.code = card.ability.extra.code .. Valk.util.to_brainfuck(context.full_hand)
+        end
+
+        if context.joker_main then
+            local ret = {}
+            for _, effect in pairs(card.ability.extra.effects) do
+                if effect.type == "mult" then
+                    ret.mult = effect.value
+                end
+                if effect.type == "chips" then
+                    ret.chips = effect.value
+                end
+                if effect.type == "money" then
+                    ret.dollars = effect.value
+                end
+                if effect.type == "forcetrigger" then
+                    for i = 1, effect.value do
+                        Spectrallib.forcetrigger {
+                            card = pseudorandom_element(G.jokers.cards, "valk_bf_forcetrigger"),
+                            context = context,
+                            colour = G.C.FILTER,
+                            message_card = card,
+                        }
+                    end
+                end
+                if effect.type == "negative_blindsize" then
+                    Valk.util.mod_blind_size(function(a)
+                        return a - effect.value
+                    end)
+                end
+            end
+            return ret
+        end
+    end,
+    use = function(self, card)
+        local output = Valk.content.interpret_bf(card.ability.extra.code)
+        card.ability.extra.code = ""
+        card.ability.extra.effects = Valk.content.get_bf_effects(output)
+
+        for _, effect in pairs(card.ability.extra.effects) do
+            if effect.type == "ante" then
+                ease_ante(effect.value)
+            end
+            if effect.type == "blindsize" then
+                G.GAME.blind_size_multiplier = G.GAME.blind_size_multiplier * effect.value
+            end
+            if effect.type == "consumables" then
+                for i = 1, effect.value do
+                    SMODS.add_card { set = "Consumeables", area = G.consumeables }
+                end
+            end
+        end
+    end,
+    can_use = function(self, card)
+        return #card.ability.extra.code > 0
+    end,
+}

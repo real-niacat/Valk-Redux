@@ -215,6 +215,80 @@ SMODS.Consumable {
     valk_artist = "mailingway",
 }
 
+SMODS.Consumable {
+    key = "missingno",
+    set = "Spectral",
+    atlas = "misc",
+    pos = { x = 5, y = 3 },
+    can_use = function(self, card)
+        return #G.hand.highlighted == 1
+    end,
+    use = function(self, card, area, copier)
+        -- mostly plagarized from vanillaremade
+        -- thank you N'
+        G.E_MANAGER:add_event(Event {
+            trigger = "after",
+            delay = 0.4,
+            func = function()
+                local edition = SMODS.poll_edition { key = "valk_missingno", guaranteed = true, options = { "e_valk_cosmic", "e_valk_glow", "e_valk_rgb" } }
+                local aura_card = G.hand.highlighted[1]
+                aura_card:set_edition(edition, true)
+                card:juice_up(0.3, 0.5)
+                return true
+            end,
+        })
+    end,
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.e_valk_cosmic
+        info_queue[#info_queue + 1] = G.P_CENTERS.e_valk_glow
+        info_queue[#info_queue + 1] = G.P_CENTERS.e_valk_rgb
+        return { vars = {} }
+    end,
+    valk_artist = "mailingway",
+    update = function(self, card, dt)
+        local freq = 66
+        local sprite = 5 + (math.sin(G.TIMERS.REAL * freq * math.pi) < 0 and 1 or 0)
+        card.children.center:set_sprite_pos { x = sprite, y = 3 }
+    end,
+    draw = function(self, card, layer)
+        if math.sin(G.TIMERS.REAL * 21) < 0 then
+            local send = copy_table(card.ARGS.send_to_shader)
+            for k, v in ipairs(send) do
+                send[k] = (math.sin(G.TIMERS.REAL * 4 + k) + 1) * v * 0.5
+            end
+            card.children.center:draw_shader("booster", nil, send)
+        end
+    end,
+}
+
+SMODS.Consumable {
+    key = "faker",
+    set = "Spectral",
+    atlas = "misc",
+    pos = { x = 8, y = 3 },
+    can_use = function(self, card)
+        local h = #G.jokers.highlighted
+        return h >= 0 and h <= card.ability.extra.cards
+    end,
+    use = function(self, card, area, copier)
+        for _, c in pairs(G.jokers.highlighted) do
+            local copy = copy_card(c)
+            G.jokers:emplace(copy)
+            copy:add_to_deck()
+            copy:set_edition("e_negative")
+            copy:set_perishable(true)
+            copy:juice_up()
+        end
+    end,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.cards } }
+    end,
+    config = { extra = {
+        cards = 1,
+    } },
+    valk_artist = "mailingway",
+}
+
 -- todo: deal with this
 -- SMODS.Consumable {
 --     key = "voidpotential",

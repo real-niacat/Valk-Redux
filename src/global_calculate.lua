@@ -5,12 +5,14 @@ Valk.mod.calculate = function(self, context)
         local kitty_tags = Valk.util.get_kitty_tags()
         if kitty_tags < 10 then
             for i, tag in ipairs(G.GAME.tags) do
-                G.CARD_H = -G.CARD_H
-                SMODS.calculate_effect({ chips = kitty_tags * G.GAME.kitty_tag_chips }, tag.HUD_tag)
-                G.CARD_H = -G.CARD_H
+                if tag.key == "tag_valk_kitty" then
+                    G.CARD_H = -G.CARD_H
+                    SMODS.calculate_effect({ chips = G.GAME.kitty_tag_chips }, tag.HUD_tag)
+                    G.CARD_H = -G.CARD_H
+                end
             end
         else
-            local chips = G.GAME.kitty_tag_chips * (kitty_tags ^ 2)
+            local chips = kitty_tags * G.GAME.kitty_tag_chips
             G.CARD_H = -G.CARD_H
             SMODS.calculate_effect({ chips = chips }, G.GAME.tags[1].HUD_tag)
             G.CARD_H = -G.CARD_H

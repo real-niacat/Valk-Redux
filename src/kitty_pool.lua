@@ -1,6 +1,12 @@
 SMODS.ObjectType {
     key = "Kitty",
     default = "j_valk_kitty",
+    rarities = {
+        { key = "Common" },
+        { key = "Uncommon" },
+        { key = "Rare" },
+        { key = "valk_renowned" },
+    },
 }
 
 function Valk.util.get_kitty_jokers()

@@ -14,6 +14,17 @@ SMODS.Joker {
             local hand = G.GAME.hands[context.scoring_name]
             hand.l_chips = hand.l_chips + card.ability.extra.upgrade
             hand.l_mult = hand.l_mult + card.ability.extra.upgrade
+            local prev = G.GAME.current_round.current_hand.handname
+            Valk.util.hand_text({ hold = 2 }, {
+                chips = card.ability.extra.upgrade,
+                mult = card.ability.extra.upgrade,
+                StatusText = true,
+                colour = G.C.FILTER,
+                handname = localize("k_per_lv"),
+            })
+            Valk.util.hand_text({ delay = 1, trigger = "after" }, {
+                handname = prev,
+            })
         end
     end,
     valk_artist = "grahkon",

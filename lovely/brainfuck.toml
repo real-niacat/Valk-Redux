@@ -1,0 +1,16 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = '''
+if ret_string and type(ret_string) == 'string' then ret_string = string.gsub(ret_string, "{.-}", "") end
+'''
+position = 'at'
+payload = '''
+if ret_string and type(ret_string) == 'string' and (not args.ignore_tags) then ret_string = string.gsub(ret_string, "{.-}", "") end
+'''
+match_indent = true

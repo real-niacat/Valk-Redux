@@ -251,6 +251,17 @@ return {
                     "card, apply {C:dark_edition}Polychrome{} to it",
                 },
             },
+            j_valk_brainfuck = {
+                name = "++++[++++>---<]>-.++++.",
+                text = {
+                    "On {C:attention}first hand{} of round, add {C:attention}Brainfuck{} code",
+                    "to this Joker based on played cards",
+                    "{C:attention}Use{} this Joker to run stored code and",
+                    "change this Jokers {C:attention}effect{} based on output",
+                    "{C:inactive}(Currently stored: {C:attention}#1#{C:inactive})",
+                    "{C:inactive}(Will add: {C:attention}#2#{C:inactive})",
+                },
+            },
             j_valk_takeyourage = {
                 name = "Take your age...",
                 text = {
@@ -575,14 +586,30 @@ return {
                     "by either {C:attention}X#1#{} or {C:attention}X#2#{}",
                 },
             },
+            c_valk_missingno = {
+                name = "MissingNo",
+                text = {
+                    "Apply {C:dark_edition}Cosmic{},",
+                    "{C:dark_edition}Glow-in-the-dark{}, or",
+                    "{C:dark_edition}R.G.B.{} to a selected card",
+                    "in hand",
+                },
+            },
+            c_valk_faker = {
+                name = "Faker",
+                text = {
+                    "Select up to {C:attention}#1#{} Joker#<s>1#,",
+                    "and create a {C:dark_edition}Negative{} and {C:blue}Perishable{}",
+                    "copy of selected Joker#<s>1#",
+                },
+            },
         },
         Stake = {},
         Tag = {
             tag_valk_kitty = {
                 name = "Kitty Tag",
                 text = {
-                    "{C:chips}+#1#{} Chips for every",
-                    "{C:attention}Kitty Tag{} owned",
+                    "{C:chips}+#1#{} Chips",
                     "{C:red}Never{} gets consumed",
                 },
             },
@@ -812,6 +839,7 @@ return {
             k_valk_shaderby = "Shader by: ",
             k_plus_kitty_tag = "+1 Kitty Tag",
             k_replaced_ex = "Replaced!",
+            k_per_lv = "Per Lv.",
             ph_lv_display = "Lv. ",
             ph_beavers = "The beavers ravage the blind.",
             ph_valk_xp = "XP Gain",
@@ -863,6 +891,14 @@ return {
         tutorial = {},
         v_dictionary = {
             k_plus_sel_limit = "+#1# Selection Limit",
+            k_valk_bf_chips = "{C:chips}+#1#{} Chips",
+            k_valk_bf_mult = "{C:mult}+#1#{} Mult",
+            k_valk_bf_money = "Earn {C:money}$#1#{} when hand played",
+            k_valk_bf_blindsize = "{X:attention,C:white}X#1#{} Permanent Blind Size",
+            k_valk_bf_forcetrigger = "Force-trigger {C:attention}#1#{} random Jokers",
+            k_valk_bf_ante = "{C:attention}+#1#{} Ante",
+            k_valk_bf_consumables = "Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:attention}Consumables{}",
+            k_valk_bf_negative_blindsize = "{C:attention}-#1#{} Blind Size when hand played",
         },
         v_text = {},
     },
