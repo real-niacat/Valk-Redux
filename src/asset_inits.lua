@@ -53,3 +53,28 @@ SMODS.Sound {
     key = "gore",
     path = "gore.ogg",
 }
+
+SMODS.Sound {
+    key = "spawn_cosmic",
+    path = "editions/e_cosmic.ogg",
+}
+
+SMODS.Sound {
+    key = "spawn_censored",
+    path = "editions/e_censored.ogg",
+}
+
+SMODS.Sound {
+    key = "spawn_glow",
+    path = "editions/e_glow.ogg",
+}
+
+SMODS.Sound {
+    key = "spawn_lordly",
+    path = "editions/e_lordly.ogg",
+}
+
+SMODS.Sound {
+    key = "spawn_rgb",
+    path = "editions/e_rgb.ogg",
+}
