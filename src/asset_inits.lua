@@ -35,6 +35,20 @@ SMODS.Atlas {
     frames = 21,
 }
 
+SMODS.Atlas {
+    key = "aesthetic",
+    path = "aesthetic.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "edition_assets",
+    path = "edition_assets.png",
+    px = 71,
+    py = 95,
+}
+
 SMODS.Sound {
     key = "gore",
     path = "gore.ogg",

@@ -106,7 +106,7 @@ SMODS.Joker {
     key = "dupliCation",
     atlas = "jokers",
     pos = { x = 9, y = 2 },
-    config = { extra = { base_den = 3, den_increase = 1, den_req = 3, base_destroy = 5 } },
+    config = { extra = { base_den = 3, den_increase = 1, den_req = 3, base_destroy = 8 } },
     rarity = 3,
     cost = 4,
     loc_vars = function(self, info_queue, card)

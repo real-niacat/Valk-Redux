@@ -71,6 +71,21 @@ return {
                     "{X:mult,C:white}X#2#{} Mult",
                 },
             },
+            e_valk_censored = {
+                name = "Censored",
+                text = {
+                    "All values are {C:attention}Hidden{}",
+                    "Retrigger this card {C:attention}twice{}",
+                },
+            },
+            e_valk_lordly = {
+                name = "Lordly",
+                text = {
+                    "{X:slib_emult,C:white}^#1#{} Mult per",
+                    "Joker owned",
+                    "{C:inactive}(Currently {X:slib_emult,C:white}^#2#{C:inactive} Mult)",
+                },
+            },
         },
         Enhanced = {
             m_valk_mirrored = {
@@ -86,10 +101,10 @@ return {
             j_valk_suck_it = {
                 name = "Suck it",
                 text = {
-                    "Creates a copy of self when sold",
                     "{C:green}#1# in #2#{} chance to lose {C:money}$#3#{} when sold",
                     "{C:green}#4# in #5#{} chance to gain {C:money}$#6#{} when sold",
-                    "Does not recreate self when gaining money",
+                    "Creates a {C:attention}copy{} of self when sold",
+                    "{C:inactive}(Does not create copy when earning money)",
                 },
             },
             j_valk_antithesis = {
@@ -632,9 +647,44 @@ return {
             },
         },
         Voucher = {},
+        Aesthetic = {
+            c_valk_aesthetic_base = {
+                text = {
+                    "Enhance up to {C:attention}#1#{} selected",
+                    "Joker#<s>1# or Playing Card#<s>1# to",
+                    "{C:dark_edition}#2#{}",
+                },
+            },
+            c_valk_frutiger_aero = {
+                name = "Frutiger Aero",
+            },
+            c_valk_synthwave = {
+                name = "Synthwave",
+            },
+            c_valk_chromecore = {
+                name = "Chromecore",
+            },
+            c_valk_vaporwave = {
+                name = "Vaporwave",
+            },
+            c_valk_scene = {
+                name = "Scene!XD",
+            },
+            c_valk_memphis = {
+                name = "Memphis",
+            },
+            c_valk_arcadecore = {
+                name = "Arcadecore",
+            },
+            c_valk_savior = {
+                name = "Savior",
+            },
+            c_valk_cl___ified = {
+                name = "Classified",
+            },
+        },
         Planetoid = {
-            c_valk_kerberos = {
-                name = "Kerberos",
+            c_valk_planetoid_base = {
                 text = {
                     {
                         "({V:1}lvl.#1#{}) Level up",
@@ -648,182 +698,42 @@ return {
                         "{C:attention}#7#{} is used this run",
                     },
                 },
+            },
+            c_valk_kerberos = {
+                name = "Kerberos",
             },
             c_valk_icarus = {
                 name = "Icarus",
-                text = {
-                    {
-                        "({V:1}lvl.#1#{}) Level up",
-                        "{C:attention}#2#",
-                        "{C:chips}+#3#{} chips and",
-                        "{C:mult}+#4#{} Mult",
-                    },
-                    {
-                        "Increase by {C:chips}+#5#{} Chips",
-                        "and {C:mult}+#6#{} Mult for each time",
-                        "{C:attention}#7#{} is used this run",
-                    },
-                },
             },
             c_valk_miranda = {
                 name = "Miranda",
-                text = {
-                    {
-                        "({V:1}lvl.#1#{}) Level up",
-                        "{C:attention}#2#",
-                        "{C:chips}+#3#{} chips and",
-                        "{C:mult}+#4#{} Mult",
-                    },
-                    {
-                        "Increase by {C:chips}+#5#{} Chips",
-                        "and {C:mult}+#6#{} Mult for each time",
-                        "{C:attention}#7#{} is used this run",
-                    },
-                },
             },
             c_valk_daedalus = {
                 name = "Daedalus",
-                text = {
-                    {
-                        "({V:1}lvl.#1#{}) Level up",
-                        "{C:attention}#2#",
-                        "{C:chips}+#3#{} chips and",
-                        "{C:mult}+#4#{} Mult",
-                    },
-                    {
-                        "Increase by {C:chips}+#5#{} Chips",
-                        "and {C:mult}+#6#{} Mult for each time",
-                        "{C:attention}#7#{} is used this run",
-                    },
-                },
             },
             c_valk_pan = {
                 name = "Pan",
-                text = {
-                    {
-                        "({V:1}lvl.#1#{}) Level up",
-                        "{C:attention}#2#",
-                        "{C:chips}+#3#{} chips and",
-                        "{C:mult}+#4#{} Mult",
-                    },
-                    {
-                        "Increase by {C:chips}+#5#{} Chips",
-                        "and {C:mult}+#6#{} Mult for each time",
-                        "{C:attention}#7#{} is used this run",
-                    },
-                },
             },
             c_valk_amalthea = {
                 name = "Amalthea",
-                text = {
-                    {
-                        "({V:1}lvl.#1#{}) Level up",
-                        "{C:attention}#2#",
-                        "{C:chips}+#3#{} chips and",
-                        "{C:mult}+#4#{} Mult",
-                    },
-                    {
-                        "Increase by {C:chips}+#5#{} Chips",
-                        "and {C:mult}+#6#{} Mult for each time",
-                        "{C:attention}#7#{} is used this run",
-                    },
-                },
             },
             c_valk_cardea = {
                 name = "Cardea",
-                text = {
-                    {
-                        "({V:1}lvl.#1#{}) Level up",
-                        "{C:attention}#2#",
-                        "{C:chips}+#3#{} chips and",
-                        "{C:mult}+#4#{} Mult",
-                    },
-                    {
-                        "Increase by {C:chips}+#5#{} Chips",
-                        "and {C:mult}+#6#{} Mult for each time",
-                        "{C:attention}#7#{} is used this run",
-                    },
-                },
             },
             c_valk_eureka = {
                 name = "Eureka",
-                text = {
-                    {
-                        "({V:1}lvl.#1#{}) Level up",
-                        "{C:attention}#2#",
-                        "{C:chips}+#3#{} chips and",
-                        "{C:mult}+#4#{} Mult",
-                    },
-                    {
-                        "Increase by {C:chips}+#5#{} Chips",
-                        "and {C:mult}+#6#{} Mult for each time",
-                        "{C:attention}#7#{} is used this run",
-                    },
-                },
             },
             c_valk_despina = {
                 name = "Despina",
-                text = {
-                    {
-                        "({V:1}lvl.#1#{}) Level up",
-                        "{C:attention}#2#",
-                        "{C:chips}+#3#{} chips and",
-                        "{C:mult}+#4#{} Mult",
-                    },
-                    {
-                        "Increase by {C:chips}+#5#{} Chips",
-                        "and {C:mult}+#6#{} Mult for each time",
-                        "{C:attention}#7#{} is used this run",
-                    },
-                },
             },
             c_valk_tyche = {
                 name = "Tyche",
-                text = {
-                    {
-                        "({V:1}lvl.#1#{}) Level up",
-                        "{C:attention}#2#",
-                        "{C:chips}+#3#{} chips and",
-                        "{C:mult}+#4#{} Mult",
-                    },
-                    {
-                        "Increase by {C:chips}+#5#{} Chips",
-                        "and {C:mult}+#6#{} Mult for each time",
-                        "{C:attention}#7#{} is used this run",
-                    },
-                },
             },
             c_valk_artemis = {
                 name = "Artemis",
-                text = {
-                    {
-                        "({V:1}lvl.#1#{}) Level up",
-                        "{C:attention}#2#",
-                        "{C:chips}+#3#{} chips and",
-                        "{C:mult}+#4#{} Mult",
-                    },
-                    {
-                        "Increase by {C:chips}+#5#{} Chips",
-                        "and {C:mult}+#6#{} Mult for each time",
-                        "{C:attention}#7#{} is used this run",
-                    },
-                },
             },
             c_valk_ixion = {
                 name = "Ixion",
-                text = {
-                    {
-                        "({V:1}lvl.#1#{}) Level up",
-                        "{C:attention}#2#",
-                        "{C:chips}+#3#{} chips and",
-                        "{C:mult}+#4#{} Mult",
-                    },
-                    {
-                        "Increase by {C:chips}+#5#{} Chips",
-                        "and {C:mult}+#6#{} Mult for each time",
-                        "{C:attention}#7#{} is used this run",
-                    },
-                },
             },
         },
     },
@@ -870,6 +780,9 @@ return {
 
             b_planetoid_cards = "Planetoid Cards",
             k_planetoid = "Planetoid",
+            b_aesthetic_cards = "Aesthetic Cards",
+            k_aesthetic = "Aesthetic",
+
             k_downgrade_ex = "Downgraded!",
             k_failed = "FAILED",
         },
@@ -878,9 +791,12 @@ return {
             valk_cosmic = "Cosmic",
             valk_rgb = "R.G.B",
             valk_glow = "Glow in the Dark",
+            valk_censored = "Censored",
+            valk_lordly = "Lordly",
             k_valk_renowned = "Renowned",
             k_valk_exquisite = "Exquisite",
             Planetoid = "Planetoid",
+            Aesthetic = "Aesthetic",
         },
         poker_hand_descriptions = {},
         poker_hands = {},

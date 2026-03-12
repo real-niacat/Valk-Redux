@@ -2,7 +2,7 @@ SMODS.Joker {
     key = "suck_it",
     atlas = "jokers",
     pos = { x = 2, y = 0 },
-    config = { extra = { lossden = 8, loss = 5, gainden = 15, gain = 20 } },
+    config = { extra = { lossden = 11, loss = 5, gainden = 15, gain = 20 } },
     rarity = 1,
     loc_vars = function(self, info_queue, card)
         local ln, ld = SMODS.get_probability_vars(card, 1, card.ability.extra.lossden)

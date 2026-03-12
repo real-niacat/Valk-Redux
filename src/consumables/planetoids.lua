@@ -69,6 +69,8 @@ for i, oid in ipairs(planetoid_cards) do
                         Valk.content.hand_colour(hand.level),
                     },
                 },
+                key = "c_valk_planetoid_base",
+                name_key = self.key,
             }
         end,
         use = function(self, card, area, copier)
