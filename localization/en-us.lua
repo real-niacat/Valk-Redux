@@ -646,7 +646,22 @@ return {
                 },
             },
         },
-        Voucher = {},
+        Voucher = {
+            v_valk_reptile = {
+                name = "Reptile",
+                text = {
+                    "Always draw at least",
+                    "{C:attention}#1#{} cards",
+                },
+            },
+            v_valk_reptoid = {
+                name = "Reptoid",
+                text = {
+                    "Draw {C:attention}#1#{} additional cards if you",
+                    "have not played a hand this round",
+                },
+            },
+        },
         Aesthetic = {
             c_valk_aesthetic_base = {
                 text = {
@@ -777,6 +792,8 @@ return {
 
             valk_badge_kitty = "Kitty",
             valk_badge_missing_art = "MISSING ART CREDITS",
+            valk_badge_eats_kitties = "(Eats Kitties)",
+            valk_badge_evil = "(evil)",
 
             b_planetoid_cards = "Planetoid Cards",
             k_planetoid = "Planetoid",

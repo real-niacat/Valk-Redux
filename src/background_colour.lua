@@ -29,6 +29,15 @@ local gradient_2 = SMODS.Gradient {
     cycle = 8,
 }
 
+SMODS.Gradient {
+    key = "evil",
+    colours = {
+        HEX("B10000"),
+        HEX("B87575"),
+    },
+    cycle = 5,
+}
+
 Valk.util.hook_after("Game.main_menu", function()
     G.C.valk_prim = gradient_1
     G.C.valk_sec = gradient_2

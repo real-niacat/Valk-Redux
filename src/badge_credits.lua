@@ -5,7 +5,7 @@ function SMODS.create_mod_badges(obj, badges)
         return
     end
 
-    for _, badge in pairs(Valk.badges) do
+    for _, badge in ipairs(Valk.badges) do
         if badge.should_apply(obj) then
             table.insert(badges, 1, Valk.util.generate_badge(badge, obj))
         end
@@ -104,6 +104,7 @@ Valk.badges = {
         colour = function()
             return SMODS.Gradients["valk_grad2"]
         end,
+        order = 0,
     },
     {
         key = "creditless",
@@ -119,8 +120,39 @@ Valk.badges = {
         text_colour = function()
             return SMODS.Gradients["warning_text"]
         end,
+        order = 0,
+    },
+    {
+        key = "eats_kitties",
+        should_apply = function(center)
+            return center.key == "j_valk_ruby"
+        end,
+        get_text = function(center)
+            return { localize("valk_badge_eats_kitties") }
+        end,
+        colour = function()
+            return SMODS.Gradients["valk_evil"]
+        end,
+        order = 0,
+    },
+    {
+        key = "evil",
+        should_apply = function(center)
+            return center.key == "j_valk_ruby"
+        end,
+        get_text = function(center)
+            return { localize("valk_badge_evil") }
+        end,
+        colour = function()
+            return SMODS.Gradients["valk_evil"]
+        end,
+        order = -10,
     },
 }
+
+table.sort(Valk.badges, function(a, b)
+    return a.order < b.order
+end)
 
 Valk.badges_keyed = {}
 for i, entry in ipairs(Valk.badges) do
