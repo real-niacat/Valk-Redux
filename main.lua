@@ -159,5 +159,13 @@ function Valk.util.hook_after(func_path, func)
         return ret
     end)
 end
+Valk.mod.extra_tabs = function()
+    return {
+        {
+            label = localize("k_valk_credits"),
+            tab_definition_function = Valk.ui.credits_def,
+        },
+    }
+end
 
 load_files(Valk.mod.path, true)

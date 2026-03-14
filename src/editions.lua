@@ -37,7 +37,7 @@ SMODS.Edition {
     valk_artist = "lily",
     valk_art_type = "k_valk_shaderby",
     in_shop = true,
-    sound = { sound = "spawn_cosmic" },
+    sound = { sound = "valk_spawn_cosmic" },
 }
 
 SMODS.Edition {
@@ -60,7 +60,7 @@ SMODS.Edition {
     valk_artist = "lily",
     valk_art_type = "k_valk_shaderby",
     in_shop = true,
-    sound = { sound = "spawn_rgb" },
+    sound = { sound = "valk_spawn_rgb" },
 }
 
 SMODS.Edition {
@@ -82,7 +82,7 @@ SMODS.Edition {
     valk_artist = "lily",
     valk_art_type = "k_valk_shaderby",
     in_shop = true,
-    sound = { sound = "spawn_glow" },
+    sound = { sound = "valk_spawn_glow" },
 }
 
 SMODS.Edition {
@@ -102,7 +102,7 @@ SMODS.Edition {
     end,
     weight = 1,
     in_shop = true,
-    sound = { sound = "spawn_censored" },
+    sound = { sound = "valk_spawn_censored" },
 }
 
 Valk.util.hook_after("SMODS.injectItems", function()
@@ -169,7 +169,7 @@ SMODS.Edition {
     valk_artist = "lily",
     valk_art_type = "k_valk_shaderby",
     in_shop = true,
-    sound = { sound = "spawn_lordly" },
+    sound = { sound = "valk_spawn_lordly" },
 }
 
 SMODS.draw_ignore_keys["halo"] = true

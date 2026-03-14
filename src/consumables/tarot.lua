@@ -17,7 +17,7 @@ SMODS.Consumable {
         })
         delay(0.6)
     end,
-    valk_artist = "lily",
+    valk_artist = "mailingway",
     atlas = "misc",
     pos = { x = 6, y = 0 },
 }

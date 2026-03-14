@@ -1,4 +1,5 @@
 Valk.artists = {}
+Valk.i_artists = {}
 Valk.artist = SMODS.GameObject:extend {
     required_params = {
         "key",
@@ -10,6 +11,20 @@ Valk.artist = SMODS.GameObject:extend {
     },
     register = function(self)
         self.drawn = {}
+        local imgs = SMODS.NFS.getDirectoryItems(Valk.mod.path .. "/assets/1x")
+        for _, name in ipairs(imgs) do
+            if name == self.key .. ".png" then
+                self.has_pfp = true
+                SMODS.Atlas {
+                    key = self.key .. "_img",
+                    path = self.key .. ".png",
+                    px = 128,
+                    py = 128,
+                }
+            end
+        end
+
+        table.insert(Valk.i_artists, self)
         SMODS.GameObject.register(self)
     end,
 }
@@ -17,7 +32,6 @@ Valk.artist = SMODS.GameObject:extend {
 Valk.artist {
     key = "mailingway",
     display_name = "mailingway",
-    other_names = { "Patchy" },
 }
 
 Valk.artist {
@@ -58,6 +72,8 @@ Valk.artist {
 Valk.artist {
     key = "lily",
     display_name = "Ophelia",
+    link = "https://en.pronouns.page/@lily.felli",
+    description = "Trans girl, shadermaker, developer",
 }
 
 Valk.util.hook_after("SMODS.injectItems", function()
