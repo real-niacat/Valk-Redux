@@ -68,22 +68,22 @@ function Valk.ui.generate_artist_card(artist)
                                         nodes = {
                                             {
                                                 n = G.UIT.C,
-                                                config = { button = "valk_artist_cards", artist = artist.key, colour = G.C.GREEN, r = 0.005, minh = 0.3, minw = 1.2, align = "cm", button_dist = 0 },
+                                                config = { button = "valk_artist_cards", artist = artist.key, colour = G.C.GREEN, r = 0.005, minh = 0.3, minw = 1.2, align = "cm", button_dist = 0, padding = 0.05 },
                                                 nodes = {
                                                     {
                                                         n = G.UIT.T,
-                                                        config = { text = localize("k_valk_see_creations"), scale = 0.3 },
+                                                        config = { text = localize("k_valk_see_creations"), scale = 0.21 },
                                                     },
                                                 },
                                             },
                                             artist.link
                                                     and {
                                                         n = G.UIT.C,
-                                                        config = { button = "valk_artist_link", goto_link = artist.link, colour = G.C.GREEN, r = 0.005, minh = 0.3, minw = 1.2, align = "cm", button_dist = 0 },
+                                                        config = { button = "valk_artist_link", goto_link = artist.link, colour = G.C.GREEN, r = 0.005, minh = 0.3, minw = 1.2, align = "cm", button_dist = 0, padding = 0.05 },
                                                         nodes = {
                                                             {
                                                                 n = G.UIT.T,
-                                                                config = { text = localize("k_valk_social_media"), scale = 0.25 },
+                                                                config = { text = localize("k_valk_social_media"), scale = 0.21 },
                                                             },
                                                         },
                                                     }

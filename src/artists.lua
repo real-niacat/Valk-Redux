@@ -67,6 +67,7 @@ Valk.artist {
 Valk.artist {
     key = "ruby",
     display_name = "lord.ruby",
+    link = "https://bsky.app/profile/lordruby.bsky.social",
 }
 
 Valk.artist {
