@@ -57,4 +57,9 @@ Valk.mod.calculate = function(self, context)
             ease_dollars(-1)
         end
     end
+
+    -- The Killer compat
+    if context.using_consumeable then
+        G.GAME.last_used_consumable = context.consumeable.config.center
+    end
 end

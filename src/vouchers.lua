@@ -54,14 +54,17 @@ SMODS.Voucher {
 SMODS.Voucher {
     key = "xp_beta",
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.money } }
+        return { vars = { card.ability.extra.money, card.ability.extra.len } }
     end,
     calculate = function(self, card, context)
         if context.valk_level_up then
             ease_dollars(card.ability.extra.money)
         end
     end,
-    config = { extra = { money = 2 } },
+    redeem = function(self, voucher)
+        G.GAME.valk_leveling.leniency = G.GAME.valk_leveling.leniency + voucher.ability.extra.len
+    end,
+    config = { extra = { money = 2, len = 1 } },
     cost = 10,
     valk_artist = "pangaea",
     atlas = "misc",

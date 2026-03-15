@@ -100,7 +100,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 
     tex.rgb = (primary_colour*v) + (secondary_colour*(1.0-v));
     tex = RGBtoHSV(tex);
-    tex.r += psin(uv.x); //hueshift
+    // tex.r += psin(uv.x); //hueshift
     tex = HSVtoRGB(tex);
 
     

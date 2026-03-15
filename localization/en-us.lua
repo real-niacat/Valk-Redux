@@ -645,6 +645,56 @@ return {
                     "{C:inactive}(Must have room)",
                 },
             },
+            c_valk_iron_maiden = {
+                name = "Iron Maiden",
+                text = {
+                    "Select {C:attention}#1#{} card#<s>1#, convert the {C:attention}left{} card",
+                    "into the {C:attention}right{} card, then enhance",
+                    "the {C:attention}left{} card to {C:attention}Steel{}, and",
+                    "{C:attention}unenhance{} the {C:attention}right{} card",
+                },
+            },
+            c_valk_the_pope = {
+                name = "The Pope",
+                text = {
+                    "Remove the {C:attention}Enhancement{} of",
+                    "all cards {C:attention}held-in-hand{}, then roll",
+                    "a {C:green}#1# in #2#{} chance to give each card",
+                    "a random {C:attention}Enhancement{}",
+                },
+            },
+            c_valk_gods_fingers = {
+                name = "God's Fingers",
+                text = {
+                    "Destroy {C:attention}#1#{} random cards",
+                    "{C:attention}held-in-hand{}, and create a",
+                    "random {C:dark_edition}Negative{} {C:common}Common{} Joker",
+                },
+            },
+            c_valk_the_killer = {
+                name = "The Killer",
+                text = {
+                    "Create a random",
+                    "{C:dark_edition}Negative{} {C:attention}consumable{}",
+                    "of the same {C:attention}type{} as the",
+                    "last used {C:attention}consumable{}",
+                },
+            },
+            c_valk_gameshow = {
+                name = "Gameshow",
+                text = {
+                    "Roll a {C:green}#1# in #2#{} chance",
+                    "to earn {C:money}$#3#{} for each owned Joker",
+                },
+            },
+            c_valk_the_knight = {
+                name = "The Knight",
+                text = {
+                    "Select up to {C:attention}#1#{} cards",
+                    "Destroy all cards {C:attention}held-in-hand{}",
+                    "that are not selected",
+                },
+            },
         },
         Voucher = {
             v_valk_reptile = {
@@ -671,6 +721,7 @@ return {
                 name = "XP Booster Beta",
                 text = {
                     "Earn {C:money}$#1#{} on level-up",
+                    "{C:valk_grad1}+#2#{} XP Leniency",
                 },
             },
             v_valk_xp_gamma = {
@@ -868,6 +919,7 @@ return {
             k_valk_bf_ante = "{C:attention}+#1#{} Ante",
             k_valk_bf_consumables = "Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:attention}Consumables{}",
             k_valk_bf_negative_blindsize = "{C:attention}-#1#{} Blind Size when hand played",
+            a_dollars = "+$#1#",
         },
         v_text = {},
     },

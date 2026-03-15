@@ -141,6 +141,9 @@ Valk.ui.artists_per_page = 3
 
 function Valk.ui.generate_artist_cards(page)
     page = page - 1
+    table.sort(Valk.i_artists, function(a, b)
+        return #a.drawn > #b.drawn
+    end)
     local artists_per_page = Valk.ui.artists_per_page
     local t = {}
     local first = (artists_per_page * page) + 1

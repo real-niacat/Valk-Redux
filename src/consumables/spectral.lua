@@ -350,6 +350,6 @@ SMODS.Consumable {
         end
     end,
     hidden = true,
-    soul_rate = 0.03,
+    soul_rate = 0.07,
     valk_artist = "pangaea",
 }

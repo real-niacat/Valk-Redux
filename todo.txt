@@ -20,6 +20,8 @@
     DONE
 -- add credits ui
     DONE
+-- vouchers
+    DONE
 -- reimplement exquisite jokers
     mostly finished // TODO - IMPLEMENT MORE
 
@@ -28,8 +30,6 @@
     not started
 -- rework and reimplement superplanet cards
     not started / low prio
--- reimplement all vouchers (rework a few too)
-    started // to finish
 -- add main menu logo
     waiting for art / low prio
 -- remove loss
@@ -58,3 +58,4 @@
         Comin' Outta The Closet - Take HRT for the first time
         Self Deprecation - Give 5 or more retriggers to Uttered Chaos with I'm With Stupid
         Bad Design - Have Spectradolia replace Cryptid with a different Spectral card
+        Yeah I'd like to solve the puzzle - Have a Gameshow succeed on 5 or more Jokers in a row
