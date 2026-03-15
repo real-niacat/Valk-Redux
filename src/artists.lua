@@ -43,6 +43,7 @@ Valk.artist {
 Valk.artist {
     key = "scraptake",
     display_name = "Scraptake",
+    link = "https://bsky.app/profile/scraptake.bsky.social",
 }
 
 Valk.artist {
@@ -58,6 +59,8 @@ Valk.artist {
 Valk.artist {
     key = "grahkon",
     display_name = "Grahkon",
+    link = "https://www.reddit.com/user/apothioternity/",
+    description = "Unknown creacher, sprite artist, motivational support?",
 }
 
 Valk.artist {
