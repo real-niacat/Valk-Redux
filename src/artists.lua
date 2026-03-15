@@ -32,6 +32,7 @@ Valk.artist = SMODS.GameObject:extend {
 Valk.artist {
     key = "mailingway",
     display_name = "mailingway",
+    description = "I Love Mulch! Mulch is my Life!",
 }
 
 Valk.artist {

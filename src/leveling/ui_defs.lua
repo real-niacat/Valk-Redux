@@ -144,7 +144,7 @@ function G.FUNCS.gate_tooltip(e)
     if not e.parent.children.desc_popup then
         e.parent.children.desc_popup = UIBox {
             definition = Valk.ui.generate_tooltip(Valk.leveling.generate_gate_text()),
-            config = { align = "cm", offset = { x = -1, y = 1 }, major = e.parent, instance_type = "POPUP" },
+            config = { align = "bm", offset = { x = -2, y = 0.5 }, major = e.parent, instance_type = "POPUP" },
         }
         e.parent.children.desc_popup.states.collide.can = false
     elseif e.parent.children.desc_popup then

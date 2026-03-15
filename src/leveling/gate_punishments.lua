@@ -7,9 +7,9 @@ function Valk.leveling.set_blinds() end
 -- all effects are temporary and go away if you lower your gate intensity
 Valk.leveling.threshes = {
     ExtraScaling = 1,
-    BigBoss = 3, -- waiting for Ice's PR
+    --BigBoss = 3, -- waiting for Ice's PR
     ExpensiveCards = 5,
-    SmallBoss = 7,
+    --SmallBoss = 7,
     HalfDiscards = 10, -- /2 discards when blind selected
     UnsellableJokers = 15,
     Skimming = 17, -- lose $1 at end of round per joker owned

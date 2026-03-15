@@ -5,8 +5,8 @@ Valk.util.hook("Game.init_game_object", function(original, ...)
         req = Valk.leveling.get_requirement(1),
         level = 1,
         reward = 1,
-        max_reward = 125, -- base reward
-        max_reward_scaling = 25, -- at end of round increases by this much
+        max_reward = 100, -- base reward
+        max_reward_scaling = 12.5, -- at end of round increases by this much
         ui_state = { complete = true },
         gate_intensity = 0,
         leniency = 2, -- higher number = easier to gain 100% xp per blind
@@ -66,6 +66,7 @@ end
 
 function Valk.leveling.level_up(new_level)
     ease_dollars(G.GAME.valk_leveling.reward) -- you earn 1 dollar when leveling up. thats it
+    SMODS.calculate_context { valk_level_up = true }
     G.valk_level_progress:get_UIE_by_ID("level_display"):juice_up()
 end
 

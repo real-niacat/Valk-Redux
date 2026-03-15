@@ -10,7 +10,7 @@ SMODS.Consumable {
             delay = 0.4,
             func = function()
                 play_sound("timpani")
-                SMODS.add_card { set = "Kitty" }
+                SMODS.add_card { key = Valk.util.poll_kitty("valk_judgemeownt") }
                 card:juice_up(0.3, 0.5)
                 return true
             end,

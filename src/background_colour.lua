@@ -53,16 +53,17 @@ Valk.util.hook_after("Game.main_menu", function()
         },
     }
 
-    G.E_MANAGER:add_event(Event {
-        trigger = "ease",
-        ease = "insine", --easing type
-        ref_table = G.title_top.T,
-        ref_value = "y",
-        ease_to = 2.4, --end value
-        delay = 2, --time taken
-        timer = "REAL",
-        func = function(t)
-            return t
-        end,
-    })
+    -- TODO: readd this movement once the main menu logo exists
+    -- G.E_MANAGER:add_event(Event {
+    --     trigger = "ease",
+    --     ease = "insine", --easing type
+    --     ref_table = G.title_top.T,
+    --     ref_value = "y",
+    --     ease_to = 2.4, --end value
+    --     delay = 2, --time taken
+    --     timer = "REAL",
+    --     func = function(t)
+    --         return t
+    --     end,
+    -- })
 end)

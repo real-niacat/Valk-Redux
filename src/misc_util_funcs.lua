@@ -288,3 +288,52 @@ function Valk.util.hand_text(config, vals)
         end,
     })
 end
+
+-- taken from feli's jokeria
+function Valk.util.weighted_pool(pool, seed)
+    if type(pool) == "table" then
+        local roll = nil
+        roll = roll or pseudorandom(seed)
+        local total = 0
+
+        for _, v in ipairs(pool) do
+            local w = v.weight or v[2] or 1
+            total = total + w
+        end
+
+        local target = roll * total
+        local sum = 0
+
+        for _, v in ipairs(pool) do
+            local w = v.weight or v[2] or 1
+            sum = sum + w
+            if target <= sum then
+                return v.key or v[1]
+            end
+        end
+    elseif pool then
+        error("pool is not a table ({key, weight}")
+    else
+        error("pool is nil")
+    end
+end
+
+function Valk.util.poll_kitty(seed)
+    local available = {}
+    local rarity_ref = setmetatable({
+        "Common",
+        "Uncommon",
+        "Rare",
+        "Legendary",
+    }, {
+        __index = function(t, k)
+            return rawget(t, k) or k
+        end,
+    })
+    for _, cen in pairs(G.P_CENTER_POOLS.Kitty) do
+        local rarity = SMODS.Rarities[rarity_ref[cen.rarity]]
+        local weight = rarity.get_weight and rarity:get_weight(rarity.default_weight) or rarity.default_weight
+        table.insert(available, { cen.key, weight })
+    end
+    return Valk.util.weighted_pool(available, seed)
+end

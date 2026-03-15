@@ -661,6 +661,38 @@ return {
                     "have not played a hand this round",
                 },
             },
+            v_valk_xp_alpha = {
+                name = "XP Booster Alpha",
+                text = {
+                    "{X:valk_grad2,C:white}X#1#{} XP Gain",
+                },
+            },
+            v_valk_xp_beta = {
+                name = "XP Booster Beta",
+                text = {
+                    "Earn {C:money}$#1#{} on level-up",
+                },
+            },
+            v_valk_xp_gamma = {
+                name = "XP Booster Gamma",
+                text = {
+                    "Level up your {C:attention}most-played{} ",
+                    "{C:attention}poker hand{} on level-up",
+                },
+            },
+            v_valk_xp_delta = {
+                name = "XP Booster Delta",
+                text = {
+                    "{X:valk_grad2,C:white}X#1#{} XP Gain",
+                },
+            },
+            v_valk_xp_epsilon = {
+                name = "XP Booster Epsilon",
+                text = {
+                    "Create a {C:spectral}Spectral{}",
+                    "card on level-up",
+                },
+            },
         },
         Aesthetic = {
             c_valk_aesthetic_base = {

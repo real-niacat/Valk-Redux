@@ -268,7 +268,7 @@ SMODS.Consumable {
     pos = { x = 8, y = 3 },
     can_use = function(self, card)
         local h = #G.jokers.highlighted
-        return h >= 0 and h <= card.ability.extra.cards
+        return h >= 1 and h <= card.ability.extra.cards
     end,
     use = function(self, card, area, copier)
         for _, c in pairs(G.jokers.highlighted) do
