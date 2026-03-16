@@ -85,7 +85,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 {
     vec4 tex = colour;
     vec2 uv = (screen_coords - uibox_pos) / (uibox_size.xy);
-    uv *= 3; // compensates
+    uv *= 3.0; // compensates
 
     if (iTime > 2.0*iTime+barshader.y) {
         tex.r = 1.0;
