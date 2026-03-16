@@ -25,7 +25,7 @@ return {
             b_valk_encore = {
                 name = "Encore Deck",
                 text = {
-                    "Retrigger all Jokers {C:attention}once{}",
+                    "Retrigger all cards {C:attention}once{}",
                     "{C:attention}#1#{} Joker slots",
                 },
             },

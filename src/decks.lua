@@ -31,7 +31,7 @@ SMODS.Back {
     atlas = "misc",
     pos = { x = 1, y = 5 },
     calculate = function(self, back, context)
-        if context.retrigger_joker_check then
+        if context.retrigger_joker_check or context.repetition then
             return { repetitions = 1 }
         end
     end,
@@ -47,6 +47,6 @@ SMODS.Back {
     loc_vars = function(self, info_queue, card)
         return { vars = { self.config.minus_slots } }
     end,
-    config = { minus_slots = -2 },
+    config = { minus_slots = -3 },
     valk_artist = "scraptake",
 }
