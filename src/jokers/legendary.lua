@@ -370,3 +370,30 @@ SMODS.Joker {
     end,
     valk_artist = "ruby",
 }
+
+SMODS.Joker {
+    key = "triangle",
+    atlas = "float",
+    pos = { x = 7, y = 8 },
+    soul_pos = { x = 8, y = 8 },
+    config = { extra = { ascpow = 1, scale = 0.5 } },
+    rarity = 4,
+    cost = 20,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.ascpow, card.ability.extra.scale } }
+    end,
+    calculate = function(self, card, context)
+        -- code here
+        if context.joker_main then
+            return {
+                plus_asc = card.ability.extra.ascpow * Valk.util.get_kitty_jokers(),
+            }
+        end
+
+        if context.before and context.scoring_name == "Three of a Kind" and not context.blueprint then
+            SMODS.scale_card(card, { ref_table = card.ability.extra, ref_value = "ascpow", scalar_value = "scale" })
+        end
+    end,
+    valk_artist = "notmario",
+    pools = { Kitty = true },
+}

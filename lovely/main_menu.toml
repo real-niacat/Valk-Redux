@@ -40,3 +40,17 @@ end
 '''
 match_indent = true
 times = 1
+
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+if self.SPLASH_LOGO then self.SPLASH_LOGO:remove(); self.SPLASH_LOGO = nil end
+'''
+position = "after"
+payload = '''
+if self.VALK_LOGO then self.VALK_LOGO:remove(); self.VALK_LOGO = nil end
+'''
+match_indent = true
+times = 1

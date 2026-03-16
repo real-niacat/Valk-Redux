@@ -149,7 +149,10 @@ function Valk.ui.generate_artist_cards(page)
     local first = (artists_per_page * page) + 1
     local last = first + (artists_per_page - 1)
     for i = first, last do
-        table.insert(t, Valk.ui.generate_artist_card(Valk.i_artists[i]))
+        local artist = Valk.i_artists[i]
+        if artist then
+            table.insert(t, Valk.ui.generate_artist_card(artist))
+        end
     end
 
     return t
@@ -216,5 +219,6 @@ function G.FUNCS.valk_update_pages(args)
     ref.config.object = Valk.ui.generate_internal(page, ref)
 
     ref.config.object:recalculate()
+    G.OVERLAY_MENU:recalculate()
     G.OVERLAY_MENU:recalculate()
 end

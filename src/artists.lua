@@ -83,6 +83,12 @@ Valk.artist {
     description = "Trans girl, shadermaker, developer",
 }
 
+Valk.artist {
+    key = "notmario",
+    display_name = "notmario.",
+    description = "i make stupid things",
+}
+
 Valk.util.hook_after("SMODS.injectItems", function()
     for _, center in pairs(G.P_CENTERS) do
         if center.valk_artist then

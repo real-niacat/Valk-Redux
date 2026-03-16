@@ -337,3 +337,13 @@ function Valk.util.poll_kitty(seed)
     end
     return Valk.util.weighted_pool(available, seed)
 end
+
+function Valk.util.sanitize_table(t)
+    local tab = {}
+    for k, v in pairs(t) do
+        if type(v) ~= "function" then
+            tab[k] = v
+        end
+    end
+    return tab
+end

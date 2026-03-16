@@ -529,6 +529,14 @@ return {
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
                 },
             },
+            j_valk_triangle = {
+                name = "Triangle",
+                text = {
+                    "{C:gold}+#1#{} Ascension Power per {C:attention}Kitty{} Joker owned",
+                    "Increase by {C:gold}+#2#{} if played {C:attention}poker hand{}",
+                    "is {C:attention}Three of a Kind{}",
+                },
+            },
             j_valk_madstone_whiskey = {
                 name = "Madstone Whiskey",
                 text = {
@@ -762,9 +770,8 @@ return {
         Aesthetic = {
             c_valk_aesthetic_base = {
                 text = {
-                    "Enhance up to {C:attention}#1#{} selected",
-                    "Joker#<s>1# or Playing Card#<s>1# to",
-                    "{C:dark_edition}#2#{}",
+                    "Apply {C:dark_edition}#2#{} to up to {C:attention}#1#{}",
+                    "selected Joker#<s>1# or Playing Card#<s>1#",
                 },
             },
             c_valk_frutiger_aero = {
@@ -859,7 +866,7 @@ return {
             -- when you do localize(x) it looks here for an entry with key x
             k_valk_artby = "Art by: ",
             k_valk_page = "Page ",
-            k_valk_see_creations = "Accredited cards",
+            k_valk_see_creations = "See creations",
             k_valk_social_media = "Social Media",
             k_valk_credits = "Credits",
             k_valk_shaderby = "Shader by: ",

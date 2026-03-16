@@ -60,6 +60,6 @@ Valk.mod.calculate = function(self, context)
 
     -- The Killer compat
     if context.using_consumeable then
-        G.GAME.last_used_consumable = context.consumeable.config.center
+        G.GAME.last_used_consumable = Valk.util.sanitize_table(context.consumeable.config.center)
     end
 end
