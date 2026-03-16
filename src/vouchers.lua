@@ -34,6 +34,7 @@ SMODS.Voucher {
     valk_artist = "mailingway",
     atlas = "misc",
     pos = { x = 1, y = 1 },
+    requires = { "v_valk_reptile" },
 }
 
 SMODS.Voucher {
