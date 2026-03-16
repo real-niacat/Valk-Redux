@@ -24,17 +24,8 @@
     DONE
 -- reimplement and rework semirare tarots
     DONE
--- reimplement exquisite jokers
-    mostly finished // TODO - IMPLEMENT MORE
-
-    obtainment rework // DONE
-
--- rework and reimplement superplanet cards
-    not started / low prio
 -- add main menu logo
-    waiting for art / low prio
--- remove loss
-    not started / SUPER high prio
+    DONE
 
 ----------------------------------
 ------ POST INITIAL RELEASE ------
@@ -45,6 +36,8 @@
 -- brainfuck joker
 -- get modders to meow for me
 -- auto dependency installer
+-- readd last 3 exquisite jokers
+-- rework and reimplement superplanet cards
 -- add achievements
 
     achievement ideas:
