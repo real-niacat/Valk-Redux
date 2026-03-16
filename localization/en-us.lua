@@ -1,5 +1,19 @@
 return {
     descriptions = {
+        Mod = {
+            valkredux = {
+                name = "Valk:Redux",
+                text = {
+                    "A full rewrite, rework and remake of {C:attention}VallKarri{}",
+                    "The top ranking mod in the B tier of the mod tierlist",
+                    "{s:1.2}Developed by {s:1.2,C:valk_grad1}Ophelia Felli{}",
+                    "{s:0.8,C:inactive}A.K.A. Lily Felli{}",
+                    "{s:1.2}With art by {s:1.2,C:valk_grad2}Various People{}",
+                    "{s:0.8,C:inactive}Check out the credits menu! It's full of awesome people!{}",
+                    "{s:1.5,C:valk_exquisite}Thank you for playing!{}",
+                },
+            },
+        },
         Back = {
             b_valk_inertia = {
                 name = "Inertia Deck",

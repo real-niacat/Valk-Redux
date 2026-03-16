@@ -168,4 +168,11 @@ Valk.mod.extra_tabs = function()
     }
 end
 
+SMODS.Atlas {
+    key = "modicon",
+    path = "valk_icon.png",
+    px = 34,
+    py = 34,
+}
+
 load_files(Valk.mod.path, true)

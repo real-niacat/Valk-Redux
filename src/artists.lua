@@ -38,6 +38,7 @@ Valk.artist {
 Valk.artist {
     key = "pangaea",
     display_name = "Pangaea47",
+    description = "residential spider, good at art",
 }
 
 Valk.artist {
@@ -60,7 +61,7 @@ Valk.artist {
     key = "grahkon",
     display_name = "Grahkon",
     link = "https://www.reddit.com/user/apothioternity/",
-    description = "Unknown creacher, sprite artist, motivational support?",
+    description = "Unknown creacher, sprite artist",
 }
 
 Valk.artist {
@@ -72,6 +73,7 @@ Valk.artist {
     key = "ruby",
     display_name = "lord.ruby",
     link = "https://bsky.app/profile/lordruby.bsky.social",
+    description = "i can tank any attack",
 }
 
 Valk.artist {

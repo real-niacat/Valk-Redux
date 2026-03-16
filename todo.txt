@@ -22,12 +22,13 @@
     DONE
 -- vouchers
     DONE
+-- reimplement and rework semirare tarots
+    DONE
 -- reimplement exquisite jokers
     mostly finished // TODO - IMPLEMENT MORE
 
     obtainment rework // DONE
--- reimplement and rework semirare tarots (plus recolouring)
-    not started
+
 -- rework and reimplement superplanet cards
     not started / low prio
 -- add main menu logo
@@ -59,3 +60,8 @@
         Self Deprecation - Give 5 or more retriggers to Uttered Chaos with I'm With Stupid
         Bad Design - Have Spectradolia replace Cryptid with a different Spectral card
         Yeah I'd like to solve the puzzle - Have a Gameshow succeed on 5 or more Jokers in a row
+
+
+
+to any non-devs reading this, hi! this is your way of seeing what's coming up
+please don't share info from here directly, it's more fun to be a surprise for the masses!
