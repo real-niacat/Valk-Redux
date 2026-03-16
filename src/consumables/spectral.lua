@@ -343,7 +343,7 @@ SMODS.Consumable {
     end,
     use = function(self, card, area, copier)
         G.GAME.round_resets.blind_choices.Boss = "bl_valk_high_road"
-        if G.blind_select then
+        if G.STATE == G.STATES.BLIND_SELECT then
             G.blind_select:remove()
             G.blind_prompt_box:remove()
             G.STATE_COMPLETE = false

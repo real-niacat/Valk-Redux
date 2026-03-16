@@ -16,7 +16,7 @@ local aesthetic_cards = {
     { pos = { x = 0, y = 3 }, key = "e_valk_rgb", name = "scene", artist = "slipstream" },
     { pos = { x = 1, y = 3 }, key = "e_valk_cosmic", name = "memphis", artist = "slipstream" },
     { pos = { x = 2, y = 3 }, key = "e_valk_glow", name = "arcadecore", artist = "slipstream" },
-    { pos = { x = 3, y = 3 }, key = "e_valk_lordly", name = "savior", artist = "pangaea", hidden = true, soul_rate = 0.06 },
+    { pos = { x = 3, y = 3 }, key = "e_valk_lordly", name = "savior", artist = "pangaea", hidden = true, soul_rate = 0.02 },
     { pos = { x = 4, y = 3 }, key = "e_valk_censored", name = "cl___ified", artist = "mailingway" },
 }
 

@@ -45,7 +45,7 @@ end
 Valk.util.hook("get_blind_amount", function(original, ante)
     local base = original(ante)
     if Valk.leveling.get_active_gates().ExtraScaling then
-        base = base * 1 + (ante / G.GAME.win_ante)
+        base = base * (1 + (ante / G.GAME.win_ante))
     end
     return base
 end)
