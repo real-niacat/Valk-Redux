@@ -87,8 +87,8 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     vec2 uv = (screen_coords - uibox_pos) / (uibox_size.xy);
     uv *= 3; // compensates
 
-    if (iTime > 2*iTime+barshader.y) {
-        tex.r = 1;
+    if (iTime > 2.0*iTime+barshader.y) {
+        tex.r = 1.0;
     }
 
     uv.x += iTime*0.6;
@@ -96,11 +96,12 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     // tex.rgb = vec3(max(uv.x, uv.y));
     vec3 primary_colour = vec3(0.051, 0.4471, 0.902);
     vec3 secondary_colour = vec3(0.7686, 0.5882, 1.0);
+    primary_colour.r += sin(barshader.y)/100.0;
     float v = psin(uv.y+psin(uv.x));
 
     tex.rgb = (primary_colour*v) + (secondary_colour*(1.0-v));
     tex = RGBtoHSV(tex);
-    // tex.r += psin(uv.x); //hueshift
+    tex.r += psin(uv.x); //hueshift
     tex = HSVtoRGB(tex);
 
     

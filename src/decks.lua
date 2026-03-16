@@ -47,6 +47,6 @@ SMODS.Back {
     loc_vars = function(self, info_queue, card)
         return { vars = { self.config.minus_slots } }
     end,
-    config = { minus_slots = -3 },
+    config = { minus_slots = -2 },
     valk_artist = "scraptake",
 }

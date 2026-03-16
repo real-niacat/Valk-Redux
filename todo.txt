@@ -37,6 +37,7 @@
 -- get modders to meow for me
 -- auto dependency installer
 -- readd last 3 exquisite jokers
+-- change aesthetijoker obtainment (rare aesthetic card)
 -- rework and reimplement superplanet cards
 -- add achievements
 
