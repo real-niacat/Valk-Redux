@@ -76,7 +76,7 @@ Valk.util.hook_after("Game.main_menu", function()
                         major = G.MAIN_MENU_UI,
                         type = "cm",
                         bond = "Strong",
-                        offset = { x = -1, y = -2.5 },
+                        offset = { x = -1.25, y = -2.5 },
                     }
                     G.VALK_LOGO.aligned_to_menu = true
                     return true
