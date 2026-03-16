@@ -161,18 +161,6 @@ function Valk.leveling.ease_xp(amount, leveling_callback)
                                     leveling_callback(leveling.level)
                                 end
                             end
-                            if amount == 0 then
-                                -- nope!
-                                attention_text {
-                                    text = localize("k_nope_ex"),
-                                    scale = 1,
-                                    hold = 1,
-                                    backdrop_colour = G.C.FILTER,
-                                    align = "cm",
-                                    major = G.valk_level_progress,
-                                    offset = { x = 0, y = 2 },
-                                }
-                            end
                             if final then
                                 leveling.in_animation = false
                             end
