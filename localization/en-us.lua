@@ -19,7 +19,7 @@ return {
                 name = "Inertia Deck",
                 text = {
                     "{X:dark_edition,C:white}^#1#{} Blind Size",
-                    "{X:valk_grad2,C:white}X#2#{} XP Gain",
+                    "{C:valk_grad1}-#2#{} XP Leniency",
                 },
             },
             b_valk_encore = {

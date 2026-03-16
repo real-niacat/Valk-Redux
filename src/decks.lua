@@ -6,13 +6,13 @@ SMODS.Back {
         G.E_MANAGER:add_event(Event {
             trigger = "after",
             func = function()
-                G.GAME.valk_leveling.xp_multiplier = self.config.xp
+                G.GAME.valk_leveling.leniency = G.GAME.valk_leveling.leniency - self.config.xp
                 G.GAME.blindsize_exponent = self.config.esize
                 return true
             end,
         })
     end,
-    config = { xp = 0.4, esize = 0.9 },
+    config = { xp = 0.5, esize = 0.9 },
     loc_vars = function(self, info_queue, card)
         return { vars = {
             self.config.esize,

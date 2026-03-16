@@ -5,11 +5,11 @@ Valk.util.hook("Game.init_game_object", function(original, ...)
         req = Valk.leveling.get_requirement(1),
         level = 1,
         reward = 1,
-        max_reward = 100, -- base reward
+        max_reward = 125, -- base reward
         max_reward_scaling = 12.5, -- at end of round increases by this much
         ui_state = { complete = true },
         gate_intensity = 0,
-        leniency = 2, -- higher number = easier to gain 100% xp per blind
+        leniency = 1, -- higher number = easier to gain 100% xp per blind
         xp_multiplier = 1,
     }
     return game
