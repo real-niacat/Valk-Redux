@@ -22,7 +22,7 @@ SMODS.Consumable {
     pos = { x = 6, y = 0 },
 }
 
-Valk.tarot_soul_rate = 0.03
+Valk.tarot_soul_rate = 0.02
 -- defined all at once to save time
 
 SMODS.Consumable {
@@ -52,6 +52,7 @@ SMODS.Consumable {
     pos = { x = 0, y = 0 },
     soul_rate = Valk.tarot_soul_rate,
     soul_set = "Tarot",
+    hidden = true,
 }
 
 SMODS.Consumable {
@@ -79,6 +80,7 @@ SMODS.Consumable {
     pos = { x = 1, y = 0 },
     soul_rate = Valk.tarot_soul_rate,
     soul_set = "Tarot",
+    hidden = true,
 }
 
 SMODS.Consumable {
@@ -106,6 +108,7 @@ SMODS.Consumable {
     pos = { x = 2, y = 0 },
     soul_rate = Valk.tarot_soul_rate,
     soul_set = "Tarot",
+    hidden = true,
 }
 
 SMODS.Consumable {
@@ -146,6 +149,7 @@ SMODS.Consumable {
     pos = { x = 3, y = 0 },
     soul_rate = Valk.tarot_soul_rate,
     soul_set = "Tarot",
+    hidden = true,
 }
 
 SMODS.Consumable {
@@ -229,6 +233,7 @@ SMODS.Consumable {
     pos = { x = 4, y = 0 },
     soul_rate = Valk.tarot_soul_rate,
     soul_set = "Tarot",
+    hidden = true,
 }
 
 SMODS.Consumable {
@@ -272,4 +277,5 @@ SMODS.Consumable {
     pos = { x = 5, y = 0 },
     soul_rate = Valk.tarot_soul_rate,
     soul_set = "Tarot",
+    hidden = true,
 }
