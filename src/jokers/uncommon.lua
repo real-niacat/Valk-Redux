@@ -2,7 +2,7 @@ SMODS.Joker {
     key = "streetlight",
     atlas = "jokers",
     pos = { x = 8, y = 0 },
-    config = { extra = { xmult_gain = 0.1, xmult = 1 } },
+    config = { extra = { xmult_gain = 0.05, xmult = 1 } },
     rarity = 2,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult_gain, card.ability.extra.xmult } }
@@ -97,12 +97,12 @@ SMODS.Joker {
     pos = { x = 2, y = 1 },
     config = {
         extra = {
-            xmult_gain = 0.1,
+            xmult_gain = 0.05,
             xmult = 1,
-            gain_kitty_tag = 0.01,
+            gain_kitty_tag = 0.02,
             suit = "Diamond",
             suit_plural = "Diamonds",
-            xmult_gain_base = 0.1,
+            xmult_gain_base = 0.05,
         },
     },
     rarity = 2,
@@ -150,12 +150,12 @@ SMODS.Joker {
     pos = { x = 3, y = 1 },
     config = {
         extra = {
-            xmult_gain = 0.1,
+            xmult_gain = 0.05,
             xmult = 1,
-            gain_kitty_tag = 0.01,
+            gain_kitty_tag = 0.02,
             suit = "Spade",
             suit_plural = "Spades",
-            xmult_gain_base = 0.1,
+            xmult_gain_base = 0.05,
         },
     },
     rarity = 2,
@@ -203,12 +203,12 @@ SMODS.Joker {
     pos = { x = 4, y = 1 },
     config = {
         extra = {
-            xmult_gain = 0.1,
+            xmult_gain = 0.05,
             xmult = 1,
-            gain_kitty_tag = 0.01,
+            gain_kitty_tag = 0.02,
             suit = "Club",
             suit_plural = "Clubs",
-            xmult_gain_base = 0.1,
+            xmult_gain_base = 0.05,
         },
     },
     rarity = 2,
@@ -256,12 +256,12 @@ SMODS.Joker {
     pos = { x = 5, y = 1 },
     config = {
         extra = {
-            xmult_gain = 0.1,
+            xmult_gain = 0.05,
             xmult = 1,
-            gain_kitty_tag = 0.01,
+            gain_kitty_tag = 0.02,
             suit = "Heart",
             suit_plural = "Hearts",
-            xmult_gain_base = 0.1,
+            xmult_gain_base = 0.05,
         },
     },
     rarity = 2,

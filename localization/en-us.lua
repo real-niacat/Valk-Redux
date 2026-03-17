@@ -131,8 +131,7 @@ return {
             j_valk_kitty = {
                 name = "Kitty",
                 text = {
-                    "{C:green}#1# in #2#{} chance to",
-                    "create a {C:attention}Kitty Tag{}",
+                    "Creates a {C:attention}Kitty Tag{}",
                     "at end of round",
                 },
             },

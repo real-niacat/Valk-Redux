@@ -96,3 +96,17 @@ Valk.util.hook_after("SMODS.injectItems", function()
         end
     end
 end)
+
+function Valk.util.art_percentages()
+    local total = 0
+    local counts = {}
+    for _, artist in ipairs(Valk.i_artists) do
+        local c = #artist.drawn
+        counts[artist.key] = c
+        total = total + c
+    end
+
+    for _, artist in ipairs(Valk.i_artists) do
+        print(artist.display_name, tostring((counts[artist.key] / total) * 100) .. "%")
+    end
+end

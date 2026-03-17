@@ -40,7 +40,7 @@ SMODS.Joker {
     key = "antithesis",
     atlas = "jokers",
     pos = { x = 3, y = 0 },
-    config = { extra = { mult = 4 } },
+    config = { extra = { mult = 5 } },
     rarity = 1,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
@@ -58,16 +58,15 @@ SMODS.Joker {
     key = "kitty",
     atlas = "jokers",
     pos = { x = 4, y = 0 },
-    config = { extra = { den = 2 } },
+    config = { extra = {} },
     rarity = 1,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
-        local n, d = SMODS.get_probability_vars(card, 1, card.ability.extra.den)
-        return { vars = { n, d } }
+        return { vars = {} }
     end,
     calculate = function(self, card, context)
         -- code here
-        if context.end_of_round and context.main_eval and SMODS.pseudorandom_probability(card, "kitty", 1, card.ability.extra.den) then
+        if context.end_of_round and context.main_eval then
             add_tag(Tag("tag_valk_kitty"))
             SMODS.calculate_effect({ message = localize("k_plus_kitty_tag") }, card)
         end
