@@ -7,7 +7,7 @@
 	"main_file": "main.lua",
 	"priority": 99999, 
 	"badge_colour": "F5BF42",
-	"version": "1.0.0", 
+	"version": "1.0.1a", 
 	"dependencies": [ 
 		"Spectrallib",
 		"blindexpander",

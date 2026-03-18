@@ -89,12 +89,8 @@ SMODS.Blind {
 }
 
 Valk.util.hook("end_round", function(original, ...)
-    if (G.STATE == G.STATES.HAND_PLAYED) and G.STATE_COMPLETE then
-        return
-    end
-
     if Spectrallib.safe_get(G.GAME.blind, "config", "blind", "key") == "bl_valk_high_road" then
-        if G.GAME.chips > G.GAME.blind.chips then
+        if G.GAME.chips >= G.GAME.blind.chips and G.GAME.chips <= G.GAME.blind_overscore_thresh then
             SMODS.add_card { rarity = "valk_exquisite", set = "Joker", area = G.jokers }
         else
             G.GAME.blind.chips = 0

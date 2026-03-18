@@ -361,6 +361,8 @@ SMODS.Joker {
                     card:juice_up()
                     context.card:juice_up()
                     context.card:set_ability(Valk.util.poll_set("Planet", self.key))
+                    create_shop_card_ui(context.card)
+                    context.card:set_cost()
                     return true
                 end,
             })
@@ -390,6 +392,8 @@ SMODS.Joker {
                     card:juice_up()
                     context.card:juice_up()
                     context.card:set_ability(Valk.util.poll_set("Tarot", self.key))
+                    create_shop_card_ui(context.card)
+                    context.card:set_cost()
                     return true
                 end,
             })
@@ -419,6 +423,8 @@ SMODS.Joker {
                     card:juice_up()
                     context.card:juice_up()
                     context.card:set_ability(Valk.util.poll_set("Spectral", self.key))
+                    create_shop_card_ui(context.card)
+                    context.card:set_cost()
                     return true
                 end,
             })
