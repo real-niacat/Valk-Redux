@@ -190,7 +190,7 @@ function Valk.ui.credits_def()
     end
     return {
         n = G.UIT.ROOT,
-        config = { r = 0.05, padding = 0.1, colour = G.C.BLACK },
+        config = { r = 0.05, padding = 0.1, colour = G.C.BLACK, minw = 8, minh = 6, align = "cm" },
         nodes = {
             {
                 n = G.UIT.R,

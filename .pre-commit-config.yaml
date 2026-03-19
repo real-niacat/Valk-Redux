@@ -3,3 +3,9 @@ repos:
   rev: v2.3.1
   hooks:
     - id: stylua-github
+- repo: local
+  hooks:
+  - id: upscale
+    name: upscale
+    entry: python upscale.py
+    language: system
