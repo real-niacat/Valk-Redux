@@ -106,7 +106,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- code here
-        if context.individual and context.cardarea == G.hand and next(SMODS.get_enhancements(context.other_card)) then
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and next(SMODS.get_enhancements(context.other_card)) then
             return { mult = card.ability.extra.mult }
         end
     end,
