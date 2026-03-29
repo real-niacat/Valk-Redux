@@ -23,7 +23,7 @@ Valk.mod.calculate = function(self, context)
     if context.end_of_round and context.main_eval then
         G.GAME.valk_leveling.to_add = 0
         G.GAME.valk_leveling.queued_xp = G.GAME.valk_leveling.queued_xp or {}
-        G.GAME.valk_leveling.queued_xp["precision"] = Valk.leveling.get_xp_gained(G.GAME.blind.chips, G.GAME.chips)
+        G.GAME.valk_leveling.queued_xp["precision"] = Valk.leveling.get_xp_gained(G.GAME.blind.chips or 0, G.GAME.chips or 0)
         G.GAME.valk_leveling.max_reward = G.GAME.valk_leveling.max_reward + G.GAME.valk_leveling.max_reward_scaling
     end
 
