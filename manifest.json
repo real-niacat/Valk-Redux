@@ -11,7 +11,7 @@
 	"dependencies": [ 
 		"Spectrallib",
 		"blindexpander",
-		"Steamodded (>=1.0.0~BETA-01224a)",
+		"Steamodded (>=1.0.0~BETA-01525b)",
 	],
     "conflicts": [
         "vallkarri"

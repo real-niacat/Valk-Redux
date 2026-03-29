@@ -1,6 +1,11 @@
 SMODS.Shader {
     key = "barshader",
     path = "barshader.fs",
+    send_vars = function(self, sprite, card)
+        return {
+            iTime = G.TIMERS.REAL_SHADER,
+        }
+    end,
 }
 
 function Valk.ui.create_UIBox_level_progress()

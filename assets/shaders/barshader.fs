@@ -6,8 +6,9 @@
 
 extern MY_HIGHP_OR_MEDIUMP vec2 barshader;
 extern MY_HIGHP_OR_MEDIUMP float iTime;
-extern MY_HIGHP_OR_MEDIUMP vec2 uibox_pos;
-extern MY_HIGHP_OR_MEDIUMP vec2 uibox_size;
+extern MY_HIGHP_OR_MEDIUMP vec4 uie_details;
+extern MY_HIGHP_OR_MEDIUMP float uie_scale;
+extern MY_HIGHP_OR_MEDIUMP float uie_rot;
 extern MY_HIGHP_OR_MEDIUMP float screen_scale;
 
 #define PI 3.14159265
@@ -84,10 +85,10 @@ vec4 HSVtoRGB(vec4 hsv) {
 vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords )
 {
     vec4 tex = colour;
-    vec2 uv = (screen_coords - uibox_pos) / (uibox_size.xy);
+    vec2 uv = (screen_coords - uie_details.xy) / (uie_details.zw);
     uv *= 3.0; // compensates
 
-    if (iTime > 2.0*iTime+barshader.y) {
+    if (iTime > 2.0*iTime+barshader.y+uie_scale+uie_rot) {
         tex.r = 1.0;
     }
 

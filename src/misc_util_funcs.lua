@@ -337,3 +337,40 @@ function Valk.util.poll_kitty(seed)
     end
     return Valk.util.weighted_pool(available, seed)
 end
+
+function Valk.util.split_by_period(str, allow_numbers)
+    local arr = {}
+    for string in string.gmatch(str, "([^.]+)") do
+        table.insert(arr, allow_numbers and tonumber(string) or string)
+    end
+    return arr
+end
+
+function Valk.util.save_to_profile(path, value)
+    local arr = Valk.util.split_by_period(path, true)
+    local profile = G.PROFILES[G.SETTINGS.profile]
+    local current = profile
+    for i, key in ipairs(arr) do
+        if i == #arr then
+            current[key] = value
+        else
+            if current[key] then
+                assert(type(current[key]) == "table", "Attempt to save profile value to a non-table path '" .. key .. "'")
+            end
+            current[key] = current[key] or {}
+            current = current[key]
+        end
+    end
+end
+
+function Valk.util.get_from_profile(path)
+    local arr = Valk.util.split_by_period(path, true)
+    local profile = G.PROFILES[G.SETTINGS.profile]
+    local current = profile
+    for i, key in ipairs(arr) do
+        if i ~= #arr then
+            current = current[key]
+        end
+    end
+    return current
+end
