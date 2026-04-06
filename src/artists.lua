@@ -78,7 +78,7 @@ Valk.artist {
 
 Valk.artist {
     key = "lily",
-    display_name = "Ophelia",
+    display_name = "???",
     link = "https://en.pronouns.page/@lily.felli",
     description = "Trans girl, shadermaker, developer",
 }
