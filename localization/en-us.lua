@@ -317,8 +317,8 @@ return {
                 name = "Neffy",
                 text = {
                     "{X:mult,C:white}X#1#{} Mult",
-                    "Decreases by {X:mult,C:white}X#2#{} Mult",
-                    "for every other {C:attention}Kitty Joker{} owned",
+                    "Gives {C:attention}half{} as much {X:mult,C:white}XMult{} for",
+                    "every other {C:attention}Kitty Joker{} owned",
                 },
             },
             j_valk_box_of_kittens = {

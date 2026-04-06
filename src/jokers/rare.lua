@@ -60,22 +60,26 @@ SMODS.Joker {
     key = "neffy",
     atlas = "jokers",
     pos = { x = 7, y = 2 },
-    config = { extra = { base = 3, loss = 0.5 } },
+    config = { extra = { base = 3 } },
     rarity = 3,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.base - ((Valk.util.get_kitty_jokers() - 1) * card.ability.extra.loss),
-                card.ability.extra.loss,
+                self:get_xmult(card),
             },
         }
     end,
     calculate = function(self, card, context)
         -- code here
         if context.joker_main then
-            return { xmult = card.ability.extra.base - ((Valk.util.get_kitty_jokers() - 1) * card.ability.extra.loss) }
+            return { xmult = self:get_xmult(card) }
         end
+    end,
+    get_xmult = function(self, card)
+        local additional = card.ability.extra.base - 1
+        additional = additional / 2 ^ (math.max(Valk.util.get_kitty_jokers(), 1) - 1)
+        return 1 + additional
     end,
     valk_artist = "mailingway",
     pools = { Kitty = true },
