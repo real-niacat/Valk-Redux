@@ -397,10 +397,10 @@ function Valk.util.test_weights(set, total_count)
         results[chosen] = results[chosen] + 1
     end
 
-    local total = 0
+    local total_weight = 0
     local count = 0
     for k, v in pairs(results) do
-        total = total + v
+        total_weight = total_weight + (G.P_CENTERS[k].weight or 10)
         count = count + 1
     end
 
@@ -408,7 +408,7 @@ function Valk.util.test_weights(set, total_count)
 
     local strings = {}
     for k, v in pairs(results) do
-        local expected = (1 / count) * total_count * (G.P_CENTERS[k].weight or 1)
+        local expected = ((G.P_CENTERS[k].weight or 10) / total_weight) * total_count
         expected_values[k] = expected
 
         local percent_error = math.abs((v - expected) / expected) * 100

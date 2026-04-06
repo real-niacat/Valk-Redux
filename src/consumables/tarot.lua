@@ -22,7 +22,7 @@ SMODS.Consumable {
     pos = { x = 6, y = 0 },
 }
 
-Valk.special_tarot_rate = 0.1
+Valk.special_tarot_rate = 1
 -- defined all at once to save time
 
 SMODS.Consumable {

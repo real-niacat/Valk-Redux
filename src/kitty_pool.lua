@@ -9,6 +9,7 @@ SMODS.ObjectType {
     },
 }
 
+---@return number
 function Valk.util.get_kitty_jokers()
     if not G.jokers then
         return 0

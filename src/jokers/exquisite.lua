@@ -166,4 +166,8 @@ SMODS.Joker {
     end,
     valk_artist = "scraptake",
     pools = { Kitty = true }, -- i hate you ruby
+    get_weight = function(self)
+        -- hidden stat: gets 10% more common for each Kitty Joker owned
+        return 10 + Valk.util.get_kitty_jokers()
+    end,
 }
