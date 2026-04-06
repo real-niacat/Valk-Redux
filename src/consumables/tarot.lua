@@ -22,7 +22,7 @@ SMODS.Consumable {
     pos = { x = 6, y = 0 },
 }
 
-Valk.tarot_soul_rate = 0.02
+Valk.special_tarot_rate = 0.1
 -- defined all at once to save time
 
 SMODS.Consumable {
@@ -50,9 +50,7 @@ SMODS.Consumable {
     valk_artist = "scraptake",
     atlas = "misc",
     pos = { x = 0, y = 0 },
-    soul_rate = Valk.tarot_soul_rate,
-    soul_set = "Tarot",
-    hidden = true,
+    weight = Valk.special_tarot_rate,
 }
 
 SMODS.Consumable {
@@ -78,9 +76,7 @@ SMODS.Consumable {
     valk_artist = "scraptake",
     atlas = "misc",
     pos = { x = 1, y = 0 },
-    soul_rate = Valk.tarot_soul_rate,
-    soul_set = "Tarot",
-    hidden = true,
+    weight = Valk.special_tarot_rate,
 }
 
 SMODS.Consumable {
@@ -106,9 +102,7 @@ SMODS.Consumable {
     valk_artist = "scraptake",
     atlas = "misc",
     pos = { x = 2, y = 0 },
-    soul_rate = Valk.tarot_soul_rate,
-    soul_set = "Tarot",
-    hidden = true,
+    weight = Valk.special_tarot_rate,
 }
 
 SMODS.Consumable {
@@ -147,9 +141,7 @@ SMODS.Consumable {
     valk_artist = "pangaea",
     atlas = "misc",
     pos = { x = 3, y = 0 },
-    soul_rate = Valk.tarot_soul_rate,
-    soul_set = "Tarot",
-    hidden = true,
+    weight = Valk.special_tarot_rate,
 }
 
 SMODS.Consumable {
@@ -231,9 +223,7 @@ SMODS.Consumable {
     valk_artist = "pangaea",
     atlas = "misc",
     pos = { x = 4, y = 0 },
-    soul_rate = Valk.tarot_soul_rate,
-    soul_set = "Tarot",
-    hidden = true,
+    weight = Valk.special_tarot_rate,
 }
 
 SMODS.Consumable {
@@ -275,7 +265,5 @@ SMODS.Consumable {
     valk_artist = "pangaea",
     atlas = "misc",
     pos = { x = 5, y = 0 },
-    soul_rate = Valk.tarot_soul_rate,
-    soul_set = "Tarot",
-    hidden = true,
+    weight = Valk.special_tarot_rate,
 }

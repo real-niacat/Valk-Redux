@@ -30,6 +30,7 @@ setmetatable(Valk.load_order, {
 Valk.mod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
+    object_weights = true,
 }
 
 Valk.mod.spectrallib_features = {

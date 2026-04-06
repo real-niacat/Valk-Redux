@@ -382,3 +382,47 @@ function Valk.util.profile(func)
     local elapsed = (ending_time - starting_time)
     print("Function took " .. elapsed .. " seconds to run (" .. (elapsed * 1000) .. " milliseconds)")
 end
+
+-- sanity check function
+function Valk.util.test_weights(set, total_count)
+    -- i would prefer to use metatables
+    local results = setmetatable({}, {
+        __index = function(t, k)
+            return rawget(t, k) or 0
+        end,
+    })
+
+    for i = 1, total_count do
+        local chosen = SMODS.poll_object { type = set }
+        results[chosen] = results[chosen] + 1
+    end
+
+    local total = 0
+    local count = 0
+    for k, v in pairs(results) do
+        total = total + v
+        count = count + 1
+    end
+
+    local expected_values = {}
+
+    local strings = {}
+    for k, v in pairs(results) do
+        local expected = (1 / count) * total_count * (G.P_CENTERS[k].weight or 1)
+        expected_values[k] = expected
+
+        local percent_error = math.abs((v - expected) / expected) * 100
+        table.insert(strings, {
+            str = string.format("%-35s | Real: %4d | Expected: %4d | Error: %5s", k, v, expected, percent_error .. "%"),
+            err = percent_error,
+        })
+    end
+
+    table.sort(strings, function(a, b)
+        return a.err < b.err
+    end)
+
+    for _, string in ipairs(strings) do
+        print(string.str)
+    end
+end
