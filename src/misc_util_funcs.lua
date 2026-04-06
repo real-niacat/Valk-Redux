@@ -374,3 +374,11 @@ function Valk.util.get_from_profile(path)
     end
     return current
 end
+
+function Valk.util.profile(func)
+    local starting_time = love.timer.getTime()
+    func()
+    local ending_time = love.timer.getTime()
+    local elapsed = (ending_time - starting_time)
+    print("Function took " .. elapsed .. " seconds to run (" .. (elapsed * 1000) .. " milliseconds)")
+end

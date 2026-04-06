@@ -76,7 +76,7 @@ function SMODS.create_mod_badges(obj, badges)
             },
         }
         for i = 1, #badges do
-            if badges[i].nodes[1].nodes[2].config.object.string == Valk.mod.display_name then --this was meant to be a hex code but it just doesnt work for like no reason so its hardcoded
+            if Spectrallib.safe_get(badges[i].nodes[1], "config", "colour") == Valk.mod.badge_colour then
                 badges[i].nodes[1].nodes[2].config.object:remove()
                 badges[i] = artist_badge
                 break
