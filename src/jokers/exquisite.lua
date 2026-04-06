@@ -56,6 +56,7 @@ SMODS.Joker {
     config = { extra = { gain = 1, xmult = 1 } },
     rarity = "valk_exquisite",
     cost = 50,
+    attributes = { "generation", "tag", "scaling", "xmult", "tarot", "food", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.gain, card.ability.extra.xmult } }
     end,
@@ -85,6 +86,7 @@ SMODS.Joker {
     config = { extra = { levels = 2, levels_gain = 1 } },
     rarity = "valk_exquisite",
     cost = 50,
+    attributes = { "scaling", "hand_type", "food", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.levels, card.ability.extra.levels_gain } }
     end,
@@ -112,6 +114,7 @@ SMODS.Joker {
     config = { extra = { spectral_rate = 12, emult = 1, gain = 0.1, den = 2 } },
     rarity = "valk_exquisite",
     cost = 50,
+    attributes = { "chance", "emult", "scaling", "destroy_card", "food", },
     loc_vars = function(self, info_queue, card)
         local n, d = SMODS.get_probability_vars(card, 1, card.ability.extra.den)
         return { vars = {
@@ -150,6 +153,7 @@ SMODS.Joker {
     config = { extra = { echips_gain = 0.02 } },
     rarity = "valk_exquisite",
     cost = 50,
+    attributes = { "echips", "kitty", }, -- i hate you ruby
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.echips_gain, self:get_echips(card) } }
     end,
@@ -165,7 +169,6 @@ SMODS.Joker {
         return 1 + (card.ability.extra.echips_gain * Valk.util.unique_jokers())
     end,
     valk_artist = "scraptake",
-    pools = { Kitty = true }, -- i hate you ruby
     get_weight = function(self)
         -- hidden stat: gets 10% more common for each Kitty Joker owned
         return 10 + Valk.util.get_kitty_jokers()

@@ -96,7 +96,7 @@ Valk.badges = {
     {
         key = "kitty",
         should_apply = function(center)
-            return center.pools and center.pools.Kitty
+            return Valk.util.has_attribute(center.key, "kitty")
         end,
         get_text = function(center)
             return { localize("valk_badge_kitty") }

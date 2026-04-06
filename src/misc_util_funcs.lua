@@ -319,23 +319,24 @@ function Valk.util.weighted_pool(pool, seed)
 end
 
 function Valk.util.poll_kitty(seed)
-    local available = {}
-    local rarity_ref = setmetatable({
-        "Common",
-        "Uncommon",
-        "Rare",
-        "Legendary",
-    }, {
-        __index = function(t, k)
-            return rawget(t, k) or k
-        end,
-    })
-    for _, cen in pairs(G.P_CENTER_POOLS.Kitty) do
-        local rarity = SMODS.Rarities[rarity_ref[cen.rarity]]
-        local weight = rarity.get_weight and rarity:get_weight(rarity.default_weight) or rarity.default_weight
-        table.insert(available, { cen.key, weight })
-    end
-    return Valk.util.weighted_pool(available, seed)
+    -- local available = {}
+    -- local rarity_ref = setmetatable({
+    --     "Common",
+    --     "Uncommon",
+    --     "Rare",
+    --     "Legendary",
+    -- }, {
+    --     __index = function(t, k)
+    --         return rawget(t, k) or k
+    --     end,
+    -- })
+    -- for _, cen in pairs(G.P_CENTER_POOLS.Kitty) do
+    --     local rarity = SMODS.Rarities[rarity_ref[cen.rarity]]
+    --     local weight = rarity.get_weight and rarity:get_weight(rarity.default_weight) or rarity.default_weight
+    --     table.insert(available, { cen.key, weight })
+    -- end
+    -- return Valk.util.weighted_pool(available, seed)
+    return SMODS.poll_object { type = "Joker", attributes = {"kitty"}, seed = seed }
 end
 
 function Valk.util.split_by_period(str, allow_numbers)

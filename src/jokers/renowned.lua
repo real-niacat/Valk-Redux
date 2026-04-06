@@ -19,6 +19,7 @@ SMODS.Joker {
     config = { extra = { retriggers = 0, retrigger_gain = 1, cards_required = 20, cards_left = 20 } },
     rarity = "valk_renowned",
     cost = 11,
+    attributes = { "retrigger", "scaling", "jokers", "kitty", },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -43,7 +44,6 @@ SMODS.Joker {
             return { repetitions = card.ability.extra.retriggers }
         end
     end,
-    pools = { Kitty = true },
     valk_artist = "mailingway",
 }
 
@@ -54,6 +54,7 @@ SMODS.Joker {
     config = { extra = { selection_limit = 2, hand_size = 2, chips = 15 } },
     rarity = "valk_renowned",
     cost = 10,
+    attributes = { "chips", "hands", "discards", "hand_size", },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -89,6 +90,7 @@ SMODS.Joker {
     config = { extra = { handsize = 1, sum = 0 } },
     rarity = "valk_renowned",
     cost = 10,
+    attributes = { "suit", "hand_size", "reset", },
     loc_vars = function(self, info_queue, card)
         local suit = G.GAME.current_round.ancient_card.suit
         return { vars = { card.ability.extra.handsize, suit, colours = { G.C.SUITS[suit] } } }
@@ -116,6 +118,7 @@ SMODS.Joker {
     config = { extra = {} },
     rarity = "valk_renowned",
     cost = 12,
+    attributes = { "retrigger", "joker", "kitty", },
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -125,7 +128,6 @@ SMODS.Joker {
             return { repetitions = Valk.util.get_kitty_jokers() }
         end
     end,
-    pools = { Kitty = true },
     valk_artist = "mailingway",
 }
 
@@ -135,6 +137,7 @@ SMODS.Joker {
     pos = { x = 0, y = 4 },
     config = { extra = { emult_gain = 0.1, emult = 1, gain_kitty_tag = 0.01, emult_gain_base = 0.1 } },
     rarity = "valk_renowned",
+    attributes = { "emult", "scaling", "enhancements", "reset", "tag", "kitty", },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         local bonus = (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
@@ -166,7 +169,6 @@ SMODS.Joker {
             return { emult = card.ability.extra.emult }
         end
     end,
-    pools = { Kitty = true },
     cost = 10,
     valk_artist = "mailingway",
 }
@@ -177,6 +179,7 @@ SMODS.Joker {
     pos = { x = 2, y = 4 },
     config = { extra = { emult_gain = 0.1, emult = 1, gain_kitty_tag = 0.01, emult_gain_base = 0.1 } },
     rarity = "valk_renowned",
+    attributes = { "emult", "scaling", "tag", "enhancements", "reset", "kitty", },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         local bonus = (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
@@ -208,7 +211,6 @@ SMODS.Joker {
             return { emult = card.ability.extra.emult }
         end
     end,
-    pools = { Kitty = true },
     cost = 10,
     valk_artist = "mailingway",
 }

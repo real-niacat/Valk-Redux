@@ -4,6 +4,7 @@ SMODS.Joker {
     pos = { x = 2, y = 0 },
     config = { extra = { lossden = 11, loss = 5, gainden = 15, gain = 20 } },
     rarity = 1,
+    attributes = { "generation", "economy", "chance", "joker", "on_sell", },
     loc_vars = function(self, info_queue, card)
         local ln, ld = SMODS.get_probability_vars(card, 1, card.ability.extra.lossden)
         local gn, gd = SMODS.get_probability_vars(card, 1, card.ability.extra.gainden)
@@ -42,6 +43,7 @@ SMODS.Joker {
     pos = { x = 3, y = 0 },
     config = { extra = { mult = 5 } },
     rarity = 1,
+    attributes = { "mult", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
     end,
@@ -60,6 +62,7 @@ SMODS.Joker {
     pos = { x = 4, y = 0 },
     config = { extra = {} },
     rarity = 1,
+    attributes = { "generation", "tag", "kitty", },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         return { vars = {} }
@@ -71,7 +74,6 @@ SMODS.Joker {
             SMODS.calculate_effect({ message = localize("k_plus_kitty_tag") }, card)
         end
     end,
-    pools = { Kitty = true },
     cost = 3,
     valk_artist = "mailingway",
 }
@@ -82,6 +84,7 @@ SMODS.Joker {
     pos = { x = 5, y = 0 },
     config = { extra = { chips = 30 } },
     rarity = 1,
+    attributes = { "chips", "enhancements", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips } }
     end,
@@ -101,6 +104,7 @@ SMODS.Joker {
     pos = { x = 6, y = 0 },
     config = { extra = { mult = 5 } },
     rarity = 1,
+    attributes = { "mult", "enhancements", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
     end,
@@ -121,6 +125,7 @@ SMODS.Joker {
     config = { extra = { mult = 25 } },
     rarity = 1,
     cost = 3,
+    attributes = { "mult", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, -card.ability.extra.mult } }
     end,

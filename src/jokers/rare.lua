@@ -5,6 +5,7 @@ SMODS.Joker {
     config = { extra = { upgrade = 3 } },
     rarity = 3,
     cost = 7,
+    attributes = { "hands", "hand_type", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.upgrade } }
     end,
@@ -37,6 +38,7 @@ SMODS.Joker {
     config = { extra = { xmult = 1.45, mul = 2 } },
     rarity = 3,
     cost = 6,
+    attributes = { "xmult", "rank", "nine", "enhancements", "kitty", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, ((card.ability.extra.xmult - 1) * card.ability.extra.mul) + 1 } }
     end,
@@ -53,7 +55,6 @@ SMODS.Joker {
         end
     end,
     valk_artist = "duck",
-    pools = { Kitty = true },
 }
 
 SMODS.Joker {
@@ -63,6 +64,7 @@ SMODS.Joker {
     config = { extra = { base = 3 } },
     rarity = 3,
     cost = 5,
+    attributes = { "xmult", "jokers", "kitty", },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -82,7 +84,6 @@ SMODS.Joker {
         return 1 + additional
     end,
     valk_artist = "mailingway",
-    pools = { Kitty = true },
 }
 
 SMODS.Joker {
@@ -92,6 +93,7 @@ SMODS.Joker {
     config = { extra = {} },
     rarity = 3,
     cost = 9,
+    attributes = { "reroll", "generation", "tag", "kitty", },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         return { vars = {} }
@@ -103,7 +105,6 @@ SMODS.Joker {
         end
     end,
     valk_artist = "mailingway",
-    pools = { Kitty = true },
 }
 
 SMODS.Joker {
@@ -113,6 +114,7 @@ SMODS.Joker {
     config = { extra = { base_den = 3, den_increase = 1, den_req = 3, base_destroy = 8 } },
     rarity = 3,
     cost = 4,
+    attributes = { "chance", "generation", "tag", "kitty", },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         local cn, cd = SMODS.get_probability_vars(card, 1, self:get_denominator(card))
@@ -158,7 +160,6 @@ SMODS.Joker {
         return card.ability.extra.base_den + (math.floor(Valk.util.get_kitty_tags() / card.ability.extra.den_req) * card.ability.extra.den_increase)
     end,
     valk_artist = "mailingway",
-    pools = { Kitty = true },
 }
 
 SMODS.Joker {
@@ -168,6 +169,7 @@ SMODS.Joker {
     config = { extra = { xmult = 1, gain = 0.1 } },
     rarity = 3,
     cost = 6,
+    attributes = { "xmult", "scaling", "tag", "kitty", },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         return { vars = { card.ability.extra.gain, card.ability.extra.xmult } }
@@ -193,7 +195,6 @@ SMODS.Joker {
         end
     end,
     valk_artist = "mailingway",
-    pools = { Kitty = true },
 }
 
 SMODS.Joker {
@@ -203,6 +204,7 @@ SMODS.Joker {
     config = { extra = { money = 20 } },
     rarity = 3,
     cost = 7,
+    attributes = { "prevents_death", "economy", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money } }
     end,
@@ -233,6 +235,7 @@ SMODS.Joker {
     config = { extra = { chips = 0, chips_gain = 3 } },
     rarity = 3,
     cost = 6,
+    attributes = { "chips", "scaling", "suit", "clubs", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips_gain, card.ability.extra.chips } }
     end,
@@ -273,6 +276,7 @@ SMODS.Joker {
     config = { extra = {} },
     rarity = 3,
     cost = 8,
+    attributes = { "generation", "enhancements", "kitty", },
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -308,5 +312,4 @@ SMODS.Joker {
         end
     end,
     valk_artist = "mailingway",
-    pools = { Kitty = true },
 }

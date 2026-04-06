@@ -6,6 +6,7 @@ SMODS.Joker {
     config = { extra = { cards = 5 } },
     rarity = 4,
     cost = 20,
+    attributes = { "generation", "planet", "enhancements", "editions", "kitty", }, -- close enough
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.cards } }
     end,
@@ -28,7 +29,6 @@ SMODS.Joker {
         end
     end,
     valk_artist = "mailingway",
-    pools = { Kitty = true }, -- close enough
 }
 
 SMODS.Joker {
@@ -39,6 +39,7 @@ SMODS.Joker {
     config = { extra = { gain = 0.069 } },
     rarity = 4,
     cost = 20,
+    attributes = { "modify_card", "perma_bonus", "xmult", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.gain } }
     end,
@@ -60,6 +61,7 @@ SMODS.Joker {
     config = { extra = { asc = 0, gain = 1, poker_hand = nil } },
     rarity = 4,
     cost = 20,
+    attributes = { "asc", "scaling", "hand_type", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.gain, card.ability.extra.poker_hand, card.ability.extra.asc } }
     end,
@@ -123,6 +125,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_foil", xchips = 1.2 } },
     rarity = 4,
     cost = 20,
+    attributes = { "editions", "jokers", "xchips", },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -150,6 +153,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_holo", xmult = 1.2 } },
     rarity = 4,
     cost = 20,
+    attributes = { "editions", "jokers", "xmult", },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -175,6 +179,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_polychrome", emult = 1.1 } },
     rarity = 4,
     cost = 20,
+    attributes = { "editions", "jokers", "emult", },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -200,6 +205,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_negative", chipsmult = 25 } },
     rarity = 4,
     cost = 20,
+    attributes = { "editions", "jokers", "chips", "mult", },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -225,6 +231,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_valk_cosmic", echips = 1.05 } },
     rarity = 4,
     cost = 20,
+    attributes = { "editions", "jokers", "echips", },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -250,6 +257,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_valk_rgb", xchips = 1.25, mult = 25 } },
     rarity = 4,
     cost = 20,
+    attributes = { "editions", "jokers", "mult", "xchips", },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -279,6 +287,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_valk_glow" } },
     rarity = 4,
     cost = 20,
+    attributes = { "editions", "jokers", "spectral", },
     loc_vars = function(self, info_queue, card)
         return {
             vars = { localize { type = "name_text", set = "Edition", key = card.ability.extra.aesthetijoker_edition } },
@@ -297,6 +306,7 @@ SMODS.Joker {
     rarity = 4,
     cost = 20,
     immutable = true,
+    attributes = { "modify_card", "jokers", "kitty", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.gain, 1 / card.ability.extra.gain } }
     end,
@@ -325,7 +335,6 @@ SMODS.Joker {
         end
     end,
     valk_artist = "scraptake",
-    pools = { Kitty = true },
 }
 
 SMODS.Joker {
@@ -336,6 +345,7 @@ SMODS.Joker {
     config = { extra = { xmult = 1, gain = 1 } },
     rarity = 4,
     cost = 20,
+    attributes = { "destroy_card", "scaling", "xmult", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.gain, card.ability.extra.xmult } }
     end,
@@ -379,6 +389,7 @@ SMODS.Joker {
     config = { extra = { ascpow = 1, scale = 0.5 } },
     rarity = 4,
     cost = 20,
+    attributes = { "asc", "scaling", "hand_type", "kitty", },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.ascpow, card.ability.extra.scale } }
     end,
@@ -395,5 +406,4 @@ SMODS.Joker {
         end
     end,
     valk_artist = "notmario",
-    pools = { Kitty = true },
 }
