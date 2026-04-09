@@ -336,7 +336,7 @@ function Valk.util.poll_kitty(seed)
     --     table.insert(available, { cen.key, weight })
     -- end
     -- return Valk.util.weighted_pool(available, seed)
-    return SMODS.poll_object { type = "Joker", attributes = {"kitty"}, seed = seed }
+    return SMODS.poll_object { type = "Joker", attributes = { "kitty" }, seed = seed }
 end
 
 function Valk.util.split_by_period(str, allow_numbers)
@@ -425,5 +425,24 @@ function Valk.util.test_weights(set, total_count)
 
     for _, string in ipairs(strings) do
         print(string.str)
+    end
+end
+
+function Valk.util.traverse_table(t, match, call)
+    local to_search = { t }
+    local seen = {}
+
+    for _, entry in ipairs(to_search) do
+        for k, v in pairs(entry) do
+            if type(v) == "table" and not seen[v] then
+                table.insert(to_search, v)
+                seen[v] = true
+            elseif match(v) then
+                local r = call(v)
+                if r then
+                    entry[k] = r
+                end
+            end
+        end
     end
 end

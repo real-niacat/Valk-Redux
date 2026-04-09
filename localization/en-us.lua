@@ -88,7 +88,8 @@ return {
             e_valk_censored = {
                 name = "Censored",
                 text = {
-                    "All values are {C:attention}Hidden{}",
+                    "All values on this",
+                    "card are {C:attention}Hidden{}",
                     "Retrigger this card {C:attention}twice{}",
                 },
             },
@@ -570,6 +571,18 @@ return {
                     "{X:slib_echips,C:white}^#1#{} Chips for every",
                     "{C:attention}unique{} Joker owned this run",
                     "{C:inactive}(Currently {X:slib_echips,C:white}^#2#{C:inactive} Chips)",
+                },
+            },
+            j_valk_raas = {
+                name = "Raas Busok",
+                text = {
+                    "",
+                },
+            },
+            j_valk_erika = {
+                name = "Erika Utomo",
+                text = {
+                    "",
                 },
             },
         },

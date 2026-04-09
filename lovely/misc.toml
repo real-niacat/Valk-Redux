@@ -1,0 +1,16 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+return full_UI_table
+'''
+position = 'before'
+payload = '''
+Valk.util.modify_card_ui(full_UI_table, card)
+'''
+match_indent = true

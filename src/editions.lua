@@ -111,24 +111,6 @@ SMODS.Edition {
     sound = { sound = "valk_spawn_censored" },
 }
 
-Valk.util.hook_after("SMODS.injectItems", function()
-    for _, center in pairs(G.P_CENTERS) do
-        if center.loc_vars then
-            Valk.util.ref_hook(center, "loc_vars", function(original, cen, iq, card)
-                local res = original(cen, iq, card)
-                if Spectrallib.safe_get(card, "edition", "key") == "e_valk_censored" then
-                    res = res or {}
-                    res.vars = res.vars or {}
-                    for i, _ in ipairs(res.vars) do
-                        res.vars[i] = "???"
-                    end
-                end
-                return res
-            end)
-        end
-    end
-end)
-
 SMODS.draw_ignore_keys["censor"] = true
 SMODS.DrawStep {
     key = "censorship",
@@ -152,7 +134,7 @@ SMODS.DrawStep {
             card.children.censor = nil
         end
     end,
-    order = 99,
+    order = 999999,
 }
 
 SMODS.Edition {
@@ -169,7 +151,7 @@ SMODS.Edition {
         local cards = G.jokers and #G.jokers.cards or 0
         return { vars = { card.edition.emult, 1 + (card.edition.emult * cards) } }
     end,
-    config = { emult = 0.2 },
+    config = { emult = 0.1 },
     extra_cost = 9,
     weight = 1,
     valk_artist = "lily",

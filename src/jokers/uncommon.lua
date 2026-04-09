@@ -7,7 +7,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult_gain, card.ability.extra.xmult } }
     end,
-    attributes = { "xmult", "scaling", "enhancements", },
+    attributes = { "xmult", "scaling", "enhancements" },
     calculate = function(self, card, context)
         -- code here
         if context.individual and context.cardarea == G.play and next(SMODS.get_enhancements(context.other_card)) then
@@ -28,7 +28,7 @@ SMODS.Joker {
     pos = { x = 9, y = 0 },
     config = { extra = {} },
     rarity = 2,
-    attributes = { "on_sell", "generation", "tarot", "tag", "food", },
+    attributes = { "on_sell", "generation", "tarot", "tag", "food" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.c_fool
         info_queue[#info_queue + 1] = G.P_TAGS.tag_charm
@@ -53,7 +53,7 @@ SMODS.Joker {
     pos = { x = 0, y = 1 },
     config = { extra = {} },
     rarity = 2,
-    attributes = { "on_sell", "generation", "tarot", "tag", "food", },
+    attributes = { "on_sell", "generation", "tarot", "tag", "food" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.c_fool
         info_queue[#info_queue + 1] = G.P_TAGS.tag_meteor
@@ -78,7 +78,7 @@ SMODS.Joker {
     pos = { x = 1, y = 1 },
     config = { extra = {} },
     rarity = 2,
-    attributes = { "on_sell", "generation", "tag", "food", },
+    attributes = { "on_sell", "generation", "tag", "food" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_ethereal
         return { vars = {} }
@@ -110,7 +110,7 @@ SMODS.Joker {
         },
     },
     rarity = 2,
-    attributes = { "xmult", "scaling", "suit", "diamonds", "tag", "reset", "kitty", },
+    attributes = { "xmult", "scaling", "suit", "diamonds", "tag", "reset", "kitty" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
@@ -163,7 +163,7 @@ SMODS.Joker {
         },
     },
     rarity = 2,
-    attributes = { "xmult", "scaling", "suit", "spades", "tag", "reset", "kitty", },
+    attributes = { "xmult", "scaling", "suit", "spades", "tag", "reset", "kitty" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
@@ -216,7 +216,7 @@ SMODS.Joker {
         },
     },
     rarity = 2,
-    attributes = { "xmult", "scaling", "suit", "clubs", "tag", "reset", "kitty", },
+    attributes = { "xmult", "scaling", "suit", "clubs", "tag", "reset", "kitty" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
@@ -269,7 +269,7 @@ SMODS.Joker {
         },
     },
     rarity = 2,
-    attributes = { "xmult", "scaling", "suit", "hearts", "tag", "reset", "kitty", },
+    attributes = { "xmult", "scaling", "suit", "hearts", "tag", "reset", "kitty" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         card.ability.extra.xmult_gain = card.ability.extra.xmult_gain_base + (card.ability.extra.gain_kitty_tag * Valk.util.get_kitty_tags())
@@ -313,7 +313,7 @@ SMODS.Joker {
     pos = { x = 6, y = 1 },
     config = { extra = { chips_per_char = 2 } },
     rarity = 2,
-    attributes = { "chips", "jokers", "kitty", },
+    attributes = { "chips", "jokers", "kitty" },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -351,7 +351,7 @@ SMODS.Joker {
     pos = { x = 8, y = 1 },
     config = { extra = { chance = 2 } },
     rarity = 2,
-    attributes = { "chance", "planet", },
+    attributes = { "chance", "planet" },
     loc_vars = function(self, info_queue, card)
         local n, d = SMODS.get_probability_vars(card, 1, card.ability.extra.chance)
         return { vars = { n, d } }
@@ -383,7 +383,7 @@ SMODS.Joker {
     pos = { x = 9, y = 1 },
     config = { extra = { chance = 4 } },
     rarity = 2,
-    attributes = { "chance", "tarot", },
+    attributes = { "chance", "tarot" },
     loc_vars = function(self, info_queue, card)
         local n, d = SMODS.get_probability_vars(card, 1, card.ability.extra.chance)
         return { vars = { n, d } }
@@ -415,7 +415,7 @@ SMODS.Joker {
     pos = { x = 0, y = 2 },
     config = { extra = { chance = 10 } },
     rarity = 2,
-    attributes = { "chance", "spectral", },
+    attributes = { "chance", "spectral" },
     loc_vars = function(self, info_queue, card)
         local n, d = SMODS.get_probability_vars(card, 1, card.ability.extra.chance)
         return { vars = { n, d } }
@@ -448,7 +448,7 @@ SMODS.Joker {
     config = { extra = { req = 4 } },
     rarity = 2,
     cost = 4,
-    attributes = { "generation", "tag", "kitty", },
+    attributes = { "generation", "tag", "kitty" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         return { vars = { card.ability.extra.req } }
@@ -469,7 +469,7 @@ SMODS.Joker {
     config = { extra = { ante = -1 } },
     rarity = 2,
     cost = 6,
-    attributes = { },
+    attributes = {},
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.ante } }
     end,
@@ -492,7 +492,7 @@ SMODS.Joker {
     config = { extra = {} },
     rarity = 2,
     cost = 7,
-    attributes = { "hands", "editions", "kitty", },
+    attributes = { "hands", "editions", "kitty" },
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -558,10 +558,10 @@ function Valk.content.interpret_bf(code)
     local done = false
     local funcs = {
         ["+"] = function()
-            tape[ptr] = (tape[ptr] + 1) -- intentionally does not loop like standardized brainfuck
+            tape[ptr] = (tape[ptr] + 1) % 256
         end,
         ["-"] = function()
-            tape[ptr] = (tape[ptr] - 1) -- intentionally does not loop like standardized brainfuck
+            tape[ptr] = (tape[ptr] - 1) % 256
         end,
         [">"] = function()
             ptr = incl_mod(ptr + 1, 1, #tape)
@@ -683,7 +683,7 @@ local brainfuck = {
     config = { extra = { code = "", effects = {} } },
     rarity = 2,
     cost = 10,
-    attributes = { "mult", "chips", "economy", "suit", "hearts", "diamonds", "clubs", "spades", "rank", "xblindsize", },
+    attributes = { "mult", "chips", "economy", "suit", "hearts", "diamonds", "clubs", "spades", "rank", "xblindsize" },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
