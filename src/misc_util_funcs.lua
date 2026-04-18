@@ -386,7 +386,7 @@ end
 
 -- sanity check function
 function Valk.util.test_weights(set, total_count)
-    -- i would prefer to use metatables
+    -- nil checks are for losers
     local results = setmetatable({}, {
         __index = function(t, k)
             return rawget(t, k) or 0

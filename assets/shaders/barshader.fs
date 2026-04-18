@@ -88,11 +88,9 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     vec2 uv = (screen_coords - uie_details.xy) / (uie_details.zw);
     uv *= 3.0; // compensates
 
-    if (iTime > 2.0*iTime+barshader.y+uie_scale+uie_rot) {
-        tex.r = 1.0;
-    }
+    float PleaseGLSLDontCompileThisVariableOut = iTime+barshader.y+uie_scale+uie_rot;
 
-    uv.x += iTime*0.6;
+    uv.x += PleaseGLSLDontCompileThisVariableOut*0.6;
 
     // tex.rgb = vec3(max(uv.x, uv.y));
     vec3 primary_colour = vec3(0.051, 0.4471, 0.902);
