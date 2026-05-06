@@ -88,7 +88,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     vec2 uv = (screen_coords - uie_details.xy) / (uie_details.zw);
     uv *= 3.0; // compensates
 
-    float PleaseGLSLDontCompileThisVariableOut = iTime+barshader.y+uie_scale+uie_rot;
+    float PleaseGLSLDontCompileThisVariableOut = iTime+barshader.y+uie_scale+uie_rot+screen_scale+uie_details.x+uie_details.y;
 
     uv.x += PleaseGLSLDontCompileThisVariableOut*0.6;
 
