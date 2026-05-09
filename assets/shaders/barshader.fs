@@ -7,6 +7,8 @@
 extern MY_HIGHP_OR_MEDIUMP vec2 barshader;
 extern MY_HIGHP_OR_MEDIUMP float iTime;
 extern MY_HIGHP_OR_MEDIUMP vec4 uie_details;
+extern MY_HIGHP_OR_MEDIUMP vec2 uibox_size;
+extern MY_HIGHP_OR_MEDIUMP vec2 uibox_pos;
 extern MY_HIGHP_OR_MEDIUMP float uie_scale;
 extern MY_HIGHP_OR_MEDIUMP float uie_rot;
 extern MY_HIGHP_OR_MEDIUMP float screen_scale;
@@ -88,7 +90,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     vec2 uv = (screen_coords - uie_details.xy) / (uie_details.zw);
     uv *= 3.0; // compensates
 
-    float PleaseGLSLDontCompileThisVariableOut = iTime+barshader.y+uie_scale+uie_rot;
+    float PleaseGLSLDontCompileThisVariableOut = iTime+barshader.y+uie_scale+uie_rot+screen_scale+uie_details.x+uie_details.y+uibox_size.x+uibox_pos.x;
 
     uv.x += PleaseGLSLDontCompileThisVariableOut*0.6;
 
