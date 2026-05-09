@@ -463,29 +463,6 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-    key = "roundabout",
-    atlas = "jokers",
-    pos = { x = 2, y = 2 },
-    config = { extra = { ante = -1 } },
-    rarity = 2,
-    cost = 6,
-    attributes = {},
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.ante } }
-    end,
-    calculate = function(self, card, context)
-        -- code here
-        if context.modify_ante then
-            card:start_dissolve()
-            return {
-                modify = context.modify_ante + card.ability.extra.ante,
-            }
-        end
-    end,
-    valk_artist = "mailingway",
-}
-
-SMODS.Joker {
     key = "kopa",
     atlas = "jokers",
     pos = { x = 1, y = 4 },

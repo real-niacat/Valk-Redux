@@ -6,7 +6,7 @@ SMODS.Joker {
     config = { extra = { cards = 5 } },
     rarity = 4,
     cost = 20,
-    attributes = { "generation", "planet", "enhancements", "editions", "kitty", }, -- close enough
+    attributes = { "generation", "planet", "enhancements", "editions", "kitty" }, -- close enough
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.cards } }
     end,
@@ -39,7 +39,7 @@ SMODS.Joker {
     config = { extra = { gain = 0.069 } },
     rarity = 4,
     cost = 20,
-    attributes = { "modify_card", "perma_bonus", "xmult", },
+    attributes = { "modify_card", "perma_bonus", "xmult" },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.gain } }
     end,
@@ -61,7 +61,7 @@ SMODS.Joker {
     config = { extra = { asc = 0, gain = 1, poker_hand = nil } },
     rarity = 4,
     cost = 20,
-    attributes = { "asc", "scaling", "hand_type", },
+    attributes = { "asc", "scaling", "hand_type" },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.gain, card.ability.extra.poker_hand, card.ability.extra.asc } }
     end,
@@ -125,7 +125,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_foil", xchips = 1.2 } },
     rarity = 4,
     cost = 20,
-    attributes = { "editions", "jokers", "xchips", },
+    attributes = { "editions", "jokers", "xchips" },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -153,7 +153,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_holo", xmult = 1.2 } },
     rarity = 4,
     cost = 20,
-    attributes = { "editions", "jokers", "xmult", },
+    attributes = { "editions", "jokers", "xmult" },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -179,7 +179,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_polychrome", emult = 1.1 } },
     rarity = 4,
     cost = 20,
-    attributes = { "editions", "jokers", "emult", },
+    attributes = { "editions", "jokers", "emult" },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -205,7 +205,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_negative", chipsmult = 25 } },
     rarity = 4,
     cost = 20,
-    attributes = { "editions", "jokers", "chips", "mult", },
+    attributes = { "editions", "jokers", "chips", "mult" },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -231,7 +231,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_valk_cosmic", echips = 1.05 } },
     rarity = 4,
     cost = 20,
-    attributes = { "editions", "jokers", "echips", },
+    attributes = { "editions", "jokers", "echips" },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -257,7 +257,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_valk_rgb", xchips = 1.25, mult = 25 } },
     rarity = 4,
     cost = 20,
-    attributes = { "editions", "jokers", "mult", "xchips", },
+    attributes = { "editions", "jokers", "mult", "xchips" },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -287,7 +287,7 @@ SMODS.Joker {
     config = { extra = { aesthetijoker_edition = "e_valk_glow" } },
     rarity = 4,
     cost = 20,
-    attributes = { "editions", "jokers", "spectral", },
+    attributes = { "editions", "jokers", "spectral" },
     loc_vars = function(self, info_queue, card)
         return {
             vars = { localize { type = "name_text", set = "Edition", key = card.ability.extra.aesthetijoker_edition } },
@@ -306,7 +306,7 @@ SMODS.Joker {
     rarity = 4,
     cost = 20,
     immutable = true,
-    attributes = { "modify_card", "jokers", "kitty", },
+    attributes = { "modify_card", "jokers", "kitty" },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.gain, 1 / card.ability.extra.gain } }
     end,
@@ -345,7 +345,7 @@ SMODS.Joker {
     config = { extra = { xmult = 1, gain = 1 } },
     rarity = 4,
     cost = 20,
-    attributes = { "destroy_card", "scaling", "xmult", },
+    attributes = { "destroy_card", "scaling", "xmult" },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.gain, card.ability.extra.xmult } }
     end,
@@ -353,7 +353,7 @@ SMODS.Joker {
         if context.setting_blind and not context.blueprint then
             local index = Valk.util.get_index(card)
             local gored_card = G.jokers.cards[index + 1]
-            if index and gored_card and Spectrallib.safe_get(gored_card, "config", "center", "pools", "Kitty") and (not SMODS.is_eternal(gored_card, card)) and not gored_card.getting_sliced then
+            if index and gored_card and Valk.util.has_attribute(gored_card, "kitty") and (not SMODS.is_eternal(gored_card, card)) and not gored_card.getting_sliced then
                 gored_card.getting_sliced = true
                 G.GAME.joker_buffer = G.GAME.joker_buffer - 1
                 G.E_MANAGER:add_event(Event {
@@ -389,7 +389,7 @@ SMODS.Joker {
     config = { extra = { ascpow = 1, scale = 0.5 } },
     rarity = 4,
     cost = 20,
-    attributes = { "asc", "scaling", "hand_type", "kitty", },
+    attributes = { "asc", "scaling", "hand_type", "kitty" },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.ascpow, card.ability.extra.scale } }
     end,

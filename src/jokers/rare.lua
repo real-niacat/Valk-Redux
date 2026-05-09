@@ -2,10 +2,10 @@ SMODS.Joker {
     key = "planetarium",
     atlas = "jokers",
     pos = { x = 5, y = 2 },
-    config = { extra = { upgrade = 3 } },
+    config = { extra = { upgrade = 2 } },
     rarity = 3,
     cost = 7,
-    attributes = { "hands", "hand_type", },
+    attributes = { "hands", "hand_type" },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.upgrade } }
     end,
@@ -35,10 +35,10 @@ SMODS.Joker {
     key = "familiar_face",
     atlas = "jokers",
     pos = { x = 6, y = 2 },
-    config = { extra = { xmult = 1.45, mul = 2 } },
+    config = { extra = { xmult = 1.2, mul = 2 } },
     rarity = 3,
     cost = 6,
-    attributes = { "xmult", "rank", "nine", "enhancements", "kitty", },
+    attributes = { "xmult", "rank", "nine", "enhancements", "kitty" },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, ((card.ability.extra.xmult - 1) * card.ability.extra.mul) + 1 } }
     end,
@@ -64,7 +64,7 @@ SMODS.Joker {
     config = { extra = { base = 3 } },
     rarity = 3,
     cost = 5,
-    attributes = { "xmult", "jokers", "kitty", },
+    attributes = { "xmult", "jokers", "kitty" },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -93,7 +93,7 @@ SMODS.Joker {
     config = { extra = {} },
     rarity = 3,
     cost = 9,
-    attributes = { "reroll", "generation", "tag", "kitty", },
+    attributes = { "reroll", "generation", "tag", "kitty" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         return { vars = {} }
@@ -114,7 +114,7 @@ SMODS.Joker {
     config = { extra = { base_den = 3, den_increase = 1, den_req = 3, base_destroy = 8 } },
     rarity = 3,
     cost = 4,
-    attributes = { "chance", "generation", "tag", "kitty", },
+    attributes = { "chance", "generation", "tag", "kitty" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         local cn, cd = SMODS.get_probability_vars(card, 1, self:get_denominator(card))
@@ -169,7 +169,7 @@ SMODS.Joker {
     config = { extra = { xmult = 1, gain = 0.1 } },
     rarity = 3,
     cost = 6,
-    attributes = { "xmult", "scaling", "tag", "kitty", },
+    attributes = { "xmult", "scaling", "tag", "kitty" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS.tag_valk_kitty
         return { vars = { card.ability.extra.gain, card.ability.extra.xmult } }
@@ -204,7 +204,7 @@ SMODS.Joker {
     config = { extra = { money = 20 } },
     rarity = 3,
     cost = 7,
-    attributes = { "prevents_death", "economy", },
+    attributes = { "prevents_death", "economy" },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money } }
     end,
@@ -232,10 +232,10 @@ SMODS.Joker {
     key = "borderline",
     atlas = "jokers",
     pos = { x = 3, y = 3 },
-    config = { extra = { chips = 0, chips_gain = 3 } },
+    config = { extra = { chips = 0, chips_gain = 2 } },
     rarity = 3,
     cost = 6,
-    attributes = { "chips", "scaling", "suit", "clubs", },
+    attributes = { "chips", "scaling", "suit", "clubs" },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips_gain, card.ability.extra.chips } }
     end,
@@ -276,7 +276,7 @@ SMODS.Joker {
     config = { extra = {} },
     rarity = 3,
     cost = 8,
-    attributes = { "generation", "enhancements", "kitty", },
+    attributes = { "generation", "enhancements", "kitty" },
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -308,6 +308,29 @@ SMODS.Joker {
                     draw_card(G.play, G.deck, 90, "up")
                     SMODS.calculate_context { playing_card_added = true, cards = { mirrored_card } }
                 end,
+            }
+        end
+    end,
+    valk_artist = "mailingway",
+}
+
+SMODS.Joker {
+    key = "roundabout",
+    atlas = "jokers",
+    pos = { x = 2, y = 2 },
+    config = { extra = { ante = -1 } },
+    rarity = 2,
+    cost = 6,
+    attributes = {},
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.ante } }
+    end,
+    calculate = function(self, card, context)
+        -- code here
+        if context.modify_ante then
+            card:start_dissolve()
+            return {
+                modify = context.modify_ante + card.ability.extra.ante,
             }
         end
     end,

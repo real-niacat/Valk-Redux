@@ -446,3 +446,13 @@ function Valk.util.traverse_table(t, match, call)
         end
     end
 end
+
+function Valk.util.gore(card)
+    G.E_MANAGER:add_event(Event {
+        func = function()
+            card:start_dissolve({ HEX("D60000") }, nil, 1.6)
+            play_sound("valk_gore", 0.96 + math.random() * 0.08)
+            return true
+        end,
+    })
+end

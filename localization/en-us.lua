@@ -373,7 +373,7 @@ return {
             j_valk_copycat = {
                 name = "Copy Cat",
                 text = {
-                    "Create a {C:attention}Mirrored{} card and",
+                    "Create a {C:attention}Mirrored{} card",
                     "when {C:attention}Blind{} is selected",
                 },
             },
