@@ -13,7 +13,7 @@ function Valk.ui.generate_artist_card(artist)
                 n = G.UIT.C,
                 config = { colour = lighten(G.C.BLACK, 0.1), padding = 0.05, r = 0.05, minw = 6.5 },
                 nodes = {
-                    -- pfp, name, desc
+                    -- pfp, name, desc all contained within this
                     {
                         n = G.UIT.R,
                         config = {},

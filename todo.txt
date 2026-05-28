@@ -44,16 +44,21 @@
     achievement ideas:
         Hall of Mirrors - Play a flush five containing four or more mirrored cards
         Serial(sic) Eater - Sell Diet Cola, Periapt Beer, Stellar Yogurt, and Hexed Spirit all in one run
-        Kitties! Kitties everywhere! - Own 50 concurrent Kitty Tags
-        FINALLY! - Get rid of that which Mocks You (successfully sell SUCK IT)
-        Scopophobia - Own all Pareidolia Jokers at once.
+        Fat Cat's Riches - Own 50 concurrent Kitty Tags
+        For Our Last Trick - Get rid of that which Mocks You (successfully sell SUCK IT)
+        Scopophobia - Own all dolia-likes at once.
         You're so Portugese - Obtain a kitty Joker
         Noise Pollution - Obtain 3 unique kitty Jokers at once
         Crazy Cat Lady - Obtain 10 unique kitty Jokers at once
-        Comin' Outta The Closet - Take HRT for the first time
+        8d6 Necrotic Damage - Take HRT for the first time
         Self Deprecation - Give 5 or more retriggers to Uttered Chaos with I'm With Stupid
         Bad Design - Have Spectradolia replace Cryptid with a different Spectral card
         Yeah I'd like to solve the puzzle - Have a Gameshow succeed on 5 or more Jokers in a row
+        Mortal Enemies - Own Ruby Crimsonfang and Lily Felli at the same time
+        Please Just Be Gay - Attempt to trigger Kopa on a non-Polychrome Editioned card
+        A Fools Errand - Lose to The High Road by running out of hands (this is completely preventable, by the way)
+        
+
 
 
 
