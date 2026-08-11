@@ -115,51 +115,81 @@ G.SPLASH_BACK:define_draw_steps({ -- meow?
         },
 })]]
 
-function Valk.util.ref_hook(ref_table, ref_value, func)
+Valk.util.hooks = {}
+
+function Valk.util.ref_hook(ref_table, ref_value, func, hook_id)
     local original_function_object = ref_table[ref_value] or function() end
+    if hook_id then
+        Valk.util.hooks[hook_id] = true
+    end
     ref_table[ref_value] = function(...)
-        return func(original_function_object, ...)
+        local id = Valk.util.hooks[hook_id]
+        if id ~= nil and not id then
+            return original_function_object(...)
+        else
+            return func(original_function_object, ...)
+        end
+    end
+end
+
+function Valk.util.disable_hook(hook_id)
+    if Valk.util.hooks[hook_id] ~= nil then
+        Valk.util.hooks[hook_id] = false
+    end
+end
+
+function Valk.util.enable_hook(hook_id)
+    if Valk.util.hooks[hook_id] ~= nil then
+        Valk.util.hooks[hook_id] = true
     end
 end
 
 ---@param func_path string String that defines where to find the function. e.g. "Game.main_menu"
 ---@param func function Function to replace the given function with. Takes in the args of (original_function, ...) where ... is the args of the original function
-function Valk.util.hook(func_path, func)
+function Valk.util.hook(func_path, func, hook_id)
     local arr = {}
     for string in string.gmatch(func_path, "([^.]+)") do
         table.insert(arr, string)
     end
     local current_entry = _G
     local final_func = nil
-    local continue = true
     for _, entry in pairs(arr) do
         local next_entry = current_entry[entry]
         if type(next_entry) == "function" then
             final_func = entry
-            continue = false
         else
             current_entry = next_entry
         end
     end
-    Valk.util.ref_hook(current_entry, final_func, func)
+    Valk.util.ref_hook(current_entry, final_func, func, hook_id)
 end
 
 -- Same as `Valk.util.hook` but it does not allow for modifying return values, and simply runs code *before* the hooked function
-function Valk.util.hook_before(func_path, func)
+function Valk.util.hook_before(func_path, func, hook_id)
     Valk.util.hook(func_path, function(original, ...)
         func(original, ...)
         return original(...)
-    end)
+    end, hook_id)
 end
 
 -- Same as `Valk.util.hook` but it does not allow for modifying return values, and simply runs code *after* the hooked function
-function Valk.util.hook_after(func_path, func)
+function Valk.util.hook_after(func_path, func, hook_id)
     Valk.util.hook(func_path, function(original, ...)
         local ret = original(...)
         func(original, ...)
         return ret
-    end)
+    end, hook_id)
 end
+
+-- Identical to doing `Valk.util.hook(func_path, function(self,. ..) other(self,...); return self(...) end)
+function Valk.util.pipe(func_name, func, id)
+    Valk.util.hook(func_name, function(original, ...)
+        local ret = original(...)
+        func(original, ...)
+        return ret
+    end, id)
+end
+
 Valk.mod.extra_tabs = function()
     return {
         {
