@@ -7,6 +7,13 @@ Valk.mod.calculate = function(self, context)
             for i, tag in ipairs(G.GAME.tags) do
                 if tag.key == "tag_valk_kitty" then
                     G.CARD_H = -G.CARD_H
+                    G.E_MANAGER:add_event(Event {
+                        trigger = "immediate",
+                        func = function()
+                            tag:juice_up()
+                            return true
+                        end,
+                    })
                     SMODS.calculate_effect({ chips = G.GAME.kitty_tag_chips }, tag.HUD_tag)
                     G.CARD_H = -G.CARD_H
                 end
