@@ -71,12 +71,12 @@ Valk.util.hook_after("Game.main_menu", function()
             func = function()
                 -- this is treated as basically "wait until X, then run Y code"
                 -- i really love the event queue for this reason
-                if G.MAIN_MENU_UI then
+                if G.title_top then
                     G.VALK_LOGO:set_alignment {
-                        major = G.MAIN_MENU_UI,
+                        major = G.title_top,
                         type = "cm",
                         bond = "Strong",
-                        offset = { x = -1.25, y = -2.5 },
+                        offset = { x = 0, y = 3 },
                     }
                     G.VALK_LOGO.aligned_to_menu = true
                     return true
@@ -104,26 +104,26 @@ Valk.util.hook_after("Game.main_menu", function()
         Node.stop_hover(self)
     end
 
-    G.E_MANAGER:add_event(Event {
-        trigger = "after",
-        delay = 0,
-        timer = "REAL",
-        func = function()
-            G.E_MANAGER:add_event(Event {
-                trigger = "ease",
-                ease = "insine", --easing type
-                ref_table = G.title_top.T,
-                ref_value = "y",
-                ease_to = 2.4, --end value
-                delay = 2, --time taken
-                timer = "REAL",
-                func = function(t)
-                    return t
-                end,
-            })
-            return true
-        end,
-    })
+    -- G.E_MANAGER:add_event(Event {
+    --     trigger = "after",
+    --     delay = 0,
+    --     timer = "REAL",
+    --     func = function()
+    --         G.E_MANAGER:add_event(Event {
+    --             trigger = "ease",
+    --             ease = "insine", --easing type
+    --             ref_table = G.title_top.T,
+    --             ref_value = "y",
+    --             ease_to = 2.4, --end value
+    --             delay = 2, --time taken
+    --             timer = "REAL",
+    --             func = function(t)
+    --                 return t
+    --             end,
+    --         })
+    --         return true
+    --     end,
+    -- })
     G.E_MANAGER:add_event(Event {
         trigger = "after",
         delay = 1,
